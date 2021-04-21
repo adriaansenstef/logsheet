@@ -1,0 +1,30 @@
+specVersion: '1.0'
+metadata:
+  name: logsheet
+type: application
+
+server:
+  customMiddleware:
+  - name: ui5-middleware-simpleproxy
+    mountPath: /resources/
+    afterMiddleware: compression
+    configuration:
+      baseUri: https://sapui5.hana.ondemand.com/resources/
+  - name: ui5-middleware-simpleproxy
+    mountPath: /sap/opu/odata/sap/ZDIM_PB_SRV/
+    afterMiddleware: compression
+    configuration:
+      baseUri: https://nlaws015.dimensys.nl:44300/sap/opu/odata/sap/ZDIM_PB_SRV/
+      username: adriaansensf
+      password: 5FPYkhw~s|w%4
+      query:
+        sap-client: 200
+  - name: ui5-middleware-simpleproxy
+    mountPath: /resources/pro/dimensys/lib/zdim_ui5_lib
+    afterMiddleware: compression
+    configuration:
+      baseUri: https://nlaws015.dimensys.nl:44300/sap/bc/ui5_ui5/sap/ZDIM_UI5_LIB
+      username: adriaansensf
+      password: 5FPYkhw~s|w%4
+      query:
+        sap-client: 200

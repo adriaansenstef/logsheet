@@ -1,0 +1,32 @@
+<edmx:Edmx xmlns:sap="http://www.sap.com/Protocols/SAPData" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" sap:schema-version="1" Namespace="ZDIM_LOGSHEET_SRV">
+			<EntityType sap:content-version="1" Name="Order">
+				<Key>
+					<PropertyRef Name="OrderNumber"/>
+				</Key>
+				<Property Name="OrderNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Order"
+					MaxLength="12" Nullable="false" Type="Edm.String"/>
+				<Property Name="Description" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Name"
+					MaxLength="20" Nullable="false" Type="Edm.String"/>
+				<Property Name="TechnicalObject" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false"
+					sap:label="Functional loc." MaxLength="40" Nullable="false" Type="Edm.String"/>
+				<Property Name="Phase" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="PHASE"
+					Nullable="false" Type="Edm.String"/>
+				<Property Name="StartDate" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false"
+					sap:label="Bas. start date" Nullable="false" Type="Edm.DateTime" Precision="7"/>
+				<Property Name="Person" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Full Name"
+					MaxLength="80" Nullable="false" Type="Edm.String"/>
+			</EntityType>
+			<EntityContainer Name="ZDIM_LOGSHEET_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true">
+				<EntitySet sap:content-version="1" Name="OrderSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false"
+					sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.Order"/>
+			</EntityContainer>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata"
+				rel="self"/>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata"
+				rel="latest-version"/>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

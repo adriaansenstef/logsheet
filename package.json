@@ -1,0 +1,25 @@
+{
+  "name": "logsheet",
+  "version": "0.0.1",
+  "description": "",
+  "devDependencies": {
+    "@ui5/cli": "^1.13.0",
+    "eslint": "^7.24.0",
+    "http-proxy": "^1.18.1",
+    "rimraf": "^3.0.2",
+    "ui5-middleware-livereload": "^0.5.3",
+    "ui5-middleware-simpleproxy": "^0.7.1"
+  },
+  "ui5": {
+    "dependencies": [
+      "ui5-middleware-simpleproxy"
+    ]
+  },
+  "scripts": {
+    "start": "ui5 serve",
+    "lint": "eslint webapp",
+    "build": "rimraf dist && ui5 build -a",
+    "sapbuild": "rimraf dist && ui5 build"
+  },
+  "private": "true"
+}
