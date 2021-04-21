@@ -1,83 +1,106 @@
-<mvc:View
-	controllerName="pro.dimensys.pm.logsheet.controller.Worklist"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic">
+<View controllerName="pro.dimensys.pm.logsheet.controller.Worklist" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic">
 	<Page>
-
+		<!-- use this to make the table occupy the available screen height -->
+		<VBox fitContainer="true">
+			<SmartFilterBar id="smartFilterBar" entitySet="OrderSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Description" enableBasicSearch="true">
+				<controlConfiguration>
+					<ControlConfiguration key="Bukrs">
+						<defaultFilterValues>
+							<SelectOption low="0001"></SelectOption>
+						</defaultFilterValues>
+					</ControlConfiguration>
+					<ControlConfiguration key="Gjahr">
+						<defaultFilterValues>
+							<SelectOption low="2014"></SelectOption>
+						</defaultFilterValues>
+					</ControlConfiguration>
+				</controlConfiguration>
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				<layoutData>
+					<FlexItemData shrinkFactor="0" />
+				</layoutData>
+			</SmartFilterBar>
+			<SmartTable id="OrderSmartTable" entitySet="OrderSet" smartFilterId="smartFilterBar" tableType="Table" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" editTogglable="true">
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				<layoutData>
+					<FlexItemData growFactor="1" baseSize="0%" />
+				</layoutData>
+			</SmartTable>
+		</VBox>
 	</Page>
-	<!-- <semantic:SemanticPage
-		id="page"
-		headerPinnable="false"
-		toggleHeaderOnTitleClick="false">
-
-		<semantic:titleHeading>
-			<Title
-				text="{i18n>worklistTitle}"
-				level="H2"/>
-		</semantic:titleHeading>
-
-		<semantic:content>
-			<Table
-				id="table"
-				width="auto"
-				items="{
-					path: '/ZMOPA_C_Order',
-					sorter: {
-						path: 'ShortText',
-						descending: false
-					}
-				}"
-				noDataText="{worklistView>/tableNoDataText}"
-				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
-				growing="true"
-				growingScrollToLoad="true"
-				updateFinished=".onUpdateFinished">
-
-				<headerToolbar>
-					<OverflowToolbar>
-						<Title
-							id="tableHeader"
-							text="{worklistView>/worklistTableTitle}"
-							level="H3"/>
-						<ToolbarSpacer />
-						<SearchField
-							id="searchField"
-							tooltip="{i18n>worklistSearchTooltip}"
-							search=".onSearch">
-							<layoutData>
-								<OverflowToolbarLayoutData
-									maxWidth="200px"
-									priority="NeverOverflow"/>
-							</layoutData>
-						</SearchField>
-					</OverflowToolbar>
-				</headerToolbar>
-
-				<columns>
-					<Column id="nameColumn">
-						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
-					</Column>
-				</columns>
-
-				<items>
-					<ColumnListItem
-						type="Navigation"
-						press=".onPress">
-						<cells>
-							<ObjectIdentifier
-								title="{ShortText}"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
-		</semantic:content>
-
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
-		</semantic:sendEmailAction>
-
-
-	</semantic:SemanticPage> -->
-
-</mvc:View>
+	<!--
+	<semantic:SemanticPage
+	id="page"
+	headerPinnable="false"
+	toggleHeaderOnTitleClick="false">
+	
+	<semantic:titleHeading>
+	<Title
+	text="{i18n>worklistTitle}"
+	level="H2"/>
+	</semantic:titleHeading>
+	
+	<semantic:content>
+	<Table
+	id="table"
+	width="auto"
+	items="{
+	path: '/ZMOPA_C_Order',
+	sorter: {
+	path: 'ShortText',
+	descending: false
+	}
+	}"
+	noDataText="{worklistView>/tableNoDataText}"
+	busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+	growing="true"
+	growingScrollToLoad="true"
+	updateFinished=".onUpdateFinished">
+	
+	<headerToolbar>
+	<OverflowToolbar>
+	<Title
+	id="tableHeader"
+	text="{worklistView>/worklistTableTitle}"
+	level="H3"/>
+	<ToolbarSpacer />
+	<SearchField
+	id="searchField"
+	tooltip="{i18n>worklistSearchTooltip}"
+	search=".onSearch">
+	<layoutData>
+	<OverflowToolbarLayoutData
+	maxWidth="200px"
+	priority="NeverOverflow"/>
+	</layoutData>
+	</SearchField>
+	</OverflowToolbar>
+	</headerToolbar>
+	
+	<columns>
+	<Column id="nameColumn">
+	<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+	</Column>
+	</columns>
+	
+	<items>
+	<ColumnListItem
+	type="Navigation"
+	press=".onPress">
+	<cells>
+	<ObjectIdentifier
+	title="{ShortText}"/>
+	</cells>
+	</ColumnListItem>
+	</items>
+	</Table>
+	</semantic:content>
+	
+	<semantic:sendEmailAction>
+	<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+	</semantic:sendEmailAction>
+	
+	
+	</semantic:SemanticPage>
+	-->
+</View>
