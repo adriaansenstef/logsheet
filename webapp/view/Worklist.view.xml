@@ -3,8 +3,10 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic">
+	<Page>
 
-	<semantic:SemanticPage
+	</Page>
+	<!-- <semantic:SemanticPage
 		id="page"
 		headerPinnable="false"
 		toggleHeaderOnTitleClick="false">
@@ -76,6 +78,6 @@
 		</semantic:sendEmailAction>
 
 
-	</semantic:SemanticPage>
+	</semantic:SemanticPage> -->
 
 </mvc:View>
