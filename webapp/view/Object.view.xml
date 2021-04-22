@@ -13,7 +13,7 @@
 
 		<semantic:titleHeading>
 			<Title
-				text="{ShortText}"
+				text="{OrderNumber}"
 				level="H2"/>
 		</semantic:titleHeading>
 

@@ -2,8 +2,10 @@ sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
 	"./model/models",
-	"./controller/ErrorHandler"
-], function (UIComponent, Device, models, ErrorHandler) {
+	"./controller/ErrorHandler",
+	"./service/OrderService",
+	"./state/OrderState"
+], function (UIComponent, Device, models, ErrorHandler, OrderService, OrderState) {
 	"use strict";
 
 	return UIComponent.extend("pro.dimensys.pm.logsheet.Component", {
@@ -12,6 +14,7 @@ sap.ui.define([
 			manifest: "json"
 		},
 
+		ORDER: "Order",
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
 		 * In this function, the device models are set and the router is initialized.
@@ -19,6 +22,9 @@ sap.ui.define([
 		 * @override
 		 */
 		init : function () {
+			this._oOrderService = new OrderService(this.getModel());
+			this._oOrderState = new OrderState(this._oOrderService);
+
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
@@ -30,6 +36,14 @@ sap.ui.define([
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
+		},
+
+		getService: function (sService) {
+			return this["_o" + sService + "Service"];
+		},
+
+		getState: function (sState) {
+			return this["_o" + sState + "State"];
 		},
 
 		/**
