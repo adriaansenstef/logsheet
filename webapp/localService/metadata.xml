@@ -1,22 +1,51 @@
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
-	<edmx:DataServices m:DataServiceVersion="2.0">
-		<Schema Namespace="ZDIM_LOGSHEET_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-			<EntityType Name="Order" sap:content-version="1">
-				<Key>
-					<PropertyRef Name="OrderNumber" />
-				</Key>
-				<Property Name="OrderNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Order" sap:creatable="false" sap:updatable="false" />
-				<Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name" sap:creatable="false" sap:updatable="false" />
-				<Property Name="TechnicalObject" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Functional loc." sap:creatable="false" sap:updatable="false" />
-				<Property Name="Phase" Type="Edm.String" Nullable="false" sap:label="PHASE" sap:creatable="false" sap:updatable="false" />
-				<Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Bas. start date" sap:creatable="false" sap:updatable="false" />
-				<Property Name="Person" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Full Name" sap:creatable="false" sap:updatable="false" />
-			</EntityType>
-			<EntityContainer Name="ZDIM_LOGSHEET_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-				<EntitySet Name="OrderSet" EntityType="ZDIM_LOGSHEET_SRV.Order" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
-			</EntityContainer>
-			<atom:link rel="self" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
-			<atom:link rel="latest-version" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
-		</Schema>
-	</edmx:DataServices>
-</edmx:Edmx>
+ <edmx:DataServices m:DataServiceVersion="2.0">
+ <Schema Namespace="ZDIM_LOGSHEET_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+ <EntityType Name="Order" sap:content-version="1">
+ <Key>
+  <PropertyRef Name="OrderNumber" /> 
+  </Key>
+  <Property Name="OrderNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Order" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="TechnicalObject" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Functional loc." sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="Phase" Type="Edm.String" Nullable="false" sap:label="PHASE" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Bas. start date" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="Person" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Full Name" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="NotificationNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="TechnicalObjectDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="EquipmentNumber" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Equipment" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="EquipmentDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="FinishDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Basic fin. date" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="Priority" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="ReportedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Reported by" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="MainWorkcenter" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Main WorkCtr" sap:creatable="false" sap:updatable="false" /> 
+  <Property Name="UserStatus" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Status" sap:creatable="false" sap:updatable="false" /> 
+  </EntityType>
+ <EntityType Name="Detail" sap:content-version="1">
+ <Key>
+  <PropertyRef Name="OrderNumber" /> 
+  </Key>
+  <Property Name="OrderNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="NotificationNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Notification" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="TechnicalObject" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Functional loc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="TechnicalObjectDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="EquipmentNumber" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Equipment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="EquipmentDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Bas. start date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="FinishDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Basic fin. date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="Priority" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="SystemStatus" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="UserStatus" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="ReportedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Reported by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  <Property Name="MainWorkcenter" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Main WorkCtr" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+  </EntityType>
+ <EntityContainer Name="ZDIM_LOGSHEET_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+  <EntitySet Name="OrderSet" EntityType="ZDIM_LOGSHEET_SRV.Order" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" /> 
+  <EntitySet Name="DetailSet" EntityType="ZDIM_LOGSHEET_SRV.Detail" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" /> 
+  </EntityContainer>
+  <atom:link rel="self" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" /> 
+  <atom:link rel="latest-version" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" /> 
+  </Schema>
+  </edmx:DataServices>
+  </edmx:Edmx>

@@ -19,8 +19,11 @@ sap.ui.define([
 		 * Called when the worklist controller is instantiated.
 		 * @public
 		 */
-		onInit : function () {
+		onInit: function () {
+			this.OrderState = this.getOwnerComponent().getState(this.getOwnerComponent().ORDER);
+			this.setModel(this.OrderState.getModel(), "orders");
 
+			this.getRouter().getRoute("worklist").attachPatternMatched(this._onPatternMatched, this);
 		},
 
 		/* =========================================================== */
@@ -28,21 +31,11 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * Event handler when a table item gets pressed
-		 * @param {sap.ui.base.Event} oEvent the table selectionChange event
-		 * @public
-		 */
-		onPress : function (oEvent) {
-			// The source is the list item that got pressed
-			this._showObject(oEvent.getSource());
-		},
-
-		/**
 		 * Event handler for navigating back.
 		 * We navigate back in the browser history
 		 * @public
 		 */
-		onNavBack : function() {
+		onNavBack: function () {
 			// eslint-disable-next-line sap-no-history-manipulation
 			history.go(-1);
 		},
@@ -51,13 +44,36 @@ sap.ui.define([
 		/* internal methods                                            */
 		/* =========================================================== */
 
+		_onPatternMatched: function (oEvent) {
+			this.getView().setBusy(true);
+			this.OrderState.getOrders().then((result) => {
+			}).finally(() => {
+				this.getView().setBusy(false);
+			});
+
+			let that = this;
+			function onPress() {
+				that._showObject(oEvent.getSource());
+			}
+			let table = this.getView().byId("OrderSmartTable").getTable();
+			this.getView().byId("OrderSmartTable").attachDataReceived(function () {
+				let aItems = table.getItems();
+				if (aItems.length === 0) return;
+				$.each(aItems, function (oIndex, oItem) {
+					oItem.detachPress(onPress);
+					oItem.setType("Active");
+					oItem.attachPress(onPress);
+				});
+			});
+		},
+
 		/**
 		 * Shows the selected item on the object page
 		 * On phones a additional history entry is created
 		 * @param {sap.m.ObjectListItem} oItem selected Item
 		 * @private
 		 */
-		_showObject : function (oItem) {
+		_showObject: function (oItem) {
 			this.getRouter().navTo("object", {
 				objectId: oItem.getBindingContext().getProperty("OrderNumber")
 			});
