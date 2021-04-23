@@ -49,6 +49,12 @@ sap.ui.define([
 			}
 		},
 
+		onEditPress: function (oEvent) {
+			let isPressed = oEvent.getSource().getPressed();
+			let sId = oEvent.getSource().getId().split("-").pop();
+			this.getView().byId(sId + "Select").setEditable(isPressed)
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -63,7 +69,8 @@ sap.ui.define([
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 			this.getModel().metadataLoaded().then(function () {
 				this.getModel("appView").setProperty("/busy", true);
-				this.OrderState.getOrder(sObjectId).then(() => {
+				this.OrderState.getOrder(sObjectId).then((order) => {
+					order.duration = this._calculateDurationHours(order.startDate, order.finishDate)
 					this.OrderState.getPhases(sObjectId).then(() => {
 						this.getModel("appView").setProperty("/busy", false);
 					});
@@ -71,6 +78,10 @@ sap.ui.define([
 				);
 			}.bind(this));
 			this.getModel("appView").setProperty("/busy", false);
+		},
+
+		_calculateDurationHours: function (startDate, finishDate) {
+			return Math.round((finishDate - startDate) / (1000 * 60 * 60))
 		}
 
 	});
