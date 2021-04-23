@@ -49,6 +49,14 @@ sap.ui.define([
 			}
 		},
 
+		onPhaseSelect: function (oEvent) {
+			var sKey = oEvent.getParameter("key");
+			this.getModel("appView").setProperty("/busy", true);
+			this.OrderState.getOperations(sKey).then(() => {
+				this.getModel("appView").setProperty("/busy", false);
+			});
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -65,7 +73,9 @@ sap.ui.define([
 				this.getModel("appView").setProperty("/busy", true);
 				this.OrderState.getOrder(sObjectId).then(() => {
 					this.OrderState.getPhases(sObjectId).then(() => {
-						this.getModel("appView").setProperty("/busy", false);
+						this.OrderState.getOperations(this.getModel("order").getData().order.phases[0].phaseId).then(() => {
+							this.getModel("appView").setProperty("/busy", false);
+						});
 					});
 				}
 				);

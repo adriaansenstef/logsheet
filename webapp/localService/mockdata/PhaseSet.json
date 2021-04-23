@@ -9,7 +9,7 @@
 }, {
 	"PhaseId": "PhaseId 2",
 	"Description": "Description 2",
-	"OrderNumber": "OrderNumber 2",
+	"OrderNumber": "OrderNumber 1",
 	"__metadata": {
 		"uri": "PhaseSet(PhaseId='PhaseId%202',OrderNumber='OrderNumber%202')",
 		"type": "ZDIM_LOGSHEET_SRV.Phase"
@@ -17,7 +17,7 @@
 }, {
 	"PhaseId": "PhaseId 3",
 	"Description": "Description 3",
-	"OrderNumber": "OrderNumber 3",
+	"OrderNumber": "OrderNumber 1",
 	"__metadata": {
 		"uri": "PhaseSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203')",
 		"type": "ZDIM_LOGSHEET_SRV.Phase"

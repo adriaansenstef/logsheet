@@ -3,53 +3,25 @@
 		<headerContent></headerContent>
 		<content>
 			<VBox>
-				<IconTabBar items="{order>/order/phases}" select=".onPhaseSelect" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
+				<IconTabBar items="{order>/order/phases}" expandable="false" select="onPhaseSelect" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
 					<items>
-						<IconTabFilter text="{order>description}" key="{order>phaseId}" />
+						<IconTabFilter text="{order>description}" key="{order>phaseId}">
+							<Table items="{order>operations}">
+								<columns>
+									<Column width="12em">
+										<Text text="Operation" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{order>operationNumber}" text="{order>description}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</IconTabFilter>
 					</items>
-
-					<content>
-						<Table id="operationsTable" items="{order>operations}">
-							<columns>
-								<Column width="12em">
-									<Text text="Product" />
-								</Column>
-								<Column minScreenWidth="Tablet" demandPopin="true">
-									<Text text="Supplier" />
-								</Column>
-								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
-									<Text text="Dimensions" />
-								</Column>
-								<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
-									<Text text="Weight" />
-								</Column>
-								<Column hAlign="End">
-									<Text text="Price" />
-								</Column>
-							</columns>
-							<items>
-								<ColumnListItem>
-									<cells>
-										<ObjectIdentifier title="{Name}" text="{ProductId}" />
-										<Text text="{SupplierName}" />
-										<Text text="{Width} x {Depth} x {Height} {DimUnit}" />
-										<ObjectNumber number="{WeightMeasure}" unit="{WeightUnit}" state="{
-											parts: [
-												{path: 'WeightMeasure'},
-												{path: 'WeightUnit'}
-											],
-											formatter: '.formatter.weightState'
-										}" />
-										<ObjectNumber number="{
-												parts:[{path:'Price'},{path:'CurrencyCode'}],
-												type: 'sap.ui.model.type.Currency',
-												formatOptions: {showMeasure: false}
-											}" unit="{CurrencyCode}" />
-									</cells>
-								</ColumnListItem>
-							</items>
-						</Table>
-					</content>
 				</IconTabBar>
 			</VBox>
 		</content>

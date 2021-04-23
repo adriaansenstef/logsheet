@@ -13,6 +13,14 @@ sap.ui.define([
 			this.phases = data.map((phase) => new Phase(phase));
 		},
 
+		setOperations: function(data){
+			data.map((operation) => 
+				this.phases
+					.filter((phase) => phase.orderNumber === operation.OrderNumber && phase.phaseId === operation.PhaseId)
+					.map((phase) => phase.addOperation(operation))
+			);
+		},
+
         getJSON: function () {
 		}
 	});
