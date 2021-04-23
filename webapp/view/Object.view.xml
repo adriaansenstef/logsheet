@@ -27,24 +27,24 @@
                     <f:content>
                         <core:Title text="" />
                         <Label text="{i18n>OrderNumber}"/>
-                        <Text text="{OrderNumber}"/>
+                        <Text text="{order>/order/orderNumber}"/>
                         <Label text="{i18n>Description}"/>
-                        <Text text="{Description}"/>
+                        <Text text="{order>/order/description}"/>
                         <Label text="{i18n>FunctionalLocation}"/>
                         <Text text=" "/>
                         <Label text="{i18n>Equipment}"/>
-                        <Text text="{EquipmentNumber} - {EquipmentDescription}"/>
+                        <Text text="{order>/order/equipmentNumber} - {order>/order/equipmentDescription}"/>
                         <core:Title text="" />
                         <Label text="{i18n>DueDate}"/>
-                        <Text text="{path:'FinishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
+                        <Text text="{path:'order>/order/finishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
                         <Label text="{i18n>Duration}"/>
                         <Text text=" "/>
                         <Label text="{i18n>Status}"/>
-                        <Text text="{UserStatus}"/>
+                        <Text text="{order>/order/userStatus}"/>
                         <Label text="{i18n>Person}"/>
-                        <Text text="{Person}"/>
+                        <Text text="{order>/order/person}"/>
                         <core:Title text="" />
-                        <TextArea value="{Description}" editable="false" rows="4" growing="true" growingMaxLines="10"/>
+                        <TextArea value="{order>/order/description}" editable="false" rows="4" growing="true" growingMaxLines="10"/>
                     </f:content>
                 </f:SimpleForm>
             </VBox>

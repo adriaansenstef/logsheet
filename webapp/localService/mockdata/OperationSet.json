@@ -1,0 +1,111 @@
+[{
+	"PhaseId": "PhaseId 1",
+	"OrderNumber": "OrderNumber 1",
+	"OperationNumber": "OperationNumber 1",
+	"Description": "Description 1",
+	"WorkCenter": "WorkCenter 1",
+	"Remark": "Remark 1",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%201',OrderNumber='OrderNumber%201',OperationNumber='OperationNumber%201')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}, {
+	"PhaseId": "PhaseId 2",
+	"OrderNumber": "OrderNumber 2",
+	"OperationNumber": "OperationNumber 2",
+	"Description": "Description 2",
+	"WorkCenter": "WorkCenter 2",
+	"Remark": "Remark 2",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%202',OrderNumber='OrderNumber%202',OperationNumber='OperationNumber%202')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}, {
+	"PhaseId": "PhaseId 3",
+	"OrderNumber": "OrderNumber 3",
+	"OperationNumber": "OperationNumber 3",
+	"Description": "Description 3",
+	"WorkCenter": "WorkCenter 3",
+	"Remark": "Remark 3",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203',OperationNumber='OperationNumber%203')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}, {
+	"PhaseId": "PhaseId 4",
+	"OrderNumber": "OrderNumber 4",
+	"OperationNumber": "OperationNumber 4",
+	"Description": "Description 4",
+	"WorkCenter": "WorkCenter 4",
+	"Remark": "Remark 4",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%204',OrderNumber='OrderNumber%204',OperationNumber='OperationNumber%204')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}, {
+	"PhaseId": "PhaseId 5",
+	"OrderNumber": "OrderNumber 5",
+	"OperationNumber": "OperationNumber 5",
+	"Description": "Description 5",
+	"WorkCenter": "WorkCenter 5",
+	"Remark": "Remark 5",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%205',OrderNumber='OrderNumber%205',OperationNumber='OperationNumber%205')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}, {
+	"PhaseId": "PhaseId 6",
+	"OrderNumber": "OrderNumber 6",
+	"OperationNumber": "OperationNumber 6",
+	"Description": "Description 6",
+	"WorkCenter": "WorkCenter 6",
+	"Remark": "Remark 6",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%206',OrderNumber='OrderNumber%206',OperationNumber='OperationNumber%206')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}, {
+	"PhaseId": "PhaseId 7",
+	"OrderNumber": "OrderNumber 7",
+	"OperationNumber": "OperationNumber 7",
+	"Description": "Description 7",
+	"WorkCenter": "WorkCenter 7",
+	"Remark": "Remark 7",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%207',OrderNumber='OrderNumber%207',OperationNumber='OperationNumber%207')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}, {
+	"PhaseId": "PhaseId 8",
+	"OrderNumber": "OrderNumber 8",
+	"OperationNumber": "OperationNumber 8",
+	"Description": "Description 8",
+	"WorkCenter": "WorkCenter 8",
+	"Remark": "Remark 8",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%208',OrderNumber='OrderNumber%208',OperationNumber='OperationNumber%208')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}, {
+	"PhaseId": "PhaseId 9",
+	"OrderNumber": "OrderNumber 9",
+	"OperationNumber": "OperationNumber 9",
+	"Description": "Description 9",
+	"WorkCenter": "WorkCenter 9",
+	"Remark": "Remark 9",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%209',OrderNumber='OrderNumber%209',OperationNumber='OperationNumber%209')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}, {
+	"PhaseId": "PhaseId 10",
+	"OrderNumber": "OrderNumber 10",
+	"OperationNumber": "OperationNumber 10",
+	"Description": "Description 10",
+	"WorkCenter": "WorkCenter 10",
+	"Remark": "Remark 10",
+	"__metadata": {
+		"uri": "OperationSet(PhaseId='PhaseId%2010',OrderNumber='OrderNumber%2010',OperationNumber='OperationNumber%2010')",
+		"type": "ZDIM_LOGSHEET_SRV.Operation"
+	}
+}]

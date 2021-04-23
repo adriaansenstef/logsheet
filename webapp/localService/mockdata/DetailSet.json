@@ -1,202 +1,191 @@
-[
-	{
-		"OrderNumber": "OrderNumber 1",
-		"Description": "Description 1",
-		"NotificationNumber": "NotificationNumber 1",
-		"TechnicalObject": "TechnicalObject 1",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 1",
-		"EquipmentNumber": "EquipmentNumber 1",
-		"EquipmentDescription": "EquipmentDescription 1",
-		"StartDate": "/Date(1130483243000)/",
-		"FinishDate": "/Date(1542874043000)/",
-		"Priority": "Priority 1",
-		"SystemStatus": "SystemStatus 1",
-		"UserStatus": "UserStatus 1",
-		"ReportedBy": "ReportedBy 1",
-		"MainWorkcenter": "MainWorkcenter 1",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%201')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 2",
-		"Description": "Description 2",
-		"NotificationNumber": "NotificationNumber 2",
-		"TechnicalObject": "TechnicalObject 2",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 2",
-		"EquipmentNumber": "EquipmentNumber 2",
-		"EquipmentDescription": "EquipmentDescription 2",
-		"StartDate": "/Date(1376550443000)/",
-		"FinishDate": "/Date(1178003243000)/",
-		"Priority": "Priority 2",
-		"SystemStatus": "SystemStatus 2",
-		"UserStatus": "UserStatus 2",
-		"ReportedBy": "ReportedBy 2",
-		"MainWorkcenter": "MainWorkcenter 2",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%202')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 3",
-		"Description": "Description 3",
-		"NotificationNumber": "NotificationNumber 3",
-		"TechnicalObject": "TechnicalObject 3",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 3",
-		"EquipmentNumber": "EquipmentNumber 3",
-		"EquipmentDescription": "EquipmentDescription 3",
-		"StartDate": "/Date(1158822443000)/",
-		"FinishDate": "/Date(1406617643000)/",
-		"Priority": "Priority 3",
-		"SystemStatus": "SystemStatus 3",
-		"UserStatus": "UserStatus 3",
-		"ReportedBy": "ReportedBy 3",
-		"MainWorkcenter": "MainWorkcenter 3",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%203')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 4",
-		"Description": "Description 4",
-		"NotificationNumber": "NotificationNumber 4",
-		"TechnicalObject": "TechnicalObject 4",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 4",
-		"EquipmentNumber": "EquipmentNumber 4",
-		"EquipmentDescription": "EquipmentDescription 4",
-		"StartDate": "/Date(1442992043000)/",
-		"FinishDate": "/Date(1561705643000)/",
-		"Priority": "Priority 4",
-		"SystemStatus": "SystemStatus 4",
-		"UserStatus": "UserStatus 4",
-		"ReportedBy": "ReportedBy 4",
-		"MainWorkcenter": "MainWorkcenter 4",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%204')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 5",
-		"Description": "Description 5",
-		"NotificationNumber": "NotificationNumber 5",
-		"TechnicalObject": "TechnicalObject 5",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 5",
-		"EquipmentNumber": "EquipmentNumber 5",
-		"EquipmentDescription": "EquipmentDescription 5",
-		"StartDate": "/Date(977213243000)/",
-		"FinishDate": "/Date(1275116843000)/",
-		"Priority": "Priority 5",
-		"SystemStatus": "SystemStatus 5",
-		"UserStatus": "UserStatus 5",
-		"ReportedBy": "ReportedBy 5",
-		"MainWorkcenter": "MainWorkcenter 5",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%205')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 6",
-		"Description": "Description 6",
-		"NotificationNumber": "NotificationNumber 6",
-		"TechnicalObject": "TechnicalObject 6",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 6",
-		"EquipmentNumber": "EquipmentNumber 6",
-		"EquipmentDescription": "EquipmentDescription 6",
-		"StartDate": "/Date(1132474043000)/",
-		"FinishDate": "/Date(1378883243000)/",
-		"Priority": "Priority 6",
-		"SystemStatus": "SystemStatus 6",
-		"UserStatus": "UserStatus 6",
-		"ReportedBy": "ReportedBy 6",
-		"MainWorkcenter": "MainWorkcenter 6",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%206')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 7",
-		"Description": "Description 7",
-		"NotificationNumber": "NotificationNumber 7",
-		"TechnicalObject": "TechnicalObject 7",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 7",
-		"EquipmentNumber": "EquipmentNumber 7",
-		"EquipmentDescription": "EquipmentDescription 7",
-		"StartDate": "/Date(1080115643000)/",
-		"FinishDate": "/Date(1474960043000)/",
-		"Priority": "Priority 7",
-		"SystemStatus": "SystemStatus 7",
-		"UserStatus": "UserStatus 7",
-		"ReportedBy": "ReportedBy 7",
-		"MainWorkcenter": "MainWorkcenter 7",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%207')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 8",
-		"Description": "Description 8",
-		"NotificationNumber": "NotificationNumber 8",
-		"TechnicalObject": "TechnicalObject 8",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 8",
-		"EquipmentNumber": "EquipmentNumber 8",
-		"EquipmentDescription": "EquipmentDescription 8",
-		"StartDate": "/Date(1506582443000)/",
-		"FinishDate": "/Date(1429340843000)/",
-		"Priority": "Priority 8",
-		"SystemStatus": "SystemStatus 8",
-		"UserStatus": "UserStatus 8",
-		"ReportedBy": "ReportedBy 8",
-		"MainWorkcenter": "MainWorkcenter 8",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%208')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 9",
-		"Description": "Description 9",
-		"NotificationNumber": "NotificationNumber 9",
-		"TechnicalObject": "TechnicalObject 9",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 9",
-		"EquipmentNumber": "EquipmentNumber 9",
-		"EquipmentDescription": "EquipmentDescription 9",
-		"StartDate": "/Date(1189926443000)/",
-		"FinishDate": "/Date(1557472043000)/",
-		"Priority": "Priority 9",
-		"SystemStatus": "SystemStatus 9",
-		"UserStatus": "UserStatus 9",
-		"ReportedBy": "ReportedBy 9",
-		"MainWorkcenter": "MainWorkcenter 9",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%209')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 10",
-		"Description": "Description 10",
-		"NotificationNumber": "NotificationNumber 10",
-		"TechnicalObject": "TechnicalObject 10",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 10",
-		"EquipmentNumber": "EquipmentNumber 10",
-		"EquipmentDescription": "EquipmentDescription 10",
-		"StartDate": "/Date(1008749243000)/",
-		"FinishDate": "/Date(1334992043000)/",
-		"Priority": "Priority 10",
-		"SystemStatus": "SystemStatus 10",
-		"UserStatus": "UserStatus 10",
-		"ReportedBy": "ReportedBy 10",
-		"MainWorkcenter": "MainWorkcenter 10",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%2010')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
+[{
+	"OrderNumber": "OrderNumber 1",
+	"Description": "Description 1",
+	"NotificationNumber": "NotificationNumber 1",
+	"TechnicalObject": "TechnicalObject 1",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 1",
+	"EquipmentNumber": "EquipmentNumber 1",
+	"EquipmentDescription": "EquipmentDescription 1",
+	"StartDate": "/Date(1130490413000)/",
+	"FinishDate": "/Date(1542881213000)/",
+	"Priority": "Priority 1",
+	"SystemStatus": "SystemStatus 1",
+	"UserStatus": "UserStatus 1",
+	"ReportedBy": "ReportedBy 1",
+	"MainWorkcenter": "MainWorkcenter 1",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%201')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
 	}
-]
+}, {
+	"OrderNumber": "OrderNumber 2",
+	"Description": "Description 2",
+	"NotificationNumber": "NotificationNumber 2",
+	"TechnicalObject": "TechnicalObject 2",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 2",
+	"EquipmentNumber": "EquipmentNumber 2",
+	"EquipmentDescription": "EquipmentDescription 2",
+	"StartDate": "/Date(1376557613000)/",
+	"FinishDate": "/Date(1178010413000)/",
+	"Priority": "Priority 2",
+	"SystemStatus": "SystemStatus 2",
+	"UserStatus": "UserStatus 2",
+	"ReportedBy": "ReportedBy 2",
+	"MainWorkcenter": "MainWorkcenter 2",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%202')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
+	}
+}, {
+	"OrderNumber": "OrderNumber 3",
+	"Description": "Description 3",
+	"NotificationNumber": "NotificationNumber 3",
+	"TechnicalObject": "TechnicalObject 3",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 3",
+	"EquipmentNumber": "EquipmentNumber 3",
+	"EquipmentDescription": "EquipmentDescription 3",
+	"StartDate": "/Date(1158829613000)/",
+	"FinishDate": "/Date(1406624813000)/",
+	"Priority": "Priority 3",
+	"SystemStatus": "SystemStatus 3",
+	"UserStatus": "UserStatus 3",
+	"ReportedBy": "ReportedBy 3",
+	"MainWorkcenter": "MainWorkcenter 3",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%203')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
+	}
+}, {
+	"OrderNumber": "OrderNumber 4",
+	"Description": "Description 4",
+	"NotificationNumber": "NotificationNumber 4",
+	"TechnicalObject": "TechnicalObject 4",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 4",
+	"EquipmentNumber": "EquipmentNumber 4",
+	"EquipmentDescription": "EquipmentDescription 4",
+	"StartDate": "/Date(1442999213000)/",
+	"FinishDate": "/Date(1561712813000)/",
+	"Priority": "Priority 4",
+	"SystemStatus": "SystemStatus 4",
+	"UserStatus": "UserStatus 4",
+	"ReportedBy": "ReportedBy 4",
+	"MainWorkcenter": "MainWorkcenter 4",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%204')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
+	}
+}, {
+	"OrderNumber": "OrderNumber 5",
+	"Description": "Description 5",
+	"NotificationNumber": "NotificationNumber 5",
+	"TechnicalObject": "TechnicalObject 5",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 5",
+	"EquipmentNumber": "EquipmentNumber 5",
+	"EquipmentDescription": "EquipmentDescription 5",
+	"StartDate": "/Date(977220413000)/",
+	"FinishDate": "/Date(1275124013000)/",
+	"Priority": "Priority 5",
+	"SystemStatus": "SystemStatus 5",
+	"UserStatus": "UserStatus 5",
+	"ReportedBy": "ReportedBy 5",
+	"MainWorkcenter": "MainWorkcenter 5",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%205')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
+	}
+}, {
+	"OrderNumber": "OrderNumber 6",
+	"Description": "Description 6",
+	"NotificationNumber": "NotificationNumber 6",
+	"TechnicalObject": "TechnicalObject 6",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 6",
+	"EquipmentNumber": "EquipmentNumber 6",
+	"EquipmentDescription": "EquipmentDescription 6",
+	"StartDate": "/Date(1132481213000)/",
+	"FinishDate": "/Date(1378890413000)/",
+	"Priority": "Priority 6",
+	"SystemStatus": "SystemStatus 6",
+	"UserStatus": "UserStatus 6",
+	"ReportedBy": "ReportedBy 6",
+	"MainWorkcenter": "MainWorkcenter 6",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%206')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
+	}
+}, {
+	"OrderNumber": "OrderNumber 7",
+	"Description": "Description 7",
+	"NotificationNumber": "NotificationNumber 7",
+	"TechnicalObject": "TechnicalObject 7",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 7",
+	"EquipmentNumber": "EquipmentNumber 7",
+	"EquipmentDescription": "EquipmentDescription 7",
+	"StartDate": "/Date(1080122813000)/",
+	"FinishDate": "/Date(1474967213000)/",
+	"Priority": "Priority 7",
+	"SystemStatus": "SystemStatus 7",
+	"UserStatus": "UserStatus 7",
+	"ReportedBy": "ReportedBy 7",
+	"MainWorkcenter": "MainWorkcenter 7",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%207')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
+	}
+}, {
+	"OrderNumber": "OrderNumber 8",
+	"Description": "Description 8",
+	"NotificationNumber": "NotificationNumber 8",
+	"TechnicalObject": "TechnicalObject 8",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 8",
+	"EquipmentNumber": "EquipmentNumber 8",
+	"EquipmentDescription": "EquipmentDescription 8",
+	"StartDate": "/Date(1506589613000)/",
+	"FinishDate": "/Date(1429348013000)/",
+	"Priority": "Priority 8",
+	"SystemStatus": "SystemStatus 8",
+	"UserStatus": "UserStatus 8",
+	"ReportedBy": "ReportedBy 8",
+	"MainWorkcenter": "MainWorkcenter 8",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%208')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
+	}
+}, {
+	"OrderNumber": "OrderNumber 9",
+	"Description": "Description 9",
+	"NotificationNumber": "NotificationNumber 9",
+	"TechnicalObject": "TechnicalObject 9",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 9",
+	"EquipmentNumber": "EquipmentNumber 9",
+	"EquipmentDescription": "EquipmentDescription 9",
+	"StartDate": "/Date(1189933613000)/",
+	"FinishDate": "/Date(1557479213000)/",
+	"Priority": "Priority 9",
+	"SystemStatus": "SystemStatus 9",
+	"UserStatus": "UserStatus 9",
+	"ReportedBy": "ReportedBy 9",
+	"MainWorkcenter": "MainWorkcenter 9",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%209')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
+	}
+}, {
+	"OrderNumber": "OrderNumber 10",
+	"Description": "Description 10",
+	"NotificationNumber": "NotificationNumber 10",
+	"TechnicalObject": "TechnicalObject 10",
+	"TechnicalObjectDescription": "TechnicalObjectDescription 10",
+	"EquipmentNumber": "EquipmentNumber 10",
+	"EquipmentDescription": "EquipmentDescription 10",
+	"StartDate": "/Date(1008756413000)/",
+	"FinishDate": "/Date(1334999213000)/",
+	"Priority": "Priority 10",
+	"SystemStatus": "SystemStatus 10",
+	"UserStatus": "UserStatus 10",
+	"ReportedBy": "ReportedBy 10",
+	"MainWorkcenter": "MainWorkcenter 10",
+	"__metadata": {
+		"uri": "DetailSet('OrderNumber%2010')",
+		"type": "ZDIM_LOGSHEET_SRV.Detail"
+	}
+}]
