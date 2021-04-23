@@ -2,31 +2,52 @@
 	controllerName="pro.dimensys.pm.logsheet.controller.Object"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic">
-
-	<semantic:SemanticPage
-		id="page"
-		headerPinnable="false"
-		toggleHeaderOnTitleClick="false"
-		busy="{objectView>/busy}"
-		busyIndicatorDelay="{objectView>/delay}">
-
-		<semantic:titleHeading>
-			<Title
-				text="{OrderNumber}"
-				level="H2"/>
-		</semantic:titleHeading>
-
-		<semantic:headerContent>
-			<ObjectNumber
-			/>
-		</semantic:headerContent>
-
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
-		</semantic:sendEmailAction>
-
-
-	</semantic:SemanticPage>
-
+	xmlns:l="sap.ui.layout" 
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+    <Page title="{order>/order/orderNumber}" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
+        <headerContent></headerContent>
+        <content>
+            <VBox>
+                <f:SimpleForm
+					layout="ResponsiveGridLayout"
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="12"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="3"
+					columnsL="3"
+					columnsM="2"
+					singleContainerFullSize="false">
+                    <f:content>
+                        <core:Title text="" />
+                        <Label text="{i18n>OrderNumber}"/>
+                        <Text text="{OrderNumber}"/>
+                        <Label text="{i18n>Description}"/>
+                        <Text text="{Description}"/>
+                        <Label text="{i18n>FunctionalLocation}"/>
+                        <Text text=" "/>
+                        <Label text="{i18n>Equipment}"/>
+                        <Text text="{EquipmentNumber} - {EquipmentDescription}"/>
+                        <core:Title text="" />
+                        <Label text="{i18n>DueDate}"/>
+                        <Text text="{path:'FinishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
+                        <Label text="{i18n>Duration}"/>
+                        <Text text=" "/>
+                        <Label text="{i18n>Status}"/>
+                        <Text text="{UserStatus}"/>
+                        <Label text="{i18n>Person}"/>
+                        <Text text="{Person}"/>
+                        <core:Title text="" />
+                        <TextArea value="{Description}" editable="false" rows="4" growing="true" growingMaxLines="10"/>
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
 </mvc:View>
