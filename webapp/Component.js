@@ -4,8 +4,10 @@ sap.ui.define([
 	"./model/models",
 	"./controller/ErrorHandler",
 	"./service/OrderService",
+	"./service/OperationService",
+	"./service/PhaseService",
 	"./state/OrderState"
-], function (UIComponent, Device, models, ErrorHandler, OrderService, OrderState) {
+], function (UIComponent, Device, models, ErrorHandler, OrderService, OperationService, PhaseService, OrderState) {
 	"use strict";
 
 	return UIComponent.extend("pro.dimensys.pm.logsheet.Component", {
@@ -23,7 +25,10 @@ sap.ui.define([
 		 */
 		init : function () {
 			this._oOrderService = new OrderService(this.getModel());
-			this._oOrderState = new OrderState(this._oOrderService);
+			this._oOperationService = new OperationService(this.getModel());
+			this._oPhaseService = new PhaseService(this.getModel());
+
+			this._oOrderState = new OrderState(this._oOrderService, this._oPhaseService, this._oOperationService);
 
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);

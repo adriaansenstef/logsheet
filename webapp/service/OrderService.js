@@ -15,7 +15,7 @@ sap.ui.define([
 
         getOrder: function (orderId) {
             var sPath = this.model.createKey("/OrderSet", {
-                OrderId: orderId
+                OrderNumber: orderId
             });
             return this.odata(sPath).get();
         }

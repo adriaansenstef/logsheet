@@ -20,8 +20,8 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function () {
-			this.OrderState = this.getOwnerComponent().getState(this.getOwnerComponent().ORDER);
-			this.setModel(this.OrderState.getModel(), "orders");
+			// this.OrderState = this.getOwnerComponent().getState(this.getOwnerComponent().ORDER);
+			// this.setModel(this.OrderState.getModel(), "orders");
 
 			this.getRouter().getRoute("worklist").attachPatternMatched(this._onPatternMatched, this);
 		},
@@ -45,11 +45,11 @@ sap.ui.define([
 		/* =========================================================== */
 
 		_onPatternMatched: function (oEvent) {
-			this.getView().setBusy(true);
-			this.OrderState.getOrders().then((result) => {
-			}).finally(() => {
-				this.getView().setBusy(false);
-			});
+			// this.getView().setBusy(true);
+			// this.OrderState.getOrders().then((result) => {
+			// }).finally(() => {
+			// 	this.getView().setBusy(false);
+			// });
 
 			let that = this;
 			function onPress() {
