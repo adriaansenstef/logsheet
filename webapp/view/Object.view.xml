@@ -1,5 +1,5 @@
 <mvc:View controllerName="pro.dimensys.pm.logsheet.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-	<Page title="{order>/order/orderNumber}" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
+	<Page title="{order>/order/orderNumber}" showNavButton="true" navButtonPress="onNavBack" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
 		<headerContent></headerContent>
 		<content>
 			<VBox>

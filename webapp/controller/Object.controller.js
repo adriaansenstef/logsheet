@@ -73,9 +73,10 @@ sap.ui.define([
 				this.getModel("appView").setProperty("/busy", true);
 				this.OrderState.getOrder(sObjectId).then(() => {
 					this.OrderState.getPhases(sObjectId).then(() => {
-						this.OrderState.getOperations(this.getModel("order").getData().order.phases[0].phaseId).then(() => {
+						var phases = this.getModel("order").getData().order.phases;
+						this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).then(() => {
 							this.getModel("appView").setProperty("/busy", false);
-						});
+						}).catch(() => this.getModel("appView").setProperty("/busy", false));
 					});
 				}
 				);

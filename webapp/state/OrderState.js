@@ -50,7 +50,7 @@ sap.ui.define([
 			});
 		},
 
-		getOperations: function(phaseId){
+		getOperations: function (phaseId) {
 			return this.getOperationService().getOperations({
 				filters: [new Filter({
 					path: "OrderNumber",
@@ -61,8 +61,8 @@ sap.ui.define([
 					path: "PhaseId",
 					operator: FilterOperator.EQ,
 					value1: phaseId
-				}),	
-			]
+				}),
+				]
 			}).then((result) => {
 				this.data.order.setOperations(result.data.results);
 				this.updateModel(true);
