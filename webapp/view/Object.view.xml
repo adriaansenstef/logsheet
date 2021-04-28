@@ -9,35 +9,13 @@
 							<Table items="{order>operations}">
 								<columns>
 									<Column width="12em">
-										<Text text="{i18n>OperationTable.WorkCenter}" />
+										<Text text="Operation" />
 									</Column>
-									<Column minScreenWidth="Tablet" demandPopin="true">
-										<Text text="{i18n>OperationTable.Decription}" />
-									</Column>
-									<Column minScreenWidth="Desktop" demandPopin="true">
-										<Text text="{i18n>OperationTable.Remark}" />
-									</Column>
-									<Column minScreenWidth="Tablet" demandPopin="true">
-										<Text text="{i18n>OperationTable.Executor}" />
-									</Column>
-									<Column minScreenWidth="Tablet" demandPopin="true">
-										<Text text="{i18n>OperationTable.DateTimeConfirmation}" />
-									</Column>
-									<Column width="6%" />
-									<Column width="6%" />
-									<Column width="6%" />
 								</columns>
 								<items>
 									<ColumnListItem>
 										<cells>
-											<Text text="{order>workCenter}" />
-											<Text text="{order>description}" />
-											<Text text="{order>remark}" />
-											<Text text="{order>executor}" />
-											<Text text="{order>executionDate}" />
-											<ToggleButton text="{i18n>OperationTable.OK}" type="Accept" press="onOkPress" width="100%"  />
-											<ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" press="onNokPress" width="100%"  />
-											<ToggleButton text="{i18n>OperationTable.NVT}" press="onNvtPress" width="100%"  />
+											<ObjectIdentifier title="{order>operationNumber}" text="{order>description}" />
 										</cells>
 									</ColumnListItem>
 								</items>
