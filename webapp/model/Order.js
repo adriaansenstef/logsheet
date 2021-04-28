@@ -22,6 +22,11 @@ sap.ui.define([
 		},
 
 		getJSON: function () {
+			return {
+				OrderNumber: this.orderNumber,
+				UserStatus: this.userStatus,
+				ResponsiblePerson: this.responsiblePerson
+			}
 		}
 	});
 });

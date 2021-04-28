@@ -13,12 +13,22 @@ sap.ui.define([
             return this.odata("/OrderSet").get(parameters);
         },
 
-        getOrder: function (orderId) {
+        getOrder: function (orderNumber) {
             var sPath = this.model.createKey("/DetailSet", {
-                OrderNumber: orderId
+                OrderNumber: orderNumber
             });
             return this.odata(sPath).get();
-        }
+        },
+
+        updateOrder: function (order) {
+            var sPath = this.model.createKey("/DetailSet", {
+                OrderNumber: order.orderNumber
+            });
+
+            var json = order.getJSON();
+
+            return this.odata(sPath).put(json);
+        },
 
     });
 
