@@ -7,13 +7,21 @@ sap.ui.define([
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Order", {
 		constructor: function (data) {
 			BaseObject.call(this, data);
-        },
+		},
 
-		setPhases: function(data){
+		setPhases: function (data) {
 			this.phases = data.map((phase) => new Phase(phase));
 		},
 
-        getJSON: function () {
+		setOperations: function (data) {
+			data.map((operation) =>
+				this.phases
+					.filter((phase) => phase.orderNumber === operation.OrderNumber && phase.phaseId === operation.PhaseId)
+					.map((phase) => phase.addOperation(operation))
+			);
+		},
+
+		getJSON: function () {
 		}
 	});
 });

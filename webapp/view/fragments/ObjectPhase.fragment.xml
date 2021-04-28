@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" 
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+    <VBox>
+        <IconTabBar items="{order>/order/phases}" expandable="false" select="onPhaseSelect" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
+            <items>
+                <IconTabFilter text="{order>description}" key="{order>phaseId}">
+                    <Table items="{order>operations}">
+                        <columns>
+                            <Column width="12em">
+                                <Text text="{i18n>OperationTable.WorkCenter}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="{i18n>OperationTable.Decription}" />
+                            </Column>
+                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                <Text text="{i18n>OperationTable.Remark}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="{i18n>OperationTable.Executor}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="{i18n>OperationTable.DateTimeConfirmation}" />
+                            </Column>
+                            <Column width="6%" />
+                            <Column width="6%" />
+                            <Column width="6%"  />
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{order>workCenter}" />
+                                    <Text text="{order>description}" />
+                                    <Text text="{order>remark}" />
+                                    <Text text="{order>executor}" />
+                                    <Text text="{order>executionDate}" />
+                                    <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" press="onOkPress" width="100%"  />
+                                    <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" press="onNokPress" width="100%"  />
+                                    <ToggleButton text="{i18n>OperationTable.NVT}" press="onNvtPress" width="100%"  />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+    </VBox>
+</core:FragmentDefinition>

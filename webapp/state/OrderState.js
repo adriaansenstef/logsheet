@@ -48,6 +48,26 @@ sap.ui.define([
 				this.updateModel(true);
 				return this.getProperty("order");
 			});
+		},
+
+		getOperations: function (phaseId) {
+			return this.getOperationService().getOperations({
+				filters: [new Filter({
+					path: "OrderNumber",
+					operator: FilterOperator.EQ,
+					value1: this.data.order.orderNumber
+				}),
+				new Filter({
+					path: "PhaseId",
+					operator: FilterOperator.EQ,
+					value1: phaseId
+				}),
+				]
+			}).then((result) => {
+				this.data.order.setOperations(result.data.results);
+				this.updateModel(true);
+				return this.getProperty("order");
+			});
 		}
 	});
 	return OrderState;

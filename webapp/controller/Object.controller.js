@@ -68,6 +68,14 @@ sap.ui.define([
 			this._showFormFragment("ObjectDisplay");
 		},
 
+		onPhaseSelect: function (oEvent) {
+			var sKey = oEvent.getParameter("key");
+			this.getModel("appView").setProperty("/busy", true);
+			this.OrderState.getOperations(sKey).then(() => {
+				this.getModel("appView").setProperty("/busy", false);
+			});
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -87,7 +95,10 @@ sap.ui.define([
 					this._toggleButtonsAndView(false);
 					this._showFormFragment("ObjectDisplay");
 					this.OrderState.getPhases(sObjectId).then(() => {
-						this.getModel("appView").setProperty("/busy", false);
+						var phases = this.getModel("order").getData().order.phases;
+						this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).then(() => {
+							this.getModel("appView").setProperty("/busy", false);
+						}).catch(() => this.getModel("appView").setProperty("/busy", false));
 					});
 				}
 				);
@@ -103,8 +114,10 @@ sap.ui.define([
 
 		_showFormFragment: function (sFragmentName) {
 			let oPage = this.byId("orderPage");
-			oPage.removeAllContent();
+			oPage.removeContent(this._getFormFragment("ObjectDisplay"));
+			oPage.removeContent(this._getFormFragment("ObjectChange"));
 			oPage.insertContent(this._getFormFragment(sFragmentName));
+			oPage.insertContent(this._getFormFragment("ObjectPhase"));
 		},
 
 		_getFormFragment: function (sFragmentName) {
