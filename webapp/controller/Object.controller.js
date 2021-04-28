@@ -49,6 +49,25 @@ sap.ui.define([
 			}
 		},
 
+		onEditPress: function (oEvent) {
+			this._toggleButtonsAndView(true);
+			this._showFormFragment("ObjectChange");
+		},
+
+		onSavePress: function (oEvent) {
+			//Save order
+
+			this._toggleButtonsAndView(false);
+			this._showFormFragment("ObjectDisplay");
+		},
+
+		onCancelPress: function (oEvent) {
+			//Reset order
+
+			this._toggleButtonsAndView(false);
+			this._showFormFragment("ObjectDisplay");
+		},
+
 		onPhaseSelect: function (oEvent) {
 			var sKey = oEvent.getParameter("key");
 			this.getModel("appView").setProperty("/busy", true);
@@ -71,7 +90,10 @@ sap.ui.define([
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 			this.getModel().metadataLoaded().then(function () {
 				this.getModel("appView").setProperty("/busy", true);
-				this.OrderState.getOrder(sObjectId).then(() => {
+				this.OrderState.getOrder(sObjectId).then((order) => {
+					order.duration = this._calculateDurationHours(order.startDate, order.finishDate);
+					this._toggleButtonsAndView(false);
+					this._showFormFragment("ObjectDisplay");
 					this.OrderState.getPhases(sObjectId).then(() => {
 						var phases = this.getModel("order").getData().order.phases;
 						this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).then(() => {
@@ -82,7 +104,40 @@ sap.ui.define([
 				);
 			}.bind(this));
 			this.getModel("appView").setProperty("/busy", false);
-		}
+		},
+
+		_calculateDurationHours: function (startDate, finishDate) {
+			return Math.round((finishDate - startDate) / (1000 * 60 * 60))
+		},
+
+		_formFragments: {},
+
+		_showFormFragment: function (sFragmentName) {
+			let oPage = this.byId("orderPage");
+
+			oPage.removeAllContent();
+			oPage.insertContent(this._getFormFragment("ObjectPhase"));
+			oPage.insertContent(this._getFormFragment(sFragmentName));
+		},
+
+		_getFormFragment: function (sFragmentName) {
+			let oFormFragment = this._formFragments[sFragmentName];
+
+			if (oFormFragment) {
+				return oFormFragment;
+			}
+			oFormFragment = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments." + sFragmentName, this);
+
+			this._formFragments[sFragmentName] = oFormFragment;
+			return this._formFragments[sFragmentName];
+		},
+
+		_toggleButtonsAndView: function (bEdit) {
+			let oView = this.getView();
+
+			oView.byId("edit").setVisible(!bEdit);
+			oView.byId("footer").setVisible(bEdit);
+		},
 
 	});
 

@@ -1,59 +1,20 @@
-<mvc:View controllerName="pro.dimensys.pm.logsheet.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-	<Page title="{order>/order/orderNumber}" showNavButton="true" navButtonPress="onNavBack" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
-		<headerContent></headerContent>
-		<content>
-			<VBox>
-				<IconTabBar items="{order>/order/phases}" expandable="false" select="onPhaseSelect" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
-					<items>
-						<IconTabFilter text="{order>description}" key="{order>phaseId}">
-							<Table items="{order>operations}">
-								<columns>
-									<Column width="12em">
-										<Text text="{i18n>OperationTable.WorkCenter}" />
-									</Column>
-									<Column minScreenWidth="Tablet" demandPopin="true">
-										<Text text="{i18n>OperationTable.Decription}" />
-									</Column>
-									<Column minScreenWidth="Desktop" demandPopin="true">
-										<Text text="{i18n>OperationTable.Remark}" />
-									</Column>
-									<Column minScreenWidth="Tablet" demandPopin="true">
-										<Text text="{i18n>OperationTable.Executor}" />
-									</Column>
-									<Column minScreenWidth="Tablet" demandPopin="true">
-										<Text text="{i18n>OperationTable.DateTimeConfirmation}" />
-									</Column>
-									<Column width="6%" />
-									<Column width="6%" />
-									<Column width="6%"  />
-								</columns>
-								<items>
-									<ColumnListItem>
-										<cells>
-											<Text text="{order>workCenter}" />
-											<Text text="{order>description}" />
-											<Text text="{order>remark}" />
-											<Text text="{order>executor}" />
-											<Text text="{order>executionDate}" />
-											<ToggleButton text="{i18n>OperationTable.OK}" type="Accept" press="onOkPress" width="100%"  />
-											<ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" press="onNokPress" width="100%"  />
-											<ToggleButton text="{i18n>OperationTable.NVT}" press="onNvtPress" width="100%"  />
-										</cells>
-									</ColumnListItem>
-								</items>
-							</Table>
-						</IconTabFilter>
-					</items>
-				</IconTabBar>
-			</VBox>
-		</content>
-		<footer>
-			<OverflowToolbar>
-				<ToolbarSpacer />
-				<Button text="{i18n>General.Save}" type="Accept" />
-				<Button text="{i18n>General.Cancel}" type="Reject" />
-			</OverflowToolbar>
-		</footer>
-	</Page>
-
+<mvc:View
+	controllerName="pro.dimensys.pm.logsheet.controller.Object"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" 
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+    <Page id="orderPage" title="{order>/order/orderNumber}" showNavButton="true" navButtonPress="onNavBack" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
+        <headerContent>
+            <Button id="edit" text="{i18n>General.Edit}" press="onEditPress" type="Emphasized"/>
+        </headerContent>
+        <footer>
+            <OverflowToolbar id="footer" visible="false">
+                <ToolbarSpacer/>
+                <Button id="save" text="{i18n>General.Save}" type="Accept" press="onSavePress"/>
+                <Button id="cancel" text="{i18n>General.Cancel}" type="Reject" press="onCancelPress"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
 </mvc:View>
