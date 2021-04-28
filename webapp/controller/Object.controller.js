@@ -114,10 +114,10 @@ sap.ui.define([
 
 		_showFormFragment: function (sFragmentName) {
 			let oPage = this.byId("orderPage");
-			oPage.removeContent(this._getFormFragment("ObjectDisplay"));
-			oPage.removeContent(this._getFormFragment("ObjectChange"));
-			oPage.insertContent(this._getFormFragment(sFragmentName));
+
+			oPage.removeAllContent();
 			oPage.insertContent(this._getFormFragment("ObjectPhase"));
+			oPage.insertContent(this._getFormFragment(sFragmentName));
 		},
 
 		_getFormFragment: function (sFragmentName) {
