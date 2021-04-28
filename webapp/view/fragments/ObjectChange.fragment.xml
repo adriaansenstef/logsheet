@@ -24,22 +24,22 @@
             <f:formContainers>
                 <f:FormContainer>
                     <f:formElements>
-                        <f:FormElement label="{i18n>OrderNumber}">
+                        <f:FormElement label="{i18n>OrderDetail.OrderNumber}">
                             <f:fields>
                                 <Text text="{order>/order/orderNumber}"/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>Description}">
+                        <f:FormElement label="{i18n>OrderDetail.Description}">
                             <f:fields>
                                 <Text text="{order>/order/description}"/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>FunctionalLocation}">
+                        <f:FormElement label="{i18n>OrderDetail.FunctionalLocation}">
                             <f:fields>
                                 <Text text=" "/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>Equipment}">
+                        <f:FormElement label="{i18n>OrderDetail.Equipment}">
                             <f:fields>
                                 <Text text="{order>/order/equipmentNumber} - {order>/order/equipmentDescription}"/>
                             </f:fields>
@@ -48,24 +48,24 @@
                 </f:FormContainer>
                 <f:FormContainer>
                     <f:formElements>
-                        <f:FormElement label="{i18n>DueDate}">
+                        <f:FormElement label="{i18n>OrderDetail.DueDate}">
                             <f:fields>
                                 <Text text="{path:'order>/order/finishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>Duration}">
+                        <f:FormElement label="{i18n>OrderDetail.Duration}">
                             <f:fields>
-                                <Text text="{order>/order/duration} {i18n>Hour}"/>
+                                <Text text="{order>/order/duration} {i18n>OrderDetail.Hour}"/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>Status}">
+                        <f:FormElement label="{i18n>OrderDetail.Status}">
                             <f:fields>
                                 <Select id="statusSelect" items="{path: 'order>/order/userStatus'}">
                                     <core:Item key="{order>/order/userStatus}" text="{order>/order/userStatus}"/>
                                 </Select>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>Person}">
+                        <f:FormElement label="{i18n>OrderDetail.Person}">
                             <f:fields>
                                 <Select id="personSelect" items="{path: 'order>/order/person'}">
                                     <core:Item key="{order>/order/person}" text="{order>/order/person}"/>

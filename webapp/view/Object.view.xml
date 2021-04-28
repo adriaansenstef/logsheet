@@ -7,13 +7,13 @@
 	xmlns:f="sap.ui.layout.form">
     <Page id="orderPage" title="{order>/order/orderNumber}" showNavButton="true" navButtonPress="onNavBack" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
         <headerContent>
-            <Button id="edit" text="{i18n>Edit}" press="onEditPress" type="Emphasized"/>
+            <Button id="edit" text="{i18n>General.Edit}" press="onEditPress" type="Emphasized"/>
         </headerContent>
         <footer>
             <OverflowToolbar id="footer" visible="false">
                 <ToolbarSpacer/>
-                <Button id="save" text="{i18n>Save}" type="Accept" press="onSavePress"/>
-                <Button id="cancel" text="{i18n>Cancel}" type="Reject" press="onCancelPress"/>
+                <Button id="save" text="{i18n>General.Save}" type="Accept" press="onSavePress"/>
+                <Button id="cancel" text="{i18n>General.Cancel}" type="Reject" press="onCancelPress"/>
             </OverflowToolbar>
         </footer>
     </Page>
