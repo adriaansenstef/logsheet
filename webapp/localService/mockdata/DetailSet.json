@@ -1,202 +1,89 @@
 [
 	{
-		"OrderNumber": "OrderNumber 1",
-		"Description": "Description 1",
-		"NotificationNumber": "NotificationNumber 1",
-		"TechnicalObject": "TechnicalObject 1",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 1",
-		"EquipmentNumber": "EquipmentNumber 1",
-		"EquipmentDescription": "EquipmentDescription 1",
-		"StartDate": "/Date(1130490413000)/",
-		"FinishDate": "/Date(1542881213000)/",
-		"Priority": "Priority 1",
-		"SystemStatus": "SystemStatus 1",
-		"UserStatus": "UserStatus 1",
-		"ReportedBy": "ReportedBy 1",
-		"MainWorkcenter": "MainWorkcenter 1",
 		"__metadata": {
-			"uri": "DetailSet('OrderNumber%201')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5066580')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5066580')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5066580",
+		"SystemStatus": "NMAT,SSAP,TECO,SETC,PRC,CNF,PRT,ESTC,",
+		"UserStatus": "MAT3,NEX",
+		"RpLastName": "Meynckens",
+		"Description": "Storing bevochtigers",
+		"RpFirstName": "Erwin",
+		"ResponsiblePerson": "20000079",
+		"TechnicalObject": "JSRB-SUB-RMQC",
+		"Phase": "",
+		"StartDate": "\/Date(1546560000000)\/",
+		"NotificationNumber": "10014187",
+		"TechnicalObjectDescription": "JSR Micro Subcontracting RMQC",
+		"EquipmentNumber": "10006816",
+		"EquipmentDescription": "Air Handling Unit  AHU17 EUV",
+		"FinishDate": "\/Date(1546560000000)\/",
+		"Priority": "2",
+		"ReportedBy": "EMS",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5066580')/Phases"
+			}
 		}
 	},
 	{
-		"OrderNumber": "OrderNumber 2",
-		"Description": "Description 2",
-		"NotificationNumber": "NotificationNumber 2",
-		"TechnicalObject": "TechnicalObject 2",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 2",
-		"EquipmentNumber": "EquipmentNumber 2",
-		"EquipmentDescription": "EquipmentDescription 2",
-		"StartDate": "/Date(1178009413000)/",
-		"FinishDate": "/Date(1178050413000)/",
-		"Priority": "Priority 2",
-		"SystemStatus": "SystemStatus 2",
-		"UserStatus": "UserStatus 2",
-		"ReportedBy": "ReportedBy 2",
-		"MainWorkcenter": "MainWorkcenter 2",
 		"__metadata": {
-			"uri": "DetailSet('OrderNumber%202')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072340')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072340')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072340",
+		"SystemStatus": "NMAT,SSAP,PRC,CRTD",
+		"UserStatus": "",
+		"RpLastName": "Jacobs",
+		"Description": "Test resp",
+		"RpFirstName": "Jos",
+		"ResponsiblePerson": "20000083",
+		"TechnicalObject": "",
+		"Phase": "",
+		"StartDate": "\/Date(1619395200000)\/",
+		"NotificationNumber": "10016826",
+		"TechnicalObjectDescription": "",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619395200000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072340')/Phases"
+			}
 		}
 	},
 	{
-		"OrderNumber": "OrderNumber 3",
-		"Description": "Description 3",
-		"NotificationNumber": "NotificationNumber 3",
-		"TechnicalObject": "TechnicalObject 3",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 3",
-		"EquipmentNumber": "EquipmentNumber 3",
-		"EquipmentDescription": "EquipmentDescription 3",
-		"StartDate": "/Date(1158829613000)/",
-		"FinishDate": "/Date(1406624813000)/",
-		"Priority": "Priority 3",
-		"SystemStatus": "SystemStatus 3",
-		"UserStatus": "UserStatus 3",
-		"ReportedBy": "ReportedBy 3",
-		"MainWorkcenter": "MainWorkcenter 3",
 		"__metadata": {
-			"uri": "DetailSet('OrderNumber%203')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 4",
-		"Description": "Description 4",
-		"NotificationNumber": "NotificationNumber 4",
-		"TechnicalObject": "TechnicalObject 4",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 4",
-		"EquipmentNumber": "EquipmentNumber 4",
-		"EquipmentDescription": "EquipmentDescription 4",
-		"StartDate": "/Date(1442999213000)/",
-		"FinishDate": "/Date(1561712813000)/",
-		"Priority": "Priority 4",
-		"SystemStatus": "SystemStatus 4",
-		"UserStatus": "UserStatus 4",
-		"ReportedBy": "ReportedBy 4",
-		"MainWorkcenter": "MainWorkcenter 4",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%204')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 5",
-		"Description": "Description 5",
-		"NotificationNumber": "NotificationNumber 5",
-		"TechnicalObject": "TechnicalObject 5",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 5",
-		"EquipmentNumber": "EquipmentNumber 5",
-		"EquipmentDescription": "EquipmentDescription 5",
-		"StartDate": "/Date(1175124013000)/",
-		"FinishDate": "/Date(1275124013000)/",
-		"Priority": "Priority 5",
-		"SystemStatus": "SystemStatus 5",
-		"UserStatus": "UserStatus 5",
-		"ReportedBy": "ReportedBy 5",
-		"MainWorkcenter": "MainWorkcenter 5",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%205')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 6",
-		"Description": "Description 6",
-		"NotificationNumber": "NotificationNumber 6",
-		"TechnicalObject": "TechnicalObject 6",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 6",
-		"EquipmentNumber": "EquipmentNumber 6",
-		"EquipmentDescription": "EquipmentDescription 6",
-		"StartDate": "/Date(1132481213000)/",
-		"FinishDate": "/Date(1378890413000)/",
-		"Priority": "Priority 6",
-		"SystemStatus": "SystemStatus 6",
-		"UserStatus": "UserStatus 6",
-		"ReportedBy": "ReportedBy 6",
-		"MainWorkcenter": "MainWorkcenter 6",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%206')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 7",
-		"Description": "Description 7",
-		"NotificationNumber": "NotificationNumber 7",
-		"TechnicalObject": "TechnicalObject 7",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 7",
-		"EquipmentNumber": "EquipmentNumber 7",
-		"EquipmentDescription": "EquipmentDescription 7",
-		"StartDate": "/Date(1080122813000)/",
-		"FinishDate": "/Date(1474967213000)/",
-		"Priority": "Priority 7",
-		"SystemStatus": "SystemStatus 7",
-		"UserStatus": "UserStatus 7",
-		"ReportedBy": "ReportedBy 7",
-		"MainWorkcenter": "MainWorkcenter 7",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%207')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 8",
-		"Description": "Description 8",
-		"NotificationNumber": "NotificationNumber 8",
-		"TechnicalObject": "TechnicalObject 8",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 8",
-		"EquipmentNumber": "EquipmentNumber 8",
-		"EquipmentDescription": "EquipmentDescription 8",
-		"StartDate": "/Date(1306589613000)/",
-		"FinishDate": "/Date(1429348013000)/",
-		"Priority": "Priority 8",
-		"SystemStatus": "SystemStatus 8",
-		"UserStatus": "UserStatus 8",
-		"ReportedBy": "ReportedBy 8",
-		"MainWorkcenter": "MainWorkcenter 8",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%208')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 9",
-		"Description": "Description 9",
-		"NotificationNumber": "NotificationNumber 9",
-		"TechnicalObject": "TechnicalObject 9",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 9",
-		"EquipmentNumber": "EquipmentNumber 9",
-		"EquipmentDescription": "EquipmentDescription 9",
-		"StartDate": "/Date(1189933613000)/",
-		"FinishDate": "/Date(1557479213000)/",
-		"Priority": "Priority 9",
-		"SystemStatus": "SystemStatus 9",
-		"UserStatus": "UserStatus 9",
-		"ReportedBy": "ReportedBy 9",
-		"MainWorkcenter": "MainWorkcenter 9",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%209')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
-		}
-	},
-	{
-		"OrderNumber": "OrderNumber 10",
-		"Description": "Description 10",
-		"NotificationNumber": "NotificationNumber 10",
-		"TechnicalObject": "TechnicalObject 10",
-		"TechnicalObjectDescription": "TechnicalObjectDescription 10",
-		"EquipmentNumber": "EquipmentNumber 10",
-		"EquipmentDescription": "EquipmentDescription 10",
-		"StartDate": "/Date(1008756413000)/",
-		"FinishDate": "/Date(1334999213000)/",
-		"Priority": "Priority 10",
-		"SystemStatus": "SystemStatus 10",
-		"UserStatus": "UserStatus 10",
-		"ReportedBy": "ReportedBy 10",
-		"MainWorkcenter": "MainWorkcenter 10",
-		"__metadata": {
-			"uri": "DetailSet('OrderNumber%2010')",
-			"type": "ZDIM_LOGSHEET_SRV.Detail"
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072342",
+		"SystemStatus": "NMAT,SSAP,CSER,PRC,CRTD,",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
 		}
 	}
 ]

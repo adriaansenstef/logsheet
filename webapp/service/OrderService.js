@@ -14,14 +14,14 @@ sap.ui.define([
         },
 
         getOrder: function (orderNumber) {
-            var sPath = this.model.createKey("/DetailSet", {
+            var sPath = this.model.createKey("/OrderSet", {
                 OrderNumber: orderNumber
             });
             return this.odata(sPath).get();
         },
 
         updateOrder: function (order) {
-            var sPath = this.model.createKey("/DetailSet", {
+            var sPath = this.model.createKey("/OrderSet", {
                 OrderNumber: order.orderNumber
             });
 
