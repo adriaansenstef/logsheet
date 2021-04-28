@@ -50,9 +50,22 @@ sap.ui.define([
 		},
 
 		onEditPress: function (oEvent) {
-			let isPressed = oEvent.getSource().getPressed();
-			let sId = oEvent.getSource().getId().split("-").pop();
-			this.getView().byId(sId + "Select").setEditable(isPressed)
+			this._toggleButtonsAndView(true);
+			this._showFormFragment("ObjectChange");
+		},
+
+		onSavePress: function (oEvent) {
+			//Save order
+
+			this._toggleButtonsAndView(false);
+			this._showFormFragment("ObjectDisplay");
+		},
+
+		onCancelPress: function (oEvent) {
+			//Reset order
+
+			this._toggleButtonsAndView(false);
+			this._showFormFragment("ObjectDisplay");
 		},
 
 		/* =========================================================== */
@@ -70,7 +83,9 @@ sap.ui.define([
 			this.getModel().metadataLoaded().then(function () {
 				this.getModel("appView").setProperty("/busy", true);
 				this.OrderState.getOrder(sObjectId).then((order) => {
-					order.duration = this._calculateDurationHours(order.startDate, order.finishDate)
+					order.duration = this._calculateDurationHours(order.startDate, order.finishDate);
+					this._toggleButtonsAndView(false);
+					this._showFormFragment("ObjectDisplay");
 					this.OrderState.getPhases(sObjectId).then(() => {
 						this.getModel("appView").setProperty("/busy", false);
 					});
@@ -82,7 +97,34 @@ sap.ui.define([
 
 		_calculateDurationHours: function (startDate, finishDate) {
 			return Math.round((finishDate - startDate) / (1000 * 60 * 60))
-		}
+		},
+
+		_formFragments: {},
+
+		_showFormFragment: function (sFragmentName) {
+			let oPage = this.byId("orderPage");
+			oPage.removeAllContent();
+			oPage.insertContent(this._getFormFragment(sFragmentName));
+		},
+
+		_getFormFragment: function (sFragmentName) {
+			let oFormFragment = this._formFragments[sFragmentName];
+
+			if (oFormFragment) {
+				return oFormFragment;
+			}
+			oFormFragment = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments." + sFragmentName, this);
+
+			this._formFragments[sFragmentName] = oFormFragment;
+			return this._formFragments[sFragmentName];
+		},
+
+		_toggleButtonsAndView: function (bEdit) {
+			let oView = this.getView();
+
+			oView.byId("edit").setVisible(!bEdit);
+			oView.byId("footer").setVisible(bEdit);
+		},
 
 	});
 
