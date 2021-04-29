@@ -25,7 +25,8 @@ sap.ui.define([
 			return {
 				OrderNumber: this.orderNumber,
 				UserStatus: this.userStatus,
-				ResponsiblePerson: this.responsiblePerson
+				ResponsiblePerson: this.responsiblePerson,
+				Phases: this.phases.map((phase) => phase.getJSON())
 			}
 		}
 	});
