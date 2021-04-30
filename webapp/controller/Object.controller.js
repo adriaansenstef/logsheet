@@ -61,7 +61,6 @@ sap.ui.define([
 			let updatedOrder = this.OrderState.data.order;
 			this.OrderState.updateOrder().then(() => {
 				this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
-					order.duration = this._calculateDurationHours(order.startDate, order.finishDate);
 					this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
 						var phases = this.getModel("order").getData().order.phases;
 						this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
@@ -79,7 +78,6 @@ sap.ui.define([
 			this._showFormFragment("ObjectDisplay");
 
 			this.OrderState.getOrder(this.OrderState.data.order.orderNumber).then((order) => {
-				order.duration = this._calculateDurationHours(order.startDate, order.finishDate);
 				this.OrderState.getPhases(this.OrderState.data.order.orderNumber).then(() => {
 					var phases = this.getModel("order").getData().order.phases;
 					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
@@ -122,7 +120,6 @@ sap.ui.define([
 			this.getModel().metadataLoaded().then(function () {
 				this.getModel("appView").setProperty("/busy", true);
 				this.OrderState.getOrder(sObjectId).then((order) => {
-					order.duration = this._calculateDurationHours(order.startDate, order.finishDate);
 					this._toggleButtonsAndView(false);
 					this._showFormFragment("ObjectDisplay");
 					this.OrderState.getPhases(sObjectId).then(() => {
@@ -134,10 +131,6 @@ sap.ui.define([
 				});
 			}.bind(this));
 			this.getModel("appView").setProperty("/busy", false);
-		},
-
-		_calculateDurationHours: function (startDate, finishDate) {
-			return Math.round((finishDate - startDate) / (1000 * 60 * 60))
 		},
 
 		_formFragments: {},

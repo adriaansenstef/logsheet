@@ -36,7 +36,7 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.FunctionalLocation}">
                             <f:fields>
-                                <Text text=" "/>
+                                <Text text="{order>/order/technicalObject} - {order>/order/technicalObjectDescription}"/>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.Equipment}">
@@ -48,17 +48,22 @@
                 </f:FormContainer>
                 <f:FormContainer>
                     <f:formElements>
+                        <f:FormElement label="{i18n>OrderDetail.StartDate}">
+                            <f:fields>
+                                <Text text="{path:'order>/order/startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
+                            </f:fields>
+                        </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.DueDate}">
                             <f:fields>
                                 <Text text="{path:'order>/order/finishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>OrderDetail.Duration}">
+                        <f:FormElement label="{i18n>OrderDetail.SystemStatus}">
                             <f:fields>
-                                <Text text="{order>/order/duration} {i18n>OrderDetail.Hour}"/>
+                                <Text text="{order>/order/systemStatus}"/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>OrderDetail.Status}">
+                        <f:FormElement label="{i18n>OrderDetail.UserStatus}">
                             <f:fields>
                                 <Select id="statusSelect" items="{path: 'order>/order/userStatus'}" selectedKey="{order>/order/userStatus}" change="onSelectedUserStatusChange">
                                     <core:Item key="{order>/order/userStatus}" text="{order>/order/userStatus}"/>
