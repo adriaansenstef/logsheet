@@ -48,14 +48,14 @@
                 </f:FormContainer>
                 <f:FormContainer>
                     <f:formElements>
+                        <f:FormElement label="{i18n>OrderDetail.StartDate}">
+                            <f:fields>
+                                <Text text="{path:'order>/order/startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
+                            </f:fields>
+                        </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.DueDate}">
                             <f:fields>
                                 <Text text="{path:'order>/order/finishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
-                            </f:fields>
-                        </f:FormElement>
-                        <f:FormElement label="{i18n>OrderDetail.Duration}">
-                            <f:fields>
-                                <Text text="{order>/order/duration} {i18n>OrderDetail.Hour}"/>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.SystemStatus}">
