@@ -36,7 +36,7 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.FunctionalLocation}">
                             <f:fields>
-                                <Text text=" "/>
+                                <Text text="{order>/order/technicalObject} - {order>/order/technicalObjectDescription}"/>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.Equipment}">
