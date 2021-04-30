@@ -36,6 +36,10 @@ sap.ui.define([
 			});
 		},
 
+		updateOrder: function () {
+			return this.getService().updateOrder(this.data.order)
+		},
+
 		getPhases: function (orderId) {
 			return this.getPhaseService().getPhases({
 				filters: [new Filter({

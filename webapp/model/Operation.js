@@ -6,8 +6,12 @@ sap.ui.define([
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Operation", {
 		constructor: function (data) {
 			BaseObject.call(this, data);
-        },
-        getJSON: function () {
+		},
+		getJSON: function () {
+			return {
+				OperationNumber: this.operationNumber,
+				Remark: this.remark
+			}
 		}
 	});
 });

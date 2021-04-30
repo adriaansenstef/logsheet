@@ -10,13 +10,16 @@ sap.ui.define([
 			this.operations = [];
 		},
 		addOperation: function (operation) {
-
 			if (!this.operations.some(el => el.operationNumber === operation.OperationNumber && el.orderNumber === operation.OrderNumber && el.phaseId === operation.PhaseId)) {
 				this.operations.push(new Operation(operation));
 			}
 		},
 
-        getJSON: function () {
-	}
+		getJSON: function () {
+			return {
+				PhaseId: this.phaseId,
+				Operations: this.operations.map((operation) => operation.getJSON())
+			}
+		}
 	});
 });

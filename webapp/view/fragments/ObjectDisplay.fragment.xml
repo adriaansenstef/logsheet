@@ -65,7 +65,7 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.Person}">
                             <f:fields>
-                                <Text text="{order>/order/person}"/>
+                                <Text text="{order>/order/rpFirstName} {order>/order/rpLastName}"/>
                             </f:fields>
                         </f:FormElement>
                     </f:formElements>

@@ -60,15 +60,15 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.Status}">
                             <f:fields>
-                                <Select id="statusSelect" items="{path: 'order>/order/userStatus'}">
+                                <Select id="statusSelect" items="{path: 'order>/order/userStatus'}" selectedKey="{order>/order/userStatus}" change="onSelectedUserStatusChange">
                                     <core:Item key="{order>/order/userStatus}" text="{order>/order/userStatus}"/>
                                 </Select>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.Person}">
                             <f:fields>
-                                <Select id="personSelect" items="{path: 'order>/order/person'}">
-                                    <core:Item key="{order>/order/person}" text="{order>/order/person}"/>
+                                <Select id="personSelect" items="{path: 'order>/order/responsiblePerson'}" selectedKey="{order>/order/responsiblePerson}" change="onSelectedResponsiblePersonChange">
+                                    <core:Item key="{order>/order/responsiblePerson}" text="{order>/order/rpFirstName} {order>/order/rpLastName}"/>
                                 </Select>
                             </f:fields>
                         </f:FormElement>

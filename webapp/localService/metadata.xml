@@ -1,230 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <edmx:Edmx xmlns:sap="http://www.sap.com/Protocols/SAPData" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
-
     <edmx:DataServices m:DataServiceVersion="2.0">
-
         <Schema xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" sap:schema-version="1" Namespace="ZDIM_LOGSHEET_SRV">
-
             <EntityType sap:content-version="1" Name="Order">
-
                 <Key>
-
                     <PropertyRef Name="OrderNumber" />
-
                 </Key>
-
                 <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" />
-
                 <Property Name="SystemStatus" sap:updatable="false" sap:creatable="false" sap:label="SYSTEM_STATUS" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="UserStatus" sap:updatable="false" sap:creatable="false" sap:label="USER_STATUS" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="RpLastName" sap:updatable="false" sap:creatable="false" sap:label="Last name" MaxLength="40" Nullable="false" Type="Edm.String" />
-
                 <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Name" MaxLength="20" Nullable="false" Type="Edm.String" />
-
                 <Property Name="RpFirstName" sap:updatable="false" sap:creatable="false" sap:label="First name" MaxLength="40" Nullable="false" Type="Edm.String" />
-
                 <Property Name="ResponsiblePerson" sap:updatable="false" sap:creatable="false" sap:label="Person respons." MaxLength="12" Nullable="false" Type="Edm.String" />
-
                 <Property Name="TechnicalObject" sap:updatable="false" sap:creatable="false" sap:label="Functional loc." MaxLength="40" Nullable="false" Type="Edm.String" />
-
                 <Property Name="Phase" sap:updatable="false" sap:creatable="false" sap:label="PHASE" Nullable="false" Type="Edm.String" />
-
                 <Property Name="StartDate" sap:updatable="false" sap:creatable="false" sap:label="Bas. start date" Nullable="false" Type="Edm.DateTime" Precision="7" />
-
                 <Property Name="NotificationNumber" sap:updatable="false" sap:creatable="false" sap:label="Notification" MaxLength="12" Nullable="false" Type="Edm.String" />
-
                 <Property Name="TechnicalObjectDescription" sap:updatable="false" sap:creatable="false" sap:label="Description" MaxLength="40" Nullable="false" Type="Edm.String" />
-
                 <Property Name="EquipmentNumber" sap:updatable="false" sap:creatable="false" sap:label="Equipment" MaxLength="18" Nullable="false" Type="Edm.String" />
-
                 <Property Name="EquipmentDescription" sap:updatable="false" sap:creatable="false" sap:label="Description" MaxLength="40" Nullable="false" Type="Edm.String" />
-
                 <Property Name="FinishDate" sap:updatable="false" sap:creatable="false" sap:label="Basic fin. date" Nullable="false" Type="Edm.DateTime" Precision="7" />
-
                 <Property Name="Priority" sap:updatable="false" sap:creatable="false" sap:label="Priority" MaxLength="1" Nullable="false" Type="Edm.String" />
-
                 <Property Name="ReportedBy" sap:updatable="false" sap:creatable="false" sap:label="Reported by" MaxLength="12" Nullable="false" Type="Edm.String" />
-
                 <NavigationProperty Name="Phases" ToRole="ToRole_OrderPhase" FromRole="FromRole_OrderPhase" Relationship="ZDIM_LOGSHEET_SRV.OrderPhase" />
-
             </EntityType>
-
             <EntityType sap:content-version="1" Name="Detail">
-
                 <Key>
-
                     <PropertyRef Name="OrderNumber" />
-
                 </Key>
-
                 <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Name" MaxLength="20" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="NotificationNumber" sap:updatable="false" sap:creatable="false" sap:label="Notification" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="TechnicalObject" sap:updatable="false" sap:creatable="false" sap:label="Functional loc." MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="TechnicalObjectDescription" sap:updatable="false" sap:creatable="false" sap:label="Description" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="EquipmentNumber" sap:updatable="false" sap:creatable="false" sap:label="Equipment" MaxLength="18" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="EquipmentDescription" sap:updatable="false" sap:creatable="false" sap:label="Description" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="StartDate" sap:updatable="false" sap:creatable="false" sap:label="Bas. start date" Nullable="false" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" Precision="7" />
-
                 <Property Name="FinishDate" sap:updatable="false" sap:creatable="false" sap:label="Basic fin. date" Nullable="false" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" Precision="7" />
-
                 <Property Name="Priority" sap:updatable="false" sap:creatable="false" sap:label="Priority" MaxLength="1" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="SystemStatus" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="UserStatus" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="ReportedBy" sap:updatable="false" sap:creatable="false" sap:label="Reported by" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="MainWorkcenter" sap:updatable="false" sap:creatable="false" sap:label="Main WorkCtr" MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
             </EntityType>
-
             <EntityType sap:content-version="1" Name="Phase">
-
                 <Key>
-
                     <PropertyRef Name="PhaseId" />
-
                     <PropertyRef Name="OrderNumber" />
-
                 </Key>
-
                 <Property Name="PhaseId" sap:updatable="false" sap:creatable="false" sap:label="SystemCondition" MaxLength="1" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Text" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <NavigationProperty Name="Operations" ToRole="ToRole_PhaseOperation" FromRole="FromRole_PhaseOperation" Relationship="ZDIM_LOGSHEET_SRV.PhaseOperation" />
-
                 <NavigationProperty Name="Order" ToRole="FromRole_OrderPhase" FromRole="ToRole_OrderPhase" Relationship="ZDIM_LOGSHEET_SRV.OrderPhase" />
-
             </EntityType>
-
             <EntityType sap:content-version="1" Name="Operation">
-
                 <Key>
-
                     <PropertyRef Name="PhaseId" />
-
                     <PropertyRef Name="OrderNumber" />
-
                     <PropertyRef Name="OperationNumber" />
-
                 </Key>
-
                 <Property Name="PhaseId" sap:updatable="false" sap:creatable="false" sap:label="SystemCondition" MaxLength="1" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="OperationNumber" sap:updatable="false" sap:creatable="false" sap:label="Oper./Act." MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Opr. short text" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="WorkCenter" sap:updatable="false" sap:creatable="false" sap:label="Work center" MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <Property Name="Remark" sap:updatable="false" sap:creatable="false" sap:label="REMARK" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-
                 <NavigationProperty Name="Phase" ToRole="FromRole_PhaseOperation" FromRole="ToRole_PhaseOperation" Relationship="ZDIM_LOGSHEET_SRV.PhaseOperation" />
-
             </EntityType>
-
             <Association sap:content-version="1" Name="OrderPhase">
-
                 <End Type="ZDIM_LOGSHEET_SRV.Order" Role="FromRole_OrderPhase" Multiplicity="1" />
-
                 <End Type="ZDIM_LOGSHEET_SRV.Phase" Role="ToRole_OrderPhase" Multiplicity="*" />
-
                 <ReferentialConstraint>
-
                     <Principal Role="FromRole_OrderPhase">
-
                         <PropertyRef Name="OrderNumber" />
-
                     </Principal>
-
                     <Dependent Role="ToRole_OrderPhase">
-
                         <PropertyRef Name="OrderNumber" />
-
                     </Dependent>
-
                 </ReferentialConstraint>
-
             </Association>
-
             <Association sap:content-version="1" Name="PhaseOperation">
-
                 <End Type="ZDIM_LOGSHEET_SRV.Phase" Role="FromRole_PhaseOperation" Multiplicity="0..1" />
-
                 <End Type="ZDIM_LOGSHEET_SRV.Operation" Role="ToRole_PhaseOperation" Multiplicity="*" />
-
                 <ReferentialConstraint>
-
                     <Principal Role="FromRole_PhaseOperation">
-
                         <PropertyRef Name="OrderNumber" />
-
                         <PropertyRef Name="PhaseId" />
-
                     </Principal>
-
                     <Dependent Role="ToRole_PhaseOperation">
-
                         <PropertyRef Name="OrderNumber" />
-
                         <PropertyRef Name="PhaseId" />
-
                     </Dependent>
-
                 </ReferentialConstraint>
-
             </Association>
-
             <EntityContainer Name="ZDIM_LOGSHEET_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true">
-
                 <EntitySet sap:content-version="1" Name="OrderSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.Order" />
-
                 <EntitySet sap:content-version="1" Name="DetailSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.Detail" />
-
                 <EntitySet sap:content-version="1" Name="PhaseSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.Phase" />
-
                 <EntitySet sap:content-version="1" Name="OperationSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.Operation" />
-
                 <AssociationSet sap:content-version="1" Name="OrderPhaseSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZDIM_LOGSHEET_SRV.OrderPhase">
-
                     <End Role="FromRole_OrderPhase" EntitySet="OrderSet" />
-
                     <End Role="ToRole_OrderPhase" EntitySet="PhaseSet" />
-
                 </AssociationSet>
-
                 <AssociationSet sap:content-version="1" Name="PhaseOperationSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZDIM_LOGSHEET_SRV.PhaseOperation">
-
                     <End Role="FromRole_PhaseOperation" EntitySet="PhaseSet" />
-
                     <End Role="ToRole_PhaseOperation" EntitySet="OperationSet" />
-
                 </AssociationSet>
-
             </EntityContainer>
-
             <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" rel="self" />
-
             <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" rel="latest-version" />
-
         </Schema>
-
     </edmx:DataServices>
-
 </edmx:Edmx>

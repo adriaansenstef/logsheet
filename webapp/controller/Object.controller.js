@@ -55,17 +55,48 @@ sap.ui.define([
 		},
 
 		onSavePress: function (oEvent) {
-			//Save order
-
+			this.getView().setBusy(true);
 			this._toggleButtonsAndView(false);
 			this._showFormFragment("ObjectDisplay");
+			let updatedOrder = this.OrderState.data.order;
+			this.OrderState.updateOrder().then(() => {
+				this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
+					order.duration = this._calculateDurationHours(order.startDate, order.finishDate);
+					this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
+						var phases = this.getModel("order").getData().order.phases;
+						this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
+
+							this.getView().setBusy(false);
+						})
+					})
+				})
+			});
 		},
 
 		onCancelPress: function (oEvent) {
-			//Reset order
-
+			this.getView().setBusy(true);
 			this._toggleButtonsAndView(false);
 			this._showFormFragment("ObjectDisplay");
+
+			this.OrderState.getOrder(this.OrderState.data.order.orderNumber).then((order) => {
+				order.duration = this._calculateDurationHours(order.startDate, order.finishDate);
+				this.OrderState.getPhases(this.OrderState.data.order.orderNumber).then(() => {
+					var phases = this.getModel("order").getData().order.phases;
+					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
+
+						this.getView().setBusy(false);
+					})
+				})
+			})
+
+		},
+
+		onSelectedUserStatusChange: function (oEvent) {
+			this.OrderState.data.order.userStatus = oEvent.getParameters().selectedItem.getProperty("key");
+		},
+
+		onSelectedResponsiblePersonChange: function (oEvent) {
+			this.OrderState.data.order.responsiblePerson = oEvent.getParameters().selectedItem.getProperty("key");
 		},
 
 		onPhaseSelect: function (oEvent) {
@@ -100,8 +131,7 @@ sap.ui.define([
 							this.getModel("appView").setProperty("/busy", false);
 						}).catch(() => this.getModel("appView").setProperty("/busy", false));
 					});
-				}
-				);
+				});
 			}.bind(this));
 			this.getModel("appView").setProperty("/busy", false);
 		},
