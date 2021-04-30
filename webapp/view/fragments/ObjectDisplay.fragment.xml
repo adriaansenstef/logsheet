@@ -58,7 +58,12 @@
                                 <Text text="{order>/order/duration} {i18n>OrderDetail.Hour}"/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>OrderDetail.Status}">
+                        <f:FormElement label="{i18n>OrderDetail.SystemStatus}">
+                            <f:fields>
+                                <Text text="{order>/order/systemStatus}"/>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="{i18n>OrderDetail.UserStatus}">
                             <f:fields>
                                 <Text text="{order>/order/userStatus}"/>
                             </f:fields>
