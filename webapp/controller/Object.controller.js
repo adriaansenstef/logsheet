@@ -90,11 +90,22 @@ sap.ui.define([
 		},
 
 		onSelectedUserStatusChange: function (oEvent) {
-			this.OrderState.data.order.userStatus = oEvent.getParameters().selectedItem.getProperty("key");
+			this.OrderState.data.order.userStatus = oEvent.getSource().getSelectedKeys();
 		},
 
 		onSelectedResponsiblePersonChange: function (oEvent) {
-			this.OrderState.data.order.responsiblePerson = oEvent.getParameters().selectedItem.getProperty("key");
+			var key = oEvent.getSource().getSelectedItem();
+
+			if (!key) {
+				oEvent.getSource().setValueState("Error");
+			} else {
+				oEvent.getSource().setValueState("None");
+				this.OrderState.data.order.responsiblePerson = key;
+			}
+		},
+
+		splitStatus: function (item) {
+			return item.split(",")
 		},
 
 		onPhaseSelect: function (oEvent) {
