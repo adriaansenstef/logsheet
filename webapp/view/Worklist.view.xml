@@ -1,6 +1,8 @@
 <View controllerName="pro.dimensys.pm.logsheet.controller.Worklist" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic">
-	<VBox>
-		<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="OrderSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Description" enableBasicSearch="true"></smartFilterBar:SmartFilterBar>
-		<smartTable:SmartTable id="OrderSmartTable" entitySet="OrderSet" initiallyVisibleFields="OrderNumber,Description,TechnicalObject,Phase,StartDate,Person" smartFilterId="smartFilterBar" tableType="ResponsiveTable" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true"></smartTable:SmartTable>
-	</VBox>
+	<Page showHeader="false">
+		<VBox>
+			<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="OrderSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Description" enableBasicSearch="true"></smartFilterBar:SmartFilterBar>
+			<smartTable:SmartTable id="OrderSmartTable" entitySet="OrderSet" initiallyVisibleFields="OrderNumber,Description,TechnicalObject,Phase,StartDate,Person" smartFilterId="smartFilterBar" tableType="ResponsiveTable" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true"></smartTable:SmartTable>
+		</VBox>
+	</Page>
 </View>
