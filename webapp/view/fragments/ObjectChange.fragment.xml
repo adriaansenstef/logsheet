@@ -50,12 +50,12 @@
                     <f:formElements>
                         <f:FormElement label="{i18n>OrderDetail.StartDate}">
                             <f:fields>
-                                <Text text="{path:'order>/order/startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
+                                <DateTimePicker id="StartDateTimePicker" value="{path:'order>/order/startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }" change="onDateChanged"/>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.DueDate}">
                             <f:fields>
-                                <Text text="{path:'order>/order/finishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
+                                <DateTimePicker id="DueDateTimePicker" value="{path:'order>/order/finishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }" change="onDateChanged"/>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.SystemStatus}">

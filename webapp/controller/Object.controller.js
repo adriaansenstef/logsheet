@@ -55,27 +55,33 @@ sap.ui.define([
 		},
 
 		// onSavePress: function (oEvent) {
-		// 	this.getView().setBusy(true);
-		// 	this._toggleButtonsAndView(false);
-		// 	this._showFormFragment("ObjectDisplay");
-		// 	let updatedOrder = this.OrderState.data.order;
-		// 	this.OrderState.updateOrder().then(() => {
-		// 		this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
-		// 			this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
-		// 				var phases = this.getModel("order").getData().order.phases;
-		// 				this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
-
-		// 					this.getView().setBusy(false);
+		// 	if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
+		// 		this.getView().setBusy(true);
+		// 		this._toggleButtonsAndView(false);
+		// 		this._showFormFragment("ObjectDisplay");
+		// 		let updatedOrder = this.OrderState.data.order;
+		// 		this.OrderState.updateOrder().then(() => {
+		// 			this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
+		// 				this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
+		// 					var phases = this.getModel("order").getData().order.phases;
+		// 					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
+		// 						this.getView().setBusy(false);
+		// 					})
 		// 				})
 		// 			})
 		// 		})
-		// 	});
+		// 	} else {
+		// 		// Invalid start/due date error message
+		// 	}
 		// },
 
 		onCancelPress: function (oEvent) {
 			this.getView().setBusy(true);
 			this._toggleButtonsAndView(false);
 			this._showFormFragment("ObjectDisplay");
+
+			this.byId("StartDateTimePicker").setValueState("None");
+			this.byId("DueDateTimePicker").setValueState("None");
 
 			this.OrderState.getOrder(this.OrderState.data.order.orderNumber).then((order) => {
 				this.OrderState.getPhases(this.OrderState.data.order.orderNumber).then(() => {
@@ -87,6 +93,15 @@ sap.ui.define([
 				})
 			})
 
+		},
+
+		onDateChanged: function (oEvent) {
+			if (this.OrderState.data.order.startDate >= this.OrderState.data.order.finishDate) {
+				oEvent.getSource().setValueState("Error");
+			} else {
+				this.byId("StartDateTimePicker").setValueState("None");
+				this.byId("DueDateTimePicker").setValueState("None");
+			}
 		},
 
 		onSelectedSystemStatusChange: function (oEvent) {

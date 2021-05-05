@@ -27,6 +27,8 @@ sap.ui.define([
 				SystemStatus: this.systemStatus,
 				UserStatus: this.userStatus,
 				ResponsiblePerson: this.responsiblePerson,
+				StartDate: this.startDate,
+				FinishDate: this.finishDate,
 				Phases: this.phases.map((phase) => phase.getJSON())
 			}
 		}
