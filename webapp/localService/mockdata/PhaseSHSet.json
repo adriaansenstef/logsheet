@@ -1,0 +1,61 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0003')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0003')",
+                    "type": "ZDIM_LOGSHEET_SRV.PhaseSH"
+                },
+                "PhaseTechnical": "E0003",
+                "ShortPhaseDescription": "MREQ",
+                "LongPhaseDescription": "Maint request",
+                "PhaseNumber": "01"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0004')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0004')",
+                    "type": "ZDIM_LOGSHEET_SRV.PhaseSH"
+                },
+                "PhaseTechnical": "E0004",
+                "ShortPhaseDescription": "BMNT",
+                "LongPhaseDescription": "Before maint",
+                "PhaseNumber": "02"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0005')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0005')",
+                    "type": "ZDIM_LOGSHEET_SRV.PhaseSH"
+                },
+                "PhaseTechnical": "E0005",
+                "ShortPhaseDescription": "MNT",
+                "LongPhaseDescription": "Maintenance",
+                "PhaseNumber": "03"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0006')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0006')",
+                    "type": "ZDIM_LOGSHEET_SRV.PhaseSH"
+                },
+                "PhaseTechnical": "E0006",
+                "ShortPhaseDescription": "BPRD",
+                "LongPhaseDescription": "Before production",
+                "PhaseNumber": "04"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0007')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PhaseSHSet('E0007')",
+                    "type": "ZDIM_LOGSHEET_SRV.PhaseSH"
+                },
+                "PhaseTechnical": "E0007",
+                "ShortPhaseDescription": "FCHK",
+                "LongPhaseDescription": "Final check",
+                "PhaseNumber": "05"
+            }
+        ]
+    }
+}

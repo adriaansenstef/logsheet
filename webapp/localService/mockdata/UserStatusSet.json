@@ -1,0 +1,52 @@
+[
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0001')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0001')",
+            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
+        },
+        "UserStatusTechnical": "E0001",
+        "ShortStatusDescription": "NEX",
+        "LongStatusDescription": "Not executed"
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0008')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0008')",
+            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
+        },
+        "UserStatusTechnical": "E0008",
+        "ShortStatusDescription": "MAT1",
+        "LongStatusDescription": "Waiting for material"
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0009')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0009')",
+            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
+        },
+        "UserStatusTechnical": "E0009",
+        "ShortStatusDescription": "MAT2",
+        "LongStatusDescription": "Materials available"
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0010')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0010')",
+            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
+        },
+        "UserStatusTechnical": "E0010",
+        "ShortStatusDescription": "MAT3",
+        "LongStatusDescription": "No materials required"
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0011')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0011')",
+            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
+        },
+        "UserStatusTechnical": "E0011",
+        "ShortStatusDescription": "QA",
+        "LongStatusDescription": "Quality Assurance"
+    }
+]
