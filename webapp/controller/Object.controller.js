@@ -89,6 +89,10 @@ sap.ui.define([
 
 		},
 
+		onSelectedSystemStatusChange: function (oEvent) {
+			this.OrderState.data.order.systemStatus = oEvent.getSource().getSelectedKey();
+		},
+
 		onSelectedUserStatusChange: function (oEvent) {
 			this.OrderState.data.order.userStatus = oEvent.getSource().getSelectedKeys();
 		},
@@ -105,7 +109,12 @@ sap.ui.define([
 		},
 
 		splitStatus: function (item) {
-			return item.split(",")
+			if (item.includes(",")) {
+				return item.split(",");
+			}
+			else {
+				return item;
+			}
 		},
 
 		onPhaseSelect: function (oEvent) {

@@ -24,6 +24,7 @@ sap.ui.define([
 		getJSON: function () {
 			return {
 				OrderNumber: this.orderNumber,
+				SystemStatus: this.systemStatus,
 				UserStatus: this.userStatus,
 				ResponsiblePerson: this.responsiblePerson,
 				Phases: this.phases.map((phase) => phase.getJSON())

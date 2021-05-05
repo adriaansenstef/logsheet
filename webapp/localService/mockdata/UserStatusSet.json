@@ -11,56 +11,6 @@
     },
     {
         "__metadata": {
-            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0003')",
-            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0003')",
-            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
-        },
-        "UserStatusTechnical": "E0003",
-        "ShortStatusDescription": "MREQ",
-        "LongStatusDescription": "Maint request"
-    },
-    {
-        "__metadata": {
-            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0004')",
-            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0004')",
-            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
-        },
-        "UserStatusTechnical": "E0004",
-        "ShortStatusDescription": "BMNT",
-        "LongStatusDescription": "Before maint"
-    },
-    {
-        "__metadata": {
-            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0005')",
-            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0005')",
-            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
-        },
-        "UserStatusTechnical": "E0005",
-        "ShortStatusDescription": "MNT",
-        "LongStatusDescription": "Maintenance"
-    },
-    {
-        "__metadata": {
-            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0006')",
-            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0006')",
-            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
-        },
-        "UserStatusTechnical": "E0006",
-        "ShortStatusDescription": "BPRD",
-        "LongStatusDescription": "Before production"
-    },
-    {
-        "__metadata": {
-            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0007')",
-            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0007')",
-            "type": "ZDIM_LOGSHEET_SRV.UserStatus"
-        },
-        "UserStatusTechnical": "E0007",
-        "ShortStatusDescription": "FCHK",
-        "LongStatusDescription": "Final check"
-    },
-    {
-        "__metadata": {
             "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0008')",
             "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserStatusSet('E0008')",
             "type": "ZDIM_LOGSHEET_SRV.UserStatus"

@@ -60,20 +60,22 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.SystemStatus}">
                             <f:fields>
-                                <Text text="{order>/order/systemStatus}"/>
+                                <Select id="systemStatusSelect" items="{path: '/PhaseSHSet'}" selectedKey="{order>/order/systemStatus}" change="onSelectedSystemStatusChange">
+                                    <core:Item key="{ShortPhaseDescription}" text="{LongPhaseDescription}"/>
+                                </Select>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.UserStatus}">
                             <f:fields>
-                                <MultiComboBox id="statusMultiComboBox" items="{path: '/UserStatusSet'}" selectedKeys="{path: 'order>/order/userStatus', formatter : '.splitStatus'}" selectionChange="onSelectedUserStatusChange">
-                                    <core:Item key="{ShortStatusDescription}" text="{ShortStatusDescription} {LongStatusDescription}"/>
+                                <MultiComboBox id="userStatusMultiComboBox" items="{path: '/UserStatusSet'}" selectedKeys="{path: 'order>/order/userStatus', formatter : '.splitStatus'}" selectionChange="onSelectedUserStatusChange">
+                                    <core:Item key="{ShortStatusDescription}" text="{LongStatusDescription}"/>
                                 </MultiComboBox>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.Person}">
                             <f:fields>
-                                <ComboBox id="personCombobox" items="{path: 'order>/order/responsiblePerson'}" selectedKey="{order>/order/responsiblePerson}" change="onSelectedResponsiblePersonChange">
-                                    <core:Item key="{order>/order/responsiblePerson}" text="{order>/order/rpFirstName} {order>/order/rpLastName}"/>
+                                <ComboBox id="personCombobox" items="{path: '/PersonSet'}" selectedKey="{order>/order/responsiblePerson}" change="onSelectedResponsiblePersonChange">
+                                    <core:Item key="{PersonnelNumber}" text="{FirstName} {LastName}"/>
                                 </ComboBox>
                             </f:fields>
                         </f:FormElement>

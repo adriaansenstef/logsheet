@@ -1,0 +1,149 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000079",
+                "WorkCenter": "MAINT",
+                "FirstName": "Erwin",
+                "LastName": "Meynckens"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000080",
+                "WorkCenter": "MAINT",
+                "FirstName": "Tony",
+                "LastName": "Morren"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000081",
+                "WorkCenter": "MAINT",
+                "FirstName": "Kevin",
+                "LastName": "van Horebeek"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000082",
+                "WorkCenter": "MAINT",
+                "FirstName": "Vincent",
+                "LastName": "Mathues"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000083",
+                "WorkCenter": "MAINT",
+                "FirstName": "Jos",
+                "LastName": "Jacobs"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000084",
+                "WorkCenter": "MAINT",
+                "FirstName": "Wim",
+                "LastName": "Olemans"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000086",
+                "WorkCenter": "MAINT",
+                "FirstName": "Jan",
+                "LastName": "Allaerts"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000087",
+                "WorkCenter": "MAINT",
+                "FirstName": "Jasper",
+                "LastName": "Snackaert"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000089",
+                "WorkCenter": "MAINT",
+                "FirstName": "Inge",
+                "LastName": "Goossens"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000090",
+                "WorkCenter": "MAINT",
+                "FirstName": "Cristof",
+                "LastName": "Gregoire"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000091",
+                "WorkCenter": "MAINT",
+                "FirstName": "Koen",
+                "LastName": "van de Laer"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000094",
+                "WorkCenter": "MAINT",
+                "FirstName": "Sven",
+                "LastName": "Vandermeulen"
+            },
+            {
+                "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "20000095",
+                "WorkCenter": "MAINT",
+                "FirstName": "Brent",
+                "LastName": "Daman"
+            }
+        ]
+    }
+}
