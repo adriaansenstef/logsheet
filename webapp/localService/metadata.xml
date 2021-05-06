@@ -7,6 +7,7 @@
                     <PropertyRef Name="OrderNumber" />
                 </Key>
                 <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="PhaseDescription" sap:updatable="false" sap:creatable="false" sap:label="Phase" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="SystemStatus" sap:updatable="false" sap:creatable="false" sap:label="SYSTEM_STATUS" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="UserStatus" sap:updatable="false" sap:creatable="false" sap:label="USER_STATUS" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="RpLastName" sap:updatable="false" sap:creatable="false" sap:label="Last name" MaxLength="40" Nullable="false" Type="Edm.String" />

@@ -6,6 +6,7 @@
 			"type": "ZDIM_LOGSHEET_SRV.Order"
 		},
 		"OrderNumber": "5066580",
+		"PhaseDescription": "Before production",
 		"SystemStatus": "BPRD",
 		"UserStatus": "MAT3,NEX",
 		"RpLastName": "Meynckens",
@@ -35,6 +36,7 @@
 			"type": "ZDIM_LOGSHEET_SRV.Order"
 		},
 		"OrderNumber": "5072340",
+		"PhaseDescription": "Before production",
 		"SystemStatus": "BPRD",
 		"UserStatus": "",
 		"RpLastName": "Jacobs",
@@ -64,6 +66,7 @@
 			"type": "ZDIM_LOGSHEET_SRV.Order"
 		},
 		"OrderNumber": "5072342",
+		"PhaseDescription": "Before production",
 		"SystemStatus": "BPRD",
 		"UserStatus": "MREQ",
 		"RpLastName": "Allaerts",

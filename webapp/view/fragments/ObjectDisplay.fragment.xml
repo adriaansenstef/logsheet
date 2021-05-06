@@ -60,7 +60,7 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.SystemStatus}">
                             <f:fields>
-                                <Text text="{order>/order/systemStatus}"/>
+                                <Text text="{order>/order/phaseDescription}"/>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.UserStatus}">
