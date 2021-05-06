@@ -60,9 +60,12 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.SystemStatus}">
                             <f:fields>
-                                <Select id="systemStatusSelect" items="{path: '/PhaseSHSet'}" selectedKey="{order>/order/systemStatus}" change="onSelectedSystemStatusChange">
-                                    <core:Item key="{ShortPhaseDescription}" text="{LongPhaseDescription}"/>
+                                <Select id="systemStatusSelect" items="{path: '/PhaseSHSet'}" selectedKey="{order>/order/systemStatusTechnical}" change="onSelectedSystemStatusChange">
+                                    <core:Item key="{PhaseTechnical}" text="{LongPhaseDescription}"/>
                                 </Select>
+                            </f:fields>
+                            <f:fields>
+                                <CheckBox id="systemStatusTecoCheckBox" text="{i18n>OrderDetail.Teco}" tooltip="{i18n>OrderDetail.Teco}" select="onTecoFlagSelected"/>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.UserStatus}">

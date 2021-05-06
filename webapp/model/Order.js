@@ -24,7 +24,7 @@ sap.ui.define([
 		getJSON: function () {
 			return {
 				OrderNumber: this.orderNumber,
-				SystemStatus: this.systemStatus,
+				SystemStatusTechnical: this.systemStatusTechnical,
 				UserStatus: this.userStatus,
 				ResponsiblePerson: this.responsiblePerson,
 				StartDate: this.startDate,
