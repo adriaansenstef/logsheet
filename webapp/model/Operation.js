@@ -12,7 +12,7 @@ sap.ui.define([
 
 		addConfirmation: function (confirmation) {
 			if (!this.confirmations.some(el => el.confirmationNumber === confirmation.ConfirmationNumber && el.counter === confirmation.Counter)) {
-				this.confirmations.push(new Confirmation(operation));
+				this.confirmations.push(new Confirmation(confirmation));
 			}
 		},
 

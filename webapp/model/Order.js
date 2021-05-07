@@ -24,7 +24,7 @@ sap.ui.define([
 		setConfirmations: function (data) {
 			data.map((confirmation) =>
 				this.phases
-					.filter((phase) => phase.orderNumber === confirmation.OrderNumber && phase.phaseId === confirmation.Phase)
+					.filter((phase) => phase.orderNumber === confirmation.OrderNumber && phase.phaseId === confirmation.PhaseId)
 					.map((phase) =>
 						phase.operations.filter((operation) => operation.operationNumber === confirmation.Operation)
 							.map((operation) => operation.addConfirmation(confirmation)))
