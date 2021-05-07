@@ -27,7 +27,7 @@ sap.ui.define([
 		getOperationService: function () {
 			return this.OperationService;
 		},
-		getConfirmationServce: function () {
+		getConfirmationService: function () {
 			return this.ConfirmationService;
 		},
 
