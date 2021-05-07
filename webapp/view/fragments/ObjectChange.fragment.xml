@@ -50,31 +50,33 @@
                     <f:formElements>
                         <f:FormElement label="{i18n>OrderDetail.StartDate}">
                             <f:fields>
-                                <Text text="{path:'order>/order/startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
+                                <DateTimePicker id="StartDateTimePicker" value="{path:'order>/order/startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }" change="onDateChanged"/>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.DueDate}">
                             <f:fields>
-                                <Text text="{path:'order>/order/finishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"/>
+                                <DateTimePicker id="DueDateTimePicker" value="{path:'order>/order/finishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }" change="onDateChanged"/>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.SystemStatus}">
                             <f:fields>
-                                <Text text="{order>/order/systemStatus}"/>
+                                <Select id="systemStatusSelect" items="{path: '/PhaseSHSet'}" selectedKey="{order>/order/systemStatus}" change="onSelectedSystemStatusChange">
+                                    <core:Item key="{ShortPhaseDescription}" text="{LongPhaseDescription}"/>
+                                </Select>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.UserStatus}">
                             <f:fields>
-                                <Select id="statusSelect" items="{path: 'order>/order/userStatus'}" selectedKey="{order>/order/userStatus}" change="onSelectedUserStatusChange">
-                                    <core:Item key="{order>/order/userStatus}" text="{order>/order/userStatus}"/>
-                                </Select>
+                                <MultiComboBox id="userStatusMultiComboBox" items="{path: '/UserStatusSet'}" selectedKeys="{path: 'order>/order/userStatus', formatter : '.splitStatus'}" selectionChange="onSelectedUserStatusChange">
+                                    <core:Item key="{ShortStatusDescription}" text="{LongStatusDescription}"/>
+                                </MultiComboBox>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.Person}">
                             <f:fields>
-                                <Select id="personSelect" items="{path: 'order>/order/responsiblePerson'}" selectedKey="{order>/order/responsiblePerson}" change="onSelectedResponsiblePersonChange">
-                                    <core:Item key="{order>/order/responsiblePerson}" text="{order>/order/rpFirstName} {order>/order/rpLastName}"/>
-                                </Select>
+                                <ComboBox id="personCombobox" items="{path: '/PersonSet'}" selectedKey="{order>/order/responsiblePerson}" change="onSelectedResponsiblePersonChange">
+                                    <core:Item key="{PersonnelNumber}" text="{FirstName} {LastName}"/>
+                                </ComboBox>
                             </f:fields>
                         </f:FormElement>
                     </f:formElements>

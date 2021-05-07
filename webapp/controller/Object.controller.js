@@ -55,27 +55,33 @@ sap.ui.define([
 		},
 
 		// onSavePress: function (oEvent) {
-		// 	this.getView().setBusy(true);
-		// 	this._toggleButtonsAndView(false);
-		// 	this._showFormFragment("ObjectDisplay");
-		// 	let updatedOrder = this.OrderState.data.order;
-		// 	this.OrderState.updateOrder().then(() => {
-		// 		this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
-		// 			this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
-		// 				var phases = this.getModel("order").getData().order.phases;
-		// 				this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
-
-		// 					this.getView().setBusy(false);
+		// 	if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
+		// 		this.getView().setBusy(true);
+		// 		this._toggleButtonsAndView(false);
+		// 		this._showFormFragment("ObjectDisplay");
+		// 		let updatedOrder = this.OrderState.data.order;
+		// 		this.OrderState.updateOrder().then(() => {
+		// 			this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
+		// 				this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
+		// 					var phases = this.getModel("order").getData().order.phases;
+		// 					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
+		// 						this.getView().setBusy(false);
+		// 					})
 		// 				})
 		// 			})
 		// 		})
-		// 	});
+		// 	} else {
+		// 		// Invalid start/due date error message
+		// 	}
 		// },
 
 		onCancelPress: function (oEvent) {
 			this.getView().setBusy(true);
 			this._toggleButtonsAndView(false);
 			this._showFormFragment("ObjectDisplay");
+
+			this.byId("StartDateTimePicker").setValueState("None");
+			this.byId("DueDateTimePicker").setValueState("None");
 
 			this.OrderState.getOrder(this.OrderState.data.order.orderNumber).then((order) => {
 				this.OrderState.getPhases(this.OrderState.data.order.orderNumber).then(() => {
@@ -100,12 +106,41 @@ sap.ui.define([
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0009');
 		},
 
+		onDateChanged: function (oEvent) {
+			if (this.OrderState.data.order.startDate >= this.OrderState.data.order.finishDate) {
+				oEvent.getSource().setValueState("Error");
+			} else {
+				this.byId("StartDateTimePicker").setValueState("None");
+				this.byId("DueDateTimePicker").setValueState("None");
+			}
+		},
+
+		onSelectedSystemStatusChange: function (oEvent) {
+			this.OrderState.data.order.systemStatus = oEvent.getSource().getSelectedKey();
+		},
+
 		onSelectedUserStatusChange: function (oEvent) {
-			this.OrderState.data.order.userStatus = oEvent.getParameters().selectedItem.getProperty("key");
+			this.OrderState.data.order.userStatus = oEvent.getSource().getSelectedKeys();
 		},
 
 		onSelectedResponsiblePersonChange: function (oEvent) {
-			this.OrderState.data.order.responsiblePerson = oEvent.getParameters().selectedItem.getProperty("key");
+			var key = oEvent.getSource().getSelectedItem();
+
+			if (!key) {
+				oEvent.getSource().setValueState("Error");
+			} else {
+				oEvent.getSource().setValueState("None");
+				this.OrderState.data.order.responsiblePerson = key;
+			}
+		},
+
+		splitStatus: function (item) {
+			if (item.includes(",")) {
+				return item.split(",");
+			}
+			else {
+				return item;
+			}
 		},
 
 		onPhaseSelect: function (oEvent) {

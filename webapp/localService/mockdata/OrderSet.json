@@ -6,7 +6,8 @@
 			"type": "ZDIM_LOGSHEET_SRV.Order"
 		},
 		"OrderNumber": "5066580",
-		"SystemStatus": "NMAT,SSAP,TECO,SETC,PRC,CNF,PRT,ESTC,",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "BPRD",
 		"UserStatus": "MAT3,NEX",
 		"RpLastName": "Meynckens",
 		"Description": "Storing bevochtigers",
@@ -35,7 +36,8 @@
 			"type": "ZDIM_LOGSHEET_SRV.Order"
 		},
 		"OrderNumber": "5072340",
-		"SystemStatus": "NMAT,SSAP,PRC,CRTD",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "BPRD",
 		"UserStatus": "",
 		"RpLastName": "Jacobs",
 		"Description": "Test resp",
@@ -64,7 +66,8 @@
 			"type": "ZDIM_LOGSHEET_SRV.Order"
 		},
 		"OrderNumber": "5072342",
-		"SystemStatus": "NMAT,SSAP,CSER,PRC,CRTD,",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "BPRD",
 		"UserStatus": "MREQ",
 		"RpLastName": "Allaerts",
 		"Description": "Ijkgewichten herstel",
