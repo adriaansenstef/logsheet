@@ -92,8 +92,19 @@ sap.ui.define([
 						this.getView().setBusy(false);
 					})
 				})
-			})
+			});
+		},
 
+		onOkPress: function (oEvent) {
+			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0002');
+		},
+
+		onNokPress: function (oEvent) {
+			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0003');
+		},
+
+		onNvtPress: function (oEvent) {
+			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0009');
 		},
 
 		onDateChanged: function (oEvent) {
