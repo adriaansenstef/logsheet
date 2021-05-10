@@ -7,7 +7,8 @@
 	xmlns:f="sap.ui.layout.form">
     <Page id="orderPage" title="{order>/order/orderNumber}" showNavButton="true" navButtonPress="onNavBack" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
         <headerContent>
-            <Button id="edit" text="{i18n>General.Edit}" press="onEditPress" type="Emphasized"/>
+            <ToggleButton icon="sap-icon://complete" tooltip="{i18n>OrderDetail.Teco}" press="onTecoFlagPress" enabled="{= ${order>/order/systemStatusTechnical} === 'I0045'? false : true}"/>
+            <Button id="edit" text="{i18n>General.Edit}" press="onEditPress" type="Emphasized" visible="{= ${order>/order/systemStatusTechnical} === 'I0045'? false : true}"/>
         </headerContent>
         <footer>
             <OverflowToolbar id="footer" visible="false">

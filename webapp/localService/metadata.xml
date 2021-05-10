@@ -12,7 +12,7 @@
                 <Property Name="SystemStatusTechnical" sap:updatable="false" sap:creatable="false" sap:label="SYSTEM_STATUS_TECH" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="UserStatus" sap:updatable="false" sap:creatable="false" sap:label="USER_STATUS" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="RpLastName" sap:updatable="false" sap:creatable="false" sap:label="Last name" MaxLength="40" Nullable="false" Type="Edm.String" />
-                <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Name" MaxLength="20" Nullable="false" Type="Edm.String" />
+                <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Name" MaxLength="40" Nullable="false" Type="Edm.String" />
                 <Property Name="RpFirstName" sap:updatable="false" sap:creatable="false" sap:label="First name" MaxLength="40" Nullable="false" Type="Edm.String" />
                 <Property Name="ResponsiblePerson" sap:updatable="false" sap:creatable="false" sap:label="Person respons." MaxLength="12" Nullable="false" Type="Edm.String" />
                 <Property Name="TechnicalObject" sap:updatable="false" sap:creatable="false" sap:label="Functional loc." MaxLength="40" Nullable="false" Type="Edm.String" />
@@ -23,6 +23,8 @@
                 <Property Name="EquipmentNumber" sap:updatable="false" sap:creatable="false" sap:label="Equipment" MaxLength="18" Nullable="false" Type="Edm.String" />
                 <Property Name="EquipmentDescription" sap:updatable="false" sap:creatable="false" sap:label="Description" MaxLength="40" Nullable="false" Type="Edm.String" />
                 <Property Name="FinishDate" sap:updatable="false" sap:creatable="false" sap:label="Basic fin. date" Nullable="false" Type="Edm.DateTime" Precision="7" />
+                <Property Name="ReferenceDate" sap:updatable="false" sap:creatable="false" sap:label="Reference date" Nullable="false" Type="Edm.Date" Precision="7" />
+                <Property Name="ReferenceTime" sap:updatable="false" sap:creatable="false" sap:label="Reference time" Nullable="false" Type="Edm.Time" Precision="7" />
                 <Property Name="Priority" sap:updatable="false" sap:creatable="false" sap:label="Priority" MaxLength="1" Nullable="false" Type="Edm.String" />
                 <Property Name="ReportedBy" sap:updatable="false" sap:creatable="false" sap:label="Reported by" MaxLength="12" Nullable="false" Type="Edm.String" />
                 <NavigationProperty Name="Phases" ToRole="ToRole_OrderPhase" FromRole="FromRole_OrderPhase" Relationship="ZDIM_LOGSHEET_SRV.OrderPhase" />

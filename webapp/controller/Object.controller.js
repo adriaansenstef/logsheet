@@ -1,3 +1,4 @@
+/* globals moment */
 sap.ui.define([
 	"./BaseController",
 	"sap/ui/model/json/JSONModel",
@@ -54,29 +55,26 @@ sap.ui.define([
 			this._showFormFragment("ObjectChange");
 		},
 
-		//	onSavePress: function (oEvent) {
-		//		if (this.byId("systemStatusTecoCheckBox").getSelected()) {
-		//			this.OrderState.data.order.systemStatusTechnical = "I0001"
-		//		}
-		//		if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
-		//			this.getView().setBusy(true);
-		//			this._toggleButtonsAndView(false);
-		//			this._showFormFragment("ObjectDisplay");
-		//			let updatedOrder = this.OrderState.data.order;
-		//			this.OrderState.updateOrder().then(() => {
-		//				this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
-		//					this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
-		//						var phases = this.getModel("order").getData().order.phases;
-		//						this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
-		//							this.getView().setBusy(false);
-		//						})
-		//					})
-		//				})
-		//			})
-		//		} else {
-		//			// Invalid start/due date error message
-		//		}
-		//	},
+		onSavePress: function (oEvent) {
+			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
+				this.getView().setBusy(true);
+				this._toggleButtonsAndView(false);
+				this._showFormFragment("ObjectDisplay");
+				let updatedOrder = this.OrderState.data.order;
+				this.OrderState.updateOrder().then(() => {
+					this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
+						this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
+							var phases = this.getModel("order").getData().order.phases;
+							this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
+								this.getView().setBusy(false);
+							})
+						})
+					})
+				})
+			} else {
+				// Invalid start/due date error message
+			}
+		},
 
 		onCancelPress: function (oEvent) {
 			this.getView().setBusy(true);
@@ -107,8 +105,8 @@ sap.ui.define([
 			}
 		},
 
-		onSelectedSystemStatusChange: function (oEvent) {
-			this.OrderState.data.order.systemStatusTechnical = oEvent.getSource().getSelectedKey();
+		onSelectedPhaseChange: function (oEvent) {
+			this.OrderState.data.order.phase = oEvent.getSource().getSelectedKey();
 		},
 
 		onSelectedUserStatusChange: function (oEvent) {
@@ -126,8 +124,21 @@ sap.ui.define([
 			}
 		},
 
-		onTecoFlagSelected: function (oEvent) {
-			this.byId("systemStatusSelect").setEnabled(!oEvent.getParameters().selected)
+		onTecoFlagPress: function (oEvent) {
+			this._getTecoChangeDialog().open();
+		},
+
+		onTecoFlagCancel: function (oEvent) {
+			this._getTecoChangeDialog().close();
+			this.OrderState.data.order.referenceDate = ""
+			this.OrderState.data.order.referenceTime = ""
+		},
+
+		onTecoFlagSave: function (oEvent) {
+			this.OrderState.data.order.systemStatus = "TECO";
+			this.OrderState.data.order.systemStatusTechnical = "I0045";
+			this._getTecoChangeDialog().close();
+			this.onSavePress("event");
 		},
 
 		splitStatus: function (item) {
@@ -202,6 +213,14 @@ sap.ui.define([
 
 			oView.byId("edit").setVisible(!bEdit);
 			oView.byId("footer").setVisible(bEdit);
+		},
+
+		_getTecoChangeDialog: function () {
+			if (!this._oDialog) {
+				this._oDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.TecoStatus", this);
+				this.getView().addDependent(this._oDialog);
+			}
+			return this._oDialog;
 		},
 
 	});

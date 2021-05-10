@@ -1,3 +1,4 @@
+/* globals moment */
 sap.ui.define([
 	"./BaseObject",
 	"sap/ui/model/type/Time",
@@ -7,6 +8,7 @@ sap.ui.define([
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Order", {
 		constructor: function (data) {
 			BaseObject.call(this, data);
+			this.referenceDateTime = new Date();
 		},
 
 		setPhases: function (data) {
@@ -25,7 +27,10 @@ sap.ui.define([
 			return {
 				OrderNumber: this.orderNumber,
 				SystemStatusTechnical: this.systemStatusTechnical,
+				ReferenceDate: this.systemStatusTechnical === "I0045" ? this.referenceDateTime : "",
+				ReferenceTime: this.systemStatusTechnical === "I0045" ? moment(this.referenceDateTime).utc().format("PTHH[H]mm[M]ss[S]") : "",
 				UserStatus: this.userStatus,
+				Phase: this.phase,
 				ResponsiblePerson: this.responsiblePerson,
 				StartDate: this.startDate,
 				FinishDate: this.finishDate,
