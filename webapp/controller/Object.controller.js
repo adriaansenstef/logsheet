@@ -54,26 +54,26 @@ sap.ui.define([
 			this._showFormFragment("ObjectChange");
 		},
 
-		// onSavePress: function (oEvent) {
-		// 	if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
-		// 		this.getView().setBusy(true);
-		// 		this._toggleButtonsAndView(false);
-		// 		this._showFormFragment("ObjectDisplay");
-		// 		let updatedOrder = this.OrderState.data.order;
-		// 		this.OrderState.updateOrder().then(() => {
-		// 			this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
-		// 				this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
-		// 					var phases = this.getModel("order").getData().order.phases;
-		// 					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
-		// 						this.getView().setBusy(false);
-		// 					})
-		// 				})
-		// 			})
-		// 		})
-		// 	} else {
-		// 		// Invalid start/due date error message
-		// 	}
-		// },
+		onSavePress: function (oEvent) {
+			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
+				this.getView().setBusy(true);
+				this._toggleButtonsAndView(false);
+				this._showFormFragment("ObjectDisplay");
+				let updatedOrder = this.OrderState.data.order;
+				this.OrderState.updateOrder().then(() => {
+					this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
+						this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
+							var phases = this.getModel("order").getData().order.phases;
+							this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
+								this.getView().setBusy(false);
+							})
+						})
+					})
+				})
+			} else {
+				// Invalid start/due date error message
+			}
+		},
 
 		onCancelPress: function (oEvent) {
 			this.getView().setBusy(true);
@@ -91,8 +91,19 @@ sap.ui.define([
 						this.getView().setBusy(false);
 					})
 				})
-			})
+			});
+		},
 
+		onOkPress: function (oEvent) {
+			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0002');
+		},
+
+		onNokPress: function (oEvent) {
+			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0003');
+		},
+
+		onNvtPress: function (oEvent) {
+			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0009');
 		},
 
 		onDateChanged: function (oEvent) {

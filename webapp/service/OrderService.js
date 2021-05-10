@@ -21,13 +21,7 @@ sap.ui.define([
         },
 
         updateOrder: function (order) {
-            var sPath = this.model.createKey("/OrderSet", {
-                OrderNumber: order.orderNumber
-            });
-
-            var json = order.getJSON();
-
-            return this.odata(sPath).put(json);
+            return this.odata("/OrderSet").post(order.getJSON());
         },
 
     });

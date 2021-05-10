@@ -6,13 +6,14 @@ sap.ui.define([
 	"./service/OrderService",
 	"./service/OperationService",
 	"./service/PhaseService",
+	"./service/ConfirmationService",
 	"./state/OrderState"
-], function (UIComponent, Device, models, ErrorHandler, OrderService, OperationService, PhaseService, OrderState) {
+], function (UIComponent, Device, models, ErrorHandler, OrderService, OperationService, PhaseService, ConfirmationService, OrderState) {
 	"use strict";
 
 	return UIComponent.extend("pro.dimensys.pm.logsheet.Component", {
 
-		metadata : {
+		metadata: {
 			manifest: "json"
 		},
 
@@ -23,12 +24,13 @@ sap.ui.define([
 		 * @public
 		 * @override
 		 */
-		init : function () {
+		init: function () {
 			this._oOrderService = new OrderService(this.getModel());
 			this._oOperationService = new OperationService(this.getModel());
+			this._oConfirmationService = new ConfirmationService(this.getModel());
 			this._oPhaseService = new PhaseService(this.getModel());
 
-			this._oOrderState = new OrderState(this._oOrderService, this._oPhaseService, this._oOperationService);
+			this._oOrderState = new OrderState(this._oOrderService, this._oPhaseService, this._oOperationService, this._oConfirmationService);
 
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
@@ -57,7 +59,7 @@ sap.ui.define([
 		 * @public
 		 * @override
 		 */
-		destroy : function () {
+		destroy: function () {
 			this._oErrorHandler.destroy();
 			// call the base component's destroy function
 			UIComponent.prototype.destroy.apply(this, arguments);
@@ -69,7 +71,7 @@ sap.ui.define([
 		 * @public
 		 * @return {string} css class, either 'sapUiSizeCompact' or 'sapUiSizeCozy' - or an empty string if no css class should be set
 		 */
-		getContentDensityClass : function() {
+		getContentDensityClass: function () {
 			if (this._sContentDensityClass === undefined) {
 				// check whether FLP has already set the content density class; do nothing in this case
 				// eslint-disable-next-line sap-no-proprietary-browser-api
