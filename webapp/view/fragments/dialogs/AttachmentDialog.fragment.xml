@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:me="pro.dimensys.pm.logsheet.controls">
+    <Dialog>
+        <content>
+            <me:UploadCollection id="UploadCollectionAttachment" uploadButtonInvisible="{= !${viewModel>/edit}}" mode="SingleSelectMaster" selectionChange="onAttachmentSelection" instantUpload="false" maximumFilenameLength="55" maximumFileSize="10" multiple="false" change="onAttachmentChange" fileSizeExceed="onFileSizeExceed" typeMissmatch="onTypeMissmatch" uploadComplete="onUploadComplete" beforeUploadStarts="onBeforeUploadStarts" items="{
+                path: '/AttachmentSet',
+                templateShareable: false
+            }">
+                <me:items>
+                    <UploadCollectionItem documentId="{Id}" fileName="{Filename}" mimeType="{Filetype}" enableEdit="false" enableDelete="false" visibleDelete="false" visibleEdit="false" />
+                </me:items>
+            </me:UploadCollection>
+        </content>
+        <buttons>
+            <Button text="{i18n>Cancel}" press="onAttachmentCancel" />
+            <Button text="{i18n>Save}" visible="{viewModel>/edit}" press="onAttachmentSave" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

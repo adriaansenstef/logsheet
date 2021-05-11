@@ -3,8 +3,9 @@ sap.ui.define([
 	"./BaseController",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/routing/History",
-	"../model/formatter"
-], function (BaseController, JSONModel, History, formatter) {
+	"../model/formatter",
+	"sap/m/UploadCollectionParameter"
+], function (BaseController, JSONModel, History, formatter, UploadCollectionParameter) {
 	"use strict";
 
 	return BaseController.extend("pro.dimensys.pm.logsheet.controller.Object", {
@@ -25,6 +26,7 @@ sap.ui.define([
 				.getState(this.getOwnerComponent()
 					.ORDER);
 			this.setModel(this.OrderState.getModel(), "order");
+			this.setModel(new JSONModel({ edit: false }), "viewModel");
 
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 		},
@@ -57,20 +59,7 @@ sap.ui.define([
 
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
-				this.getView().setBusy(true);
-				this._toggleButtonsAndView(false);
-				this._showFormFragment("ObjectDisplay");
-				let updatedOrder = this.OrderState.data.order;
-				this.OrderState.updateOrder().then(() => {
-					this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
-						this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
-							var phases = this.getModel("order").getData().order.phases;
-							this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
-								this.getView().setBusy(false);
-							})
-						})
-					})
-				})
+				this._getExecutorDialog().open();
 			} else {
 				// Invalid start/due date error message
 			}
@@ -169,6 +158,92 @@ sap.ui.define([
 			});
 		},
 
+		onExecutorDialogSearch: function (oEvent) {
+			var sValue = oEvent.getParameter("value");
+			var aFilter = [
+				new Filter("FirstName", FilterOperator.Contains, sValue),
+				new Filter("LastName", FilterOperator.Contains, sValue)
+			];
+			var oBinding = oEvent.getParameter("itemsBinding");
+			oBinding.filter([aFilter]);
+		},
+
+		onExecutorDialogSelect: function (oEvent) {
+			this.OrderState.data.order.executor = this.getModel().getProperty(oEvent.getParameter("selectedItem").getBindingContextPath()).PersonnelNumber;
+			this.getView().setBusy(true);
+			this._toggleButtonsAndView(false);
+			this._showFormFragment("ObjectDisplay");
+			let updatedOrder = this.OrderState.data.order;
+			this.OrderState.updateOrder().then(() => {
+				this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
+					this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
+						var phases = this.getModel("order").getData().order.phases;
+						this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
+							this.getView().setBusy(false);
+						})
+					})
+				})
+			});
+			this._getExecutorDialog().close();
+		},
+
+		onExecutorDialogClose: function (oEvent) {
+			this._getExecutorDialog().close();
+		},
+
+		showAttachments: function (oEvent) {
+			this._getAttachmentDialog().open();
+		},
+
+		onAttachmentSave: function (oEvent) {
+			var oUplCol = this.byId("UploadCollectionAttachment");
+
+			var sKeyPath = "/AttachmentStream";
+			var sServiceURL = this.getOwnerComponent().getModel().sServiceUrl;
+			var sUploadURL = sServiceURL + sKeyPath; // + "/AttachmentStream";
+			for (var i = 0; i < oUplCol._aFileUploadersForPendingUpload.length; i++) {
+				oUplCol._aFileUploadersForPendingUpload[i].setUploadUrl(sUploadURL);
+			}
+
+			oUplCol.upload();
+			this._getAttachmentDialog().close();
+		},
+
+		onAttachmentCancel: function (oEvent) {
+			this._getAttachmentDialog().close();
+		},
+
+		onAttachmentSelection: function(oEvent){
+			var key = this.getModel().createKey("AttachmentStreamSet", this.getModel().getProperty(oEvent.getParameter("selectedItem").getBindingContext().getPath()));
+			var serviceURL = this.getModel().sServiceUrl;
+			var fullUrl = [serviceURL, key, "$value"].join("/");
+			window.open(fullUrl);
+		},
+
+		/* =========================================================== */
+		/* Upload Collection methods                                   */
+		/* =========================================================== */
+
+		onAttachmentChange: function (oEvent) {
+			var sSecurityToken = this.getView().getModel().getSecurityToken();
+			var oCustomerHeaderToken = new UploadCollectionParameter({
+				name: "x-csrf-token",
+				value: sSecurityToken
+			});
+			oEvent.getSource().addHeaderParameter(oCustomerHeaderToken);
+		},
+
+		onBeforeUploadStarts: function (oEvent) {
+			// filename
+			var sFilename = oEvent.getParameter("fileName");
+			sFilename = encodeURIComponent(sFilename);
+			var oCustomerHeaderSlug = new UploadCollectionParameter({
+				name: "slug",
+				value: sFilename + "/" + this.OrderState.data.order.orderNumber
+			});
+			oEvent.getParameters().addHeaderParameter(oCustomerHeaderSlug);
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -221,6 +296,7 @@ sap.ui.define([
 
 		_toggleButtonsAndView: function (bEdit) {
 			let oView = this.getView();
+			this.getModel("viewModel").setProperty("/edit", bEdit);
 
 			oView.byId("edit").setVisible(!bEdit);
 			oView.byId("footer").setVisible(bEdit);
@@ -233,6 +309,22 @@ sap.ui.define([
 			}
 			return this._oDialog;
 		},
+
+		_getExecutorDialog: function () {
+			if (!this._oExecutorDialog) {
+				this._oExecutorDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.ExecutorDialog", this);
+				this.getView().addDependent(this._oExecutorDialog);
+			}
+			return this._oExecutorDialog;
+		},
+
+		_getAttachmentDialog: function () {
+			if (!this._oAttaDialog) {
+				this._oAttaDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.AttachmentDialog", this);
+				this.getView().addDependent(this._oAttaDialog);
+			}
+			return this._oAttaDialog;
+		}
 
 	});
 

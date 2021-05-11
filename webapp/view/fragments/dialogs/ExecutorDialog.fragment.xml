@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="executorDialog"
+		noDataText="{i18n>NoExecutorFound}"
+		title="{i18n>ExecutorDialog}"
+		search=".onExecutorDialogSearch"
+		confirm=".onExecutorDialogSelect"
+		cancel=".onExecutorDialogClose"
+		items="{
+			path: '/PersonSet'
+		}">
+		<StandardListItem
+			title="{FirstName} {LastName}"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>
