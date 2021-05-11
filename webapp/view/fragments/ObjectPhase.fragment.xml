@@ -6,6 +6,9 @@
                     <Table items="{order>operations}">
                         <columns>
                             <Column width="12em">
+                                <Text text="{i18n>OperationTable.OperationNumber}" />
+                            </Column>
+                            <Column width="12em">
                                 <Text text="{i18n>OperationTable.WorkCenter}" />
                             </Column>
                             <Column minScreenWidth="Tablet" demandPopin="true">
@@ -24,6 +27,7 @@
                         <items>
                             <ColumnListItem>
                                 <cells>
+                                    <Text text="{order>operationNumber}" />
                                     <Text text="{order>workCenter}" />
                                     <Text text="{order>description}" />
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
