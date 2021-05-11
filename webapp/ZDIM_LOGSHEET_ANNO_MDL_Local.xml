@@ -13,10 +13,10 @@
 	</edmx:Reference>
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="master.ZDIM_LOGSHEET_ANNO_MDL_Local.ZDIM_LOGSHEET_SRV">
-			<Annotations Target="Metadata.ZDIM_GW_LS_ORDER/Phase">
+			<Annotations Target="Metadata.Order/Phase">
 				<Annotation Term="Common.ValueList">
 					<Record Type="Common.ValueListType">
-						<PropertyValue Property="CollectionPath" String="ZDIM_GW_LS_SH_PHASE"/>
+						<PropertyValue Property="CollectionPath" String="PhaseSHSet"/>
 						<PropertyValue Property="Parameters">
 							<Collection>
 								<Record Type="Common.ValueListParameterInOut">
@@ -29,6 +29,53 @@
 								<Record Type="Common.ValueListParameterDisplayOnly">
 									<PropertyValue Property="ValueListProperty" String="LongPhaseDescription"/>
 								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Order/UserStatus">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="UserStatusSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="UserStatus"/>
+									<PropertyValue Property="ValueListProperty" String="ShortStatusDescription"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="LongStatusDescription"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Order/SystemStatus">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="SystemStatusSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SystemStatus"/>
+									<PropertyValue Property="ValueListProperty" String="ShortDescription"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="LongDescription"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ZDIM_LOGSHEET_SRV_Entities/PhaseSH">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record Type="Capabilities.FilterRestrictionsType">
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>PhaseTechnical</PropertyPath>
 							</Collection>
 						</PropertyValue>
 					</Record>
