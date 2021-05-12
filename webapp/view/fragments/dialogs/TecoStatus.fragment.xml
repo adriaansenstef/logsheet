@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+    <Dialog title="{i18n>OrderDetail.TecoStatus}" type="Message">
+        <content>
+            <l:VerticalLayout width="100%">
+                <Label text="{i18n>OrderDetail.RefDate}"/>
+                <DateTimePicker id="RefDatePicker"
+                            value="{path:'order>/order/referenceDateTime', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }"
+                            valueFormat="dd/MM/yyyy HH:mm:ss" displayFormat="dd/MM/yyyy HH:mm:ss"
+                            editable="{= ${order>/order/systemStatusTechnical} === 'I0045'? false : true}" />
+            </l:VerticalLayout>
+        </content>
+        <buttons>
+            <Button text="{i18n>Cancel}" press="onTecoFlagCancel"/>
+            <Button text="{i18n>Save}" press="onTecoFlagSave"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

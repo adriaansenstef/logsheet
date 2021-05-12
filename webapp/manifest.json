@@ -82,6 +82,13 @@
 				"preload": true
 			}
 		},
+		"resources": {
+			"js": [
+				{
+					"uri": "libs/moment-with-locales.js"
+				}
+			]
+		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",

@@ -1,3 +1,4 @@
+/* globals moment */
 sap.ui.define([
 	"./BaseObject",
 	"sap/ui/model/type/Time",
@@ -7,6 +8,7 @@ sap.ui.define([
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Order", {
 		constructor: function (data) {
 			BaseObject.call(this, data);
+			this.referenceDateTime = new Date();
 		},
 
 		setPhases: function (data) {
@@ -21,12 +23,26 @@ sap.ui.define([
 			);
 		},
 
+		setConfirmations: function (data) {
+			data.map((confirmation) =>
+				this.phases
+					.filter((phase) => phase.orderNumber === confirmation.OrderNumber && phase.phaseId === confirmation.PhaseId)
+					.map((phase) =>
+						phase.operations.filter((operation) => operation.operationNumber === confirmation.Operation)
+							.map((operation) => operation.addConfirmation(confirmation)))
+			);
+		},
+
 		getJSON: function () {
 			return {
 				OrderNumber: this.orderNumber,
-				SystemStatus: this.systemStatus,
+				SystemStatusTechnical: this.systemStatusTechnical,
+				ReferenceDate: this.systemStatusTechnical === "I0045" ? this.referenceDateTime : null,
+				ReferenceTime: this.systemStatusTechnical === "I0045" ? moment(this.referenceDateTime).utc().format("PTHH[H]mm[M]ss[S]") : null,
 				UserStatus: this.userStatus,
+				Phase: this.phase,
 				ResponsiblePerson: this.responsiblePerson,
+				Executor: this.executor,
 				StartDate: this.startDate,
 				FinishDate: this.finishDate,
 				Phases: this.phases.map((phase) => phase.getJSON())

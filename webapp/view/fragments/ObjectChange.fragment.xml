@@ -58,10 +58,10 @@
                                 <DateTimePicker id="DueDateTimePicker" value="{path:'order>/order/finishDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy HH:mm', UTC: true } }" change="onDateChanged"/>
                             </f:fields>
                         </f:FormElement>
-                        <f:FormElement label="{i18n>OrderDetail.SystemStatus}">
+                        <f:FormElement label="{i18n>OrderDetail.Phase}">
                             <f:fields>
-                                <Select id="systemStatusSelect" items="{path: '/PhaseSHSet'}" selectedKey="{order>/order/systemStatus}" change="onSelectedSystemStatusChange">
-                                    <core:Item key="{ShortPhaseDescription}" text="{LongPhaseDescription}"/>
+                                <Select id="phaseSelect" items="{path: '/PhaseSHSet'}" selectedKey="{order>/order/phase}" change="onSelectedPhaseChange">
+                                    <core:Item key="{PhaseTechnical}" text="{LongPhaseDescription}"/>
                                 </Select>
                             </f:fields>
                         </f:FormElement>
