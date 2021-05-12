@@ -7,7 +7,7 @@ sap.ui.define([
 	"sap/m/UploadCollectionParameter",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], function (BaseController, JSONModel, History, formatter, UploadCollectionParameter,Filter, FilterOperator) {
+], function (BaseController, JSONModel, History, formatter, UploadCollectionParameter, Filter, FilterOperator) {
 	"use strict";
 
 	return BaseController.extend("pro.dimensys.pm.logsheet.controller.Object", {
@@ -112,11 +112,11 @@ sap.ui.define([
 		},
 
 		onSelectedUserStatusChange: function (oEvent) {
-			this.OrderState.data.order.userStatus = oEvent.getSource().getSelectedKeys();
+			this.OrderState.data.order.userStatus = oEvent.getSource().getSelectedKeys().toString();
 		},
 
 		onSelectedResponsiblePersonChange: function (oEvent) {
-			var key = oEvent.getSource().getSelectedItem();
+			var key = oEvent.getSource().getSelectedItem().getKey();
 
 			if (!key) {
 				oEvent.getSource().setValueState("Error");
@@ -220,7 +220,7 @@ sap.ui.define([
 			this._getAttachmentDialog().close();
 		},
 
-		onAttachmentSelection: function(oEvent){
+		onAttachmentSelection: function (oEvent) {
 			var key = this.getModel().createKey("AttachmentStreamSet", this.getModel().getProperty(oEvent.getParameter("selectedItem").getBindingContext().getPath()));
 			var serviceURL = this.getModel().sServiceUrl;
 			var fullUrl = [serviceURL, key, "$value"].join("/");
