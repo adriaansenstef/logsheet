@@ -70,6 +70,24 @@
 					</Record>
 				</Annotation>
 			</Annotations>
+			<Annotations Target="Metadata.Order/Priority">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="PrioritySet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="Priority"/>
+									<PropertyValue Property="ValueListProperty" String="PriorityId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Description"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
 			<Annotations Target="Metadata.ZDIM_LOGSHEET_SRV_Entities/PhaseSH">
 				<Annotation Term="Capabilities.FilterRestrictions">
 					<Record Type="Capabilities.FilterRestrictionsType">
