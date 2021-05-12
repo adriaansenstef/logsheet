@@ -36,9 +36,9 @@
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
                                         <Text text="{order>startDate}" />
                                     </VBox>
-                                    <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" press="onOkPress" width="100%" />
-                                    <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" press="onNokPress" width="100%" />
-                                    <ToggleButton text="{i18n>OperationTable.NVT}" press="onNvtPress" width="100%" />
+                                    <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" enabled="{viewModel>/edit}" press="onOkPress" width="100%" />
+                                    <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" enabled="{viewModel>/edit}" press="onNokPress" width="100%" />
+                                    <ToggleButton text="{i18n>OperationTable.NVT}" press="onNvtPress" enabled="{viewModel>/edit}" width="100%" />
                                 </cells>
                             </ColumnListItem>
                         </items>

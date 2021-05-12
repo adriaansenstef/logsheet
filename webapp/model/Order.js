@@ -42,6 +42,7 @@ sap.ui.define([
 				UserStatus: this.userStatus,
 				Phase: this.phase,
 				ResponsiblePerson: this.responsiblePerson,
+				Executor: this.executor,
 				StartDate: this.startDate,
 				FinishDate: this.finishDate,
 				Phases: this.phases.map((phase) => phase.getJSON())
