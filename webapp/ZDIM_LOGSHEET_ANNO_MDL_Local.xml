@@ -81,6 +81,28 @@
 					</Record>
 				</Annotation>
 			</Annotations>
+			<Annotations Target="Metadata.ZDIM_LOGSHEET_SRV_Entities/UserStatus">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record Type="Capabilities.FilterRestrictionsType">
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>UserStatusTechnical</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ZDIM_LOGSHEET_SRV_Entities/SystemStatus">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record Type="Capabilities.FilterRestrictionsType">
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>SystemStatusTechnical</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>
