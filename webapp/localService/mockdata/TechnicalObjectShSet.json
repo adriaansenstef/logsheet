@@ -1,0 +1,13 @@
+[
+    {
+        "TechnicalObject": "FuncLoc 1",
+        "Description": "Functional location 1",
+        "Type": "IFLO",
+        "Superiorobject": "",
+        "Drillstate": "expanded",
+        "Hierarchylevel": "0",
+        "__metadata": {
+            "type": "ZDIM_CREATE_NOTIF_GW_SRV.TechnicalObjectSh"
+        }
+    }
+]
