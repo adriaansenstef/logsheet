@@ -61,7 +61,7 @@
                         <f:FormElement label="{i18n>OrderDetail.Phase}">
                             <f:fields>
                                 <Select id="phaseSelect" items="{path: '/PhaseSHSet'}" selectedKey="{order>/order/phase}" change="onSelectedPhaseChange">
-                                    <core:Item key="{PhaseTechnical}" text="{LongPhaseDescription}"/>
+                                    <core:Item key="{PhaseNumber}" text="{LongPhaseDescription}"/>
                                 </Select>
                             </f:fields>
                         </f:FormElement>

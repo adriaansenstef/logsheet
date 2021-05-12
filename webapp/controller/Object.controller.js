@@ -4,8 +4,10 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/routing/History",
 	"../model/formatter",
-	"sap/m/UploadCollectionParameter"
-], function (BaseController, JSONModel, History, formatter, UploadCollectionParameter) {
+	"sap/m/UploadCollectionParameter",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function (BaseController, JSONModel, History, formatter, UploadCollectionParameter,Filter, FilterOperator) {
 	"use strict";
 
 	return BaseController.extend("pro.dimensys.pm.logsheet.controller.Object", {
@@ -184,7 +186,7 @@ sap.ui.define([
 					})
 				})
 			});
-			this._getExecutorDialog().close();
+			// this._getExecutorDialog().close();
 		},
 
 		onExecutorDialogClose: function (oEvent) {
@@ -193,6 +195,11 @@ sap.ui.define([
 
 		showAttachments: function (oEvent) {
 			this._getAttachmentDialog().open();
+			var oBinding = this.byId("UploadCollectionAttachment").getBindingInfo('items').binding;
+			var aFilter = [
+				new Filter("Ordernumber", FilterOperator.EQ, this.OrderState.data.order.orderNumber)
+			];
+			oBinding.filter(aFilter);
 		},
 
 		onAttachmentSave: function (oEvent) {
