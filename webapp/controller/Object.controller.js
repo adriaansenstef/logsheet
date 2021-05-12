@@ -198,7 +198,7 @@ sap.ui.define([
 		onAttachmentSave: function (oEvent) {
 			var oUplCol = this.byId("UploadCollectionAttachment");
 
-			var sKeyPath = "/AttachmentStream";
+			var sKeyPath = "/AttachmentStreamSet";
 			var sServiceURL = this.getOwnerComponent().getModel().sServiceUrl;
 			var sUploadURL = sServiceURL + sKeyPath; // + "/AttachmentStream";
 			for (var i = 0; i < oUplCol._aFileUploadersForPendingUpload.length; i++) {

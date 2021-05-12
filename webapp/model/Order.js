@@ -37,8 +37,8 @@ sap.ui.define([
 			return {
 				OrderNumber: this.orderNumber,
 				SystemStatusTechnical: this.systemStatusTechnical,
-				ReferenceDate: this.systemStatusTechnical === "I0045" ? this.referenceDateTime : "",
-				ReferenceTime: this.systemStatusTechnical === "I0045" ? moment(this.referenceDateTime).utc().format("PTHH[H]mm[M]ss[S]") : "",
+				ReferenceDate: this.systemStatusTechnical === "I0045" ? this.referenceDateTime : null,
+				ReferenceTime: this.systemStatusTechnical === "I0045" ? moment(this.referenceDateTime).utc().format("PTHH[H]mm[M]ss[S]") : null,
 				UserStatus: this.userStatus,
 				Phase: this.phase,
 				ResponsiblePerson: this.responsiblePerson,
