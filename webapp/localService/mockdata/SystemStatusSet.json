@@ -1,0 +1,66 @@
+{
+    "d" : {
+      "results" : [
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0001')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0001')",
+            "type" : "ZDIM_LOGSHEET_SRV.SystemStatus"
+          },
+          "SystemStatusTechnical" : "I0001",
+          "ShortDescription" : "CRTD",
+          "LongDescription" : "Created"
+        },
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0002')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0002')",
+            "type" : "ZDIM_LOGSHEET_SRV.SystemStatus"
+          },
+          "SystemStatusTechnical" : "I0002",
+          "ShortDescription" : "REL",
+          "LongDescription" : "Released"
+        },
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0010')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0010')",
+            "type" : "ZDIM_LOGSHEET_SRV.SystemStatus"
+          },
+          "SystemStatusTechnical" : "I0010",
+          "ShortDescription" : "PCNF",
+          "LongDescription" : "Partially confirmed"
+        },
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0045')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0045')",
+            "type" : "ZDIM_LOGSHEET_SRV.SystemStatus"
+          },
+          "SystemStatusTechnical" : "I0045",
+          "ShortDescription" : "TECO",
+          "LongDescription" : "Technically completed"
+        },
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0046')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0046')",
+            "type" : "ZDIM_LOGSHEET_SRV.SystemStatus"
+          },
+          "SystemStatusTechnical" : "I0046",
+          "ShortDescription" : "CLSD",
+          "LongDescription" : "Closed"
+        },
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0076')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/SystemStatusSet('I0076')",
+            "type" : "ZDIM_LOGSHEET_SRV.SystemStatus"
+          },
+          "SystemStatusTechnical" : "I0076",
+          "ShortDescription" : "DLFL",
+          "LongDescription" : "Deletion Flag"
+        }
+      ]
+    }
+  }

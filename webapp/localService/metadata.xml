@@ -286,6 +286,15 @@
 
             </EntityType>
 
+            <EntityType Name="SystemStatus" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="SystemStatusTechnical" /> 
+                    </Key>
+                    <Property Name="SystemStatusTechnical" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="System status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+                    <Property Name="ShortDescription" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+                    <Property Name="LongDescription" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+            </EntityType>
+
             <Association sap:content-version="1" Name="OrderPhase">
 
                 <End Type="ZDIM_LOGSHEET_SRV.Order" Role="FromRole_OrderPhase" Multiplicity="1" />
@@ -359,6 +368,8 @@
                 <EntitySet sap:content-version="1" Name="AttachmentSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.Attachment" />
 
                 <EntitySet sap:content-version="1" Name="AttachmentStreamSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.AttachmentStream" />
+
+                <EntitySet Name="SystemStatusSet" EntityType="ZDIM_LOGSHEET_SRV.SystemStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" /> 
 
                 <AssociationSet sap:content-version="1" Name="OrderPhaseSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZDIM_LOGSHEET_SRV.OrderPhase">
 
