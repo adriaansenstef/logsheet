@@ -40,6 +40,19 @@ sap.ui.define([
 			history.go(-1);
 		},
 
+		onSelect: function (oEvent) {
+			if (oEvent.getParameter("objecttype") === "EQUI") {
+				//
+			} else if (oEvent.getParameter("objecttype") === "IFLO") {
+				//this.getModel("notification").getData().FunctionalLocation = oEvent.getParameter("object");
+			}
+			if (this.byId("gridList").getSelectedItem()) {
+				this.byId("gridList").getSelectedItem().setSelected(false);
+			}
+			this.byId("techobjdescription").setText(oEvent.getParameter("objectdescription"));
+			//this.getModel("notification").refresh(true);
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */

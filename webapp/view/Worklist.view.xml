@@ -3,7 +3,7 @@
         <VBox>
             <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="OrderSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Description" enableBasicSearch="true">
                 <smartFilterBar:controlConfiguration>
-                    <smartFilterBar:ControlConfiguration key="TechnicalObject" index="3" label="Functional location">
+                    <smartFilterBar:ControlConfiguration key="TechnicalObject" index="0" label="Functional location">
                         <smartFilterBar:customControl>
                             <dim:FuncLocSearchHelp id="technicalObjectSH" onSelect="onSelect" class="sapUiSmallMarginBottom"/>
                         </smartFilterBar:customControl>

@@ -18,6 +18,14 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml"
 				}
+			},
+			"ZDIM_CREATE_NOTIF_GW_SRV": {
+				"uri": "/sap/opu/odata/sap/ZDIM_CREATE_NOTIF_GW_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
 			}
 		},
 		"sourceTemplate": {
@@ -69,6 +77,10 @@
 			},
 			"": {
 				"dataSource": "mainService",
+				"preload": true
+			},
+			"ZDIM_CREATE_NOTIF_GW_SRV": {
+				"dataSource": "ZDIM_CREATE_NOTIF_GW_SRV",
 				"preload": true
 			}
 		},
