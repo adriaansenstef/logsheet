@@ -1,0 +1,42 @@
+{
+    "d" : {
+      "results" : [
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PrioritySet('1')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PrioritySet('1')",
+            "type" : "ZDIM_LOGSHEET_SRV.Priority"
+          },
+          "PriorityId" : "1",
+          "Description" : "1-Very high"
+        },
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PrioritySet('2')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PrioritySet('2')",
+            "type" : "ZDIM_LOGSHEET_SRV.Priority"
+          },
+          "PriorityId" : "2",
+          "Description" : "2-High"
+        },
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PrioritySet('3')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PrioritySet('3')",
+            "type" : "ZDIM_LOGSHEET_SRV.Priority"
+          },
+          "PriorityId" : "3",
+          "Description" : "3-Medium"
+        },
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PrioritySet('4')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PrioritySet('4')",
+            "type" : "ZDIM_LOGSHEET_SRV.Priority"
+          },
+          "PriorityId" : "4",
+          "Description" : "4-Low"
+        }
+      ]
+    }
+  }

@@ -286,6 +286,14 @@
 
             </EntityType>
 
+            <EntityType Name="Priority" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PriorityId" /> 
+                </Key>
+                <Property Name="PriorityId" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Priority description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+            </EntityType>
+
             <Association sap:content-version="1" Name="OrderPhase">
 
                 <End Type="ZDIM_LOGSHEET_SRV.Order" Role="FromRole_OrderPhase" Multiplicity="1" />
@@ -360,6 +368,8 @@
 
                 <EntitySet sap:content-version="1" Name="AttachmentStreamSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.AttachmentStream" />
 
+                <EntitySet Name="PrioritySet" EntityType="ZDIM_LOGSHEET_SRV.Priority" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" /> 
+                
                 <AssociationSet sap:content-version="1" Name="OrderPhaseSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZDIM_LOGSHEET_SRV.OrderPhase">
 
                     <End Role="FromRole_OrderPhase" EntitySet="OrderSet" />
