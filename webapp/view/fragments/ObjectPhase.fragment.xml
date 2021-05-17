@@ -18,6 +18,9 @@
                                 <Text text="{i18n>OperationTable.Executor}" />
                             </Column>
                             <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="{i18n>OperationTable.Status}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true">
                                 <Text text="{i18n>OperationTable.DateTimeConfirmation}" />
                             </Column>
                             <Column width="6%" />
@@ -32,6 +35,9 @@
                                     <Text text="{order>description}" />
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
                                         <Text text="{order>firstName} {order>lastName}" />
+                                    </VBox>
+                                    <VBox items="{path:'order>confirmations', templateShareable:false}">
+                                        <Text text="{order>status}" />
                                     </VBox>
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
                                         <Text text="{path:'order>startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy', UTC: true } }"/>
