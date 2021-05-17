@@ -6,18 +6,20 @@
 		"Description": "Description 1",
 		"WorkCenter": "WorkCenter 1",
 		"Remark": "Remark 1",
+		"NewStatus": "E0003",
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%201',OrderNumber='OrderNumber%201',OperationNumber='OperationNumber%201')",
 			"type": "ZDIM_LOGSHEET_SRV.Operation"
 		}
 	},
 	{
-		"PhaseId": "PhaseId 2",
-		"OrderNumber": "OrderNumber 2",
+		"PhaseId": "PhaseId 1",
+		"OrderNumber": "5066580",
 		"OperationNumber": "OperationNumber 2",
 		"Description": "Description 2",
 		"WorkCenter": "WorkCenter 2",
 		"Remark": "Remark 2",
+		"NewStatus": "E0002",
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%202',OrderNumber='OrderNumber%202',OperationNumber='OperationNumber%202')",
 			"type": "ZDIM_LOGSHEET_SRV.Operation"
