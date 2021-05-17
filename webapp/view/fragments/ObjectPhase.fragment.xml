@@ -18,6 +18,9 @@
                                 <Text text="{i18n>OperationTable.Executor}" />
                             </Column>
                             <Column minScreenWidth="Tablet" demandPopin="true">
+                                <Text text="{i18n>OperationTable.Status}" />
+                            </Column>
+                            <Column minScreenWidth="Tablet" demandPopin="true">
                                 <Text text="{i18n>OperationTable.DateTimeConfirmation}" />
                             </Column>
                             <Column width="6%" />
@@ -34,7 +37,10 @@
                                         <Text text="{order>firstName} {order>lastName}" />
                                     </VBox>
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
-                                        <Text text="{order>startDate}" />
+                                        <Text text="{order>status}" />
+                                    </VBox>
+                                    <VBox items="{path:'order>confirmations', templateShareable:false}">
+                                        <Text text="{path:'order>startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy', UTC: true } }"/>
                                     </VBox>
                                     <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" enabled="{viewModel>/edit}" press="onOkPress" width="100%" />
                                     <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" enabled="{viewModel>/edit}" press="onNokPress" width="100%" />

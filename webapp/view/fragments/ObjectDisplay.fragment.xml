@@ -44,6 +44,11 @@
                                 <Text text="{order>/order/equipmentNumber} - {order>/order/equipmentDescription}"/>
                             </f:fields>
                         </f:FormElement>
+                        <f:FormElement label="{i18n>OrderDetail.SystemStatus}">
+                            <f:fields>
+                                <Text text="{order>/order/systemStatus}"/>
+                            </f:fields>
+                        </f:FormElement>
                     </f:formElements>
                 </f:FormContainer>
                 <f:FormContainer>
