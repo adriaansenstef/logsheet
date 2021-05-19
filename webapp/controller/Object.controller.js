@@ -134,14 +134,11 @@ sap.ui.define([
 		},
 
 		onSelectedResponsiblePersonChange: function (oEvent) {
-			var key = oEvent.getSource().getSelectedItem().getKey();
-
-			if (!key) {
-				oEvent.getSource().setValueState("Error");
-			} else {
-				oEvent.getSource().setValueState("None");
-				this.OrderState.data.order.responsiblePerson = key;
+			if (!oEvent.getSource().getSelectedItem()) {
+				oEvent.getSource().setSelectedItem(oEvent.getSource().getItemByKey("000000000000"))
 			}
+			this.OrderState.data.order.responsiblePerson = oEvent.getSource().getSelectedItem().getKey();
+
 		},
 
 		onTecoFlagPress: function (oEvent) {
