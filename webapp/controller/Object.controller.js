@@ -87,15 +87,30 @@ sap.ui.define([
 		},
 
 		onOkPress: function (oEvent) {
-			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0002');
+			if (oEvent.getParameters().pressed) {
+				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0002');
+			}
+			else {
+				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', '');
+			}
 		},
 
 		onNokPress: function (oEvent) {
-			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0003');
+			if (oEvent.getParameters().pressed) {
+				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0003');
+			}
+			else {
+				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', '');
+			}
 		},
 
-		onNvtPress: function (oEvent) {
-			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0009');
+		onNaPress: function (oEvent) {
+			if (oEvent.getParameters().pressed) {
+				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0009');
+			}
+			else {
+				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', '');
+			}
 		},
 
 		onDateChanged: function (oEvent) {
@@ -152,6 +167,25 @@ sap.ui.define([
 			}
 		},
 
+		iconTabFilterTextFormat: function (item) {
+			let description = item.description;
+			if (this.hasNOK(item)) {
+				description = "! " + description;
+			} return description;
+		},
+
+		iconTabFilterColorFormat: function (item) {
+			if (this.hasNOK(item)) {
+				return sap.ui.core.IconColor.Negative
+			} else {
+				return sap.ui.core.IconColor.Default
+			}
+		},
+
+		hasNOK: function (item) {
+			return item.operations.filter(op => op.newStatus === 'E0003').length > 0;
+		},
+
 		onPhaseSelect: function (oEvent) {
 			var sKey = oEvent.getParameter("key");
 			this.getModel("appView").setProperty("/busy", true);
@@ -176,6 +210,16 @@ sap.ui.define([
 			this._toggleButtonsAndView(false);
 			this._showFormFragment("ObjectDisplay");
 			let updatedOrder = this.OrderState.data.order;
+
+			// Add Quality Assurance user status if any operation has NOK status
+			if (!updatedOrder.userStatus.includes(",QA")) {
+				updatedOrder.phases.forEach(phase => {
+					if (this.hasNOK(phase)) {
+						updatedOrder.userStatus += ",QA"
+					}
+				});
+			}
+
 			this.OrderState.updateOrder().then(() => {
 				this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
 					this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
