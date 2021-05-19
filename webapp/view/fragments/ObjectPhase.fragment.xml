@@ -44,7 +44,7 @@
                                     </VBox>
                                     <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" pressed="{= ${order>newStatus} === 'E0002'? true : false }" enabled="{viewModel>/edit}" press="onOkPress" width="100%" />
                                     <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" pressed="{= ${order>newStatus} === 'E0003'? true : false }" enabled="{viewModel>/edit}" press="onNokPress" width="100%" />
-                                    <ToggleButton text="{i18n>OperationTable.NA}" type="None" pressed="{= ${order>newStatus} === 'E0009'? true : false }" enabled="{viewModel>/edit}" press="onNaPress" width="100%" />
+                                    <ToggleButton text="{i18n>OperationTable.NA}" type="Default" pressed="{= ${order>newStatus} === 'E0009'? true : false }" enabled="{viewModel>/edit}" press="onNaPress" width="100%" />
                                 </cells>
                             </ColumnListItem>
                         </items>

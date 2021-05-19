@@ -205,10 +205,8 @@ sap.ui.define([
 		},
 
 		onExecutorDialogSelect: function (oEvent) {
-			this.OrderState.data.order.executor = this.getModel().getProperty(oEvent.getParameter("selectedItem").getBindingContextPath()).PersonnelNumber;
-			this.getView().setBusy(true);
-			this._toggleButtonsAndView(false);
-			this._showFormFragment("ObjectDisplay");
+			this.OrderState.data.order.executor = oEvent.getParameters().selectedContexts[0].getObject().personnelNumber;
+
 			let updatedOrder = this.OrderState.data.order;
 
 			// Add Quality Assurance user status if any operation has NOK status
@@ -220,21 +218,7 @@ sap.ui.define([
 				});
 			}
 
-			this.OrderState.updateOrder().then(() => {
-				this.OrderState.getOrder(updatedOrder.orderNumber).then((order) => {
-					this.OrderState.getPhases(updatedOrder.orderNumber).then(() => {
-						var phases = this.getModel("order").getData().order.phases;
-						this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
-							this.getView().setBusy(false);
-						})
-					})
-				})
-			});
-			// this._getExecutorDialog().close();
-		},
-
-		onExecutorDialogClose: function (oEvent) {
-			this._getExecutorDialog().close();
+			this._getObjectData(updatedOrder.orderNumber);
 		},
 
 		showAttachments: function (oEvent) {
@@ -308,19 +292,23 @@ sap.ui.define([
 		_onObjectMatched: function (oEvent) {
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 			this.getModel().metadataLoaded().then(function () {
-				this.getModel("appView").setProperty("/busy", true);
-				this.OrderState.getOrder(sObjectId).then((order) => {
-					this._toggleButtonsAndView(false);
-					this._showFormFragment("ObjectDisplay");
-					this.OrderState.getPhases(sObjectId).then(() => {
-						var phases = this.getModel("order").getData().order.phases;
-						this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).then(() => {
-							this.getModel("appView").setProperty("/busy", false);
-						}).catch(() => this.getModel("appView").setProperty("/busy", false));
-					});
-				});
+				this._getObjectData(sObjectId)
 			}.bind(this));
-			this.getModel("appView").setProperty("/busy", false);
+		},
+
+		_getObjectData: function (sObjectId) {
+			this.getModel("appView").setProperty("/busy", true);
+			this.OrderState.getOrder(sObjectId).then(() => {
+				this._toggleButtonsAndView(false);
+				this._showFormFragment("ObjectDisplay");
+				this.OrderState.getPhases(sObjectId).then(() => {
+					var phases = this.getModel("order").getData().order.phases;
+					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).then(() => {
+						var operations = this.getModel("order").getData().order.phases[0].operations;
+						this.OrderState.getPersons(operations[0] ? operations[0].workCenter : null).finally(() => this.getModel("appView").setProperty("/busy", false));
+					})
+				});
+			})
 		},
 
 		_formFragments: {},
