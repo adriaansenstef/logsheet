@@ -4,7 +4,7 @@
 		"OrderNumber": "5066580",
 		"OperationNumber": "OperationNumber 1",
 		"Description": "Description 1",
-		"WorkCenter": "WorkCenter 1",
+		"WorkCenter": "LABAPPM",
 		"Remark": "Remark 1",
 		"NewStatus": "E0003",
 		"__metadata": {
@@ -17,7 +17,7 @@
 		"OrderNumber": "5066580",
 		"OperationNumber": "OperationNumber 2",
 		"Description": "Description 2",
-		"WorkCenter": "WorkCenter 2",
+		"WorkCenter": "LABAPPM",
 		"Remark": "Remark 2",
 		"NewStatus": "E0002",
 		"__metadata": {
