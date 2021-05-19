@@ -42,9 +42,9 @@
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
                                         <Text text="{path:'order>startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy', UTC: true } }"/>
                                     </VBox>
-                                    <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" pressed="{= ${order>newStatus} === 'E0002'? true : false }" enabled="{viewModel>/edit}" press="onOkPress" width="100%" />
-                                    <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" pressed="{= ${order>newStatus} === 'E0003'? true : false }" enabled="{viewModel>/edit}" press="onNokPress" width="100%" />
-                                    <ToggleButton text="{i18n>OperationTable.NA}" type="Default" pressed="{= ${order>newStatus} === 'E0009'? true : false }" enabled="{viewModel>/edit}" press="onNaPress" width="100%" />
+                                    <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" pressed="{= ${order>newStatus} === 'E0002'? true : false }" enabled="{viewModel>/edit}" press="onStatusButtonsPress" width="100%"/>
+                                    <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" pressed="{= ${order>newStatus} === 'E0003'? true : false }" enabled="{viewModel>/edit}" press="onStatusButtonsPress" width="100%"/>
+                                    <ToggleButton text="{i18n>OperationTable.NA}" type="Default" pressed="{= ${order>newStatus} === 'E0009'? true : false }" enabled="{viewModel>/edit}" press="onStatusButtonsPress" width="100%"/>
                                 </cells>
                             </ColumnListItem>
                         </items>

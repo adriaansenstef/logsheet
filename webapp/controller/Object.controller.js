@@ -30,6 +30,8 @@ sap.ui.define([
 			this.setModel(this.OrderState.getModel(), "order");
 			this.setModel(new JSONModel({ edit: false }), "viewModel");
 
+			this.hasConfirmationChanged = false;
+
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 		},
 
@@ -61,10 +63,17 @@ sap.ui.define([
 
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
-				this._getExecutorDialog().open();
+				if (this.hasConfirmationChanged) {
+					this._getExecutorDialog().open();
+				} else {
+					this.OrderState.updateOrder().then(() => {
+						this._getObjectData(this.OrderState.data.order.orderNumber);
+					});
+				}
 			} else {
 				// Invalid start/due date error message
 			}
+			this.hasConfirmationChanged = false;
 		},
 
 		onCancelPress: function (oEvent) {
@@ -86,31 +95,25 @@ sap.ui.define([
 			});
 		},
 
-		onOkPress: function (oEvent) {
+		onStatusButtonsPress: function (oEvent) {
+			let newStatus = '';
 			if (oEvent.getParameters().pressed) {
-				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0002');
+				switch (oEvent.getSource().getText()) {
+					case this.getModel("i18n").getResourceBundle().getText("OperationTable.OK"):
+						newStatus = 'E0002'
+						break;
+					case this.getModel("i18n").getResourceBundle().getText("OperationTable.NOK"):
+						newStatus = 'E0003'
+						break;
+					case this.getModel("i18n").getResourceBundle().getText("OperationTable.NA"):
+						newStatus = 'E0009'
+						break;
+					default:
+						break;
+				}
 			}
-			else {
-				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', '');
-			}
-		},
-
-		onNokPress: function (oEvent) {
-			if (oEvent.getParameters().pressed) {
-				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0003');
-			}
-			else {
-				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', '');
-			}
-		},
-
-		onNaPress: function (oEvent) {
-			if (oEvent.getParameters().pressed) {
-				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', 'E0009');
-			}
-			else {
-				this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', '');
-			}
+			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
+			this.hasConfirmationChanged = true;
 		},
 
 		onDateChanged: function (oEvent) {
@@ -217,8 +220,9 @@ sap.ui.define([
 					}
 				});
 			}
-
-			this._getObjectData(updatedOrder.orderNumber);
+			this.OrderState.updateOrder().then(() => {
+				this._getObjectData(updatedOrder.orderNumber);
+			});
 		},
 
 		showAttachments: function (oEvent) {
