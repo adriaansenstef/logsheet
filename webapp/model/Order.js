@@ -3,8 +3,9 @@ sap.ui.define([
 	"./BaseObject",
 	"sap/ui/model/type/Time",
 	"./Phase",
-	"./Person"
-], function (BaseObject, Time, Phase, Person) {
+	"./Person",
+	"./MeasurementPoint"
+], function (BaseObject, Time, Phase, Person, MeasurementPoint) {
 	"use strict";
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Order", {
 		constructor: function (data) {
@@ -38,6 +39,10 @@ sap.ui.define([
 			);
 		},
 
+		setMeasurementPoints: function(data){
+			this.measurements = data.map((measurepoint) => new MeasurementPoint(measurepoint));
+		},
+
 		getJSON: function () {
 			return {
 				OrderNumber: this.orderNumber,
@@ -50,7 +55,8 @@ sap.ui.define([
 				Executor: this.executor,
 				StartDate: this.startDate,
 				FinishDate: this.finishDate,
-				Phases: this.phases.map((phase) => phase.getJSON())
+				Phases: this.phases.map((phase) => phase.getJSON()),
+				Measurements: this.measurements.map((measurement) => measurement.getJSON())
 			}
 		}
 	});

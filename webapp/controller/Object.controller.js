@@ -227,15 +227,18 @@ sap.ui.define([
 
 		showMeasurePoints: function (oEvent) {
 			this._getMeasurePointsDialog().open();
-			var oBinding = this.byId("measurePointTable").getBindingInfo('items').binding;
-			var aFilter = [
-				new Filter("TechnicalObject", FilterOperator.EQ, this.OrderState.data.order.technicalObject)
-			];
-			oBinding.filter(aFilter);
+			if (!this.OrderState.data.order.measurements || this.OrderState.data.order.measurements.length <= 0) {
+				this.OrderState.getMeasurepoints(this.OrderState.data.order.technicalObject).then(this._getMeasurePointsDialog().open());
+			}
+			// var oBinding = this.byId("measurePointTable").getBindingInfo('items').binding;
+			// var aFilter = [
+			// 	new Filter("TechnicalObject", FilterOperator.EQ, this.OrderState.data.order.technicalObject)
+			// ];
+			// oBinding.filter(aFilter);
 		},
 
 		onMeasurePointClose: function (oEvent) {
-			this._getAttachmentDialog().close();
+			this._getMeasurePointsDialog().close();
 		},
 
 		showAttachments: function (oEvent) {

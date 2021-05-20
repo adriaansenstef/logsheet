@@ -1,10 +1,14 @@
-<edmx:Edmx xmlns:sap="http://www.sap.com/Protocols/SAPData" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+<edmx:Edmx xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+
 
     <edmx:DataServices m:DataServiceVersion="2.0">
 
+
         <Schema xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" sap:schema-version="1" Namespace="ZDIM_LOGSHEET_SRV">
 
+
             <EntityType sap:content-version="1" Name="Order">
+
 
                 <Key>
 
@@ -12,15 +16,23 @@
 
                 </Key>
 
-                <Property Name="Executor" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Personnel No." MaxLength="8" Nullable="false" Type="Edm.String" />
-
                 <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Short description" MaxLength="40" Nullable="false" Type="Edm.String" />
+
+                <Property Name="LongText" sap:updatable="false" sap:creatable="false" sap:label="LONG_TEXT" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="SystemStatusTechnical" sap:updatable="false" sap:creatable="false" sap:label="System status" MaxLength="5" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="Executor" sap:updatable="false" sap:creatable="false" sap:label="Personnel No." MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="ReferenceDate" sap:updatable="false" sap:creatable="false" sap:label="Date" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" Precision="7" />
 
                 <Property Name="Phase" sap:updatable="false" sap:creatable="false" sap:label="Phase" MaxLength="2" Nullable="false" Type="Edm.String" />
 
+                <Property Name="ReferenceTime" sap:updatable="false" sap:creatable="false" sap:label="Field of type TIMS" Type="Edm.Time" sap:filterable="false" sap:sortable="false" Precision="0" />
+
                 <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" />
 
-                <Property Name="PhaseDescription" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Phase description" MaxLength="30" Nullable="false" Type="Edm.String" />
+                <Property Name="PhaseDescription" sap:updatable="false" sap:creatable="false" sap:label="Phase description" MaxLength="30" Nullable="false" Type="Edm.String" sap:filterable="false" />
 
                 <Property Name="SystemStatus" sap:updatable="false" sap:creatable="false" sap:label="System status" Nullable="false" Type="Edm.String" />
 
@@ -30,7 +42,7 @@
 
                 <Property Name="RpFirstName" sap:updatable="false" sap:creatable="false" sap:label="First name" MaxLength="40" Nullable="false" Type="Edm.String" />
 
-                <Property Name="ResponsiblePerson" sap:filterable="false" sap:updatable="false" sap:creatable="false" sap:label="Person respons." MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="ResponsiblePerson" sap:updatable="false" sap:creatable="false" sap:label="Person respons." MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" />
 
                 <Property Name="TechnicalObject" sap:updatable="false" sap:creatable="false" sap:label="Functional loc." MaxLength="40" Nullable="false" Type="Edm.String" />
 
@@ -52,9 +64,13 @@
 
                 <NavigationProperty Name="Phases" ToRole="ToRole_OrderPhase" FromRole="FromRole_OrderPhase" Relationship="ZDIM_LOGSHEET_SRV.OrderPhase" />
 
+                <NavigationProperty Name="Measurements" ToRole="ToRole_Order2Measurements" FromRole="FromRole_Order2Measurements" Relationship="ZDIM_LOGSHEET_SRV.Order2Measurements" />
+
             </EntityType>
 
+
             <EntityType sap:content-version="1" Name="Detail">
+
 
                 <Key>
 
@@ -62,37 +78,39 @@
 
                 </Key>
 
-                <Property Name="OrderNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Description" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Name" MaxLength="20" Nullable="false" Type="Edm.String" />
+                <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Name" MaxLength="20" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="NotificationNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Notification" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="NotificationNumber" sap:updatable="false" sap:creatable="false" sap:label="Notification" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="TechnicalObject" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Functional loc." MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="TechnicalObject" sap:updatable="false" sap:creatable="false" sap:label="Functional loc." MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="TechnicalObjectDescription" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Description" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="TechnicalObjectDescription" sap:updatable="false" sap:creatable="false" sap:label="Description" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="EquipmentNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Equipment" MaxLength="18" Nullable="false" Type="Edm.String" />
+                <Property Name="EquipmentNumber" sap:updatable="false" sap:creatable="false" sap:label="Equipment" MaxLength="18" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="EquipmentDescription" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Description" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="EquipmentDescription" sap:updatable="false" sap:creatable="false" sap:label="Description" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="StartDate" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Bas. start date" Nullable="false" Type="Edm.DateTime" Precision="7" />
+                <Property Name="StartDate" sap:updatable="false" sap:creatable="false" sap:label="Bas. start date" Nullable="false" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" Precision="7" />
 
-                <Property Name="FinishDate" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Basic fin. date" Nullable="false" Type="Edm.DateTime" Precision="7" />
+                <Property Name="FinishDate" sap:updatable="false" sap:creatable="false" sap:label="Basic fin. date" Nullable="false" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" Precision="7" />
 
-                <Property Name="Priority" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Priority" MaxLength="1" Nullable="false" Type="Edm.String" />
+                <Property Name="Priority" sap:updatable="false" sap:creatable="false" sap:label="Priority" MaxLength="1" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="SystemStatus" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="SystemStatus" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="UserStatus" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="UserStatus" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="ReportedBy" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Reported by" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="ReportedBy" sap:updatable="false" sap:creatable="false" sap:label="Reported by" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="MainWorkcenter" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Main WorkCtr" MaxLength="8" Nullable="false" Type="Edm.String" />
+                <Property Name="MainWorkcenter" sap:updatable="false" sap:creatable="false" sap:label="Main WorkCtr" MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
             </EntityType>
 
+
             <EntityType sap:content-version="1" Name="Phase">
+
 
                 <Key>
 
@@ -102,19 +120,21 @@
 
                 </Key>
 
-                <Property Name="PhaseId" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="SystemCondition" MaxLength="1" Nullable="false" Type="Edm.String" />
+                <Property Name="PhaseId" sap:updatable="false" sap:creatable="false" sap:label="SystemCondition" MaxLength="1" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Description" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Text" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Text" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="OrderNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" />
-
-                <NavigationProperty Name="Order" ToRole="FromRole_OrderPhase" FromRole="ToRole_OrderPhase" Relationship="ZDIM_LOGSHEET_SRV.OrderPhase" />
+                <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
                 <NavigationProperty Name="Operations" ToRole="ToRole_PhaseOperation" FromRole="FromRole_PhaseOperation" Relationship="ZDIM_LOGSHEET_SRV.PhaseOperation" />
 
+                <NavigationProperty Name="Order" ToRole="FromRole_OrderPhase" FromRole="ToRole_OrderPhase" Relationship="ZDIM_LOGSHEET_SRV.OrderPhase" />
+
             </EntityType>
 
+
             <EntityType sap:content-version="1" Name="Operation">
+
 
                 <Key>
 
@@ -126,51 +146,59 @@
 
                 </Key>
 
-                <Property Name="Confirmation" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Confirmation" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="ActualWork" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.Decimal" sap:filterable="false" sap:sortable="false" Precision="8" Scale="2" />
 
-                <Property Name="InternalStatus" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="User status" MaxLength="5" Nullable="false" Type="Edm.String" />
+                <Property Name="Confirmation" sap:updatable="false" sap:creatable="false" sap:label="Confirmation" MaxLength="10" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="NewStatus" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="User status" MaxLength="5" Nullable="false" Type="Edm.String" />
+                <Property Name="InternalStatus" sap:updatable="false" sap:creatable="false" sap:label="User status" MaxLength="5" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="ObjectNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Object" MaxLength="22" Nullable="false" Type="Edm.String" />
+                <Property Name="NewStatus" sap:updatable="false" sap:creatable="false" sap:label="User status" MaxLength="5" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="PhaseId" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="SystemCondition" MaxLength="1" Nullable="false" Type="Edm.String" />
+                <Property Name="ObjectNumber" sap:updatable="false" sap:creatable="false" sap:label="Object" MaxLength="22" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Status" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="PhaseId" sap:updatable="false" sap:creatable="false" sap:label="SystemCondition" MaxLength="1" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="OrderNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="Status" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="OperationNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Oper./Act." MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Description" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Opr. short text" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="OperationNumber" sap:updatable="false" sap:creatable="false" sap:label="Oper./Act." MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="WorkCenter" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Work center" MaxLength="8" Nullable="false" Type="Edm.String" />
+                <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Opr. short text" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Remark" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="REMARK" Nullable="false" Type="Edm.String" />
+                <Property Name="WorkCenter" sap:updatable="false" sap:creatable="false" sap:label="Work center" MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="Remark" sap:updatable="false" sap:creatable="false" sap:label="REMARK" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
                 <NavigationProperty Name="Phase" ToRole="FromRole_PhaseOperation" FromRole="ToRole_PhaseOperation" Relationship="ZDIM_LOGSHEET_SRV.PhaseOperation" />
 
             </EntityType>
 
+
             <EntityType sap:content-version="1" Name="Person">
 
+
                 <Key>
+
+                    <PropertyRef Name="PersonnelNumber" />
 
                     <PropertyRef Name="WorkCenter" />
 
                 </Key>
 
-                <Property Name="PersonnelNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Personnel no." MaxLength="8" Nullable="false" Type="Edm.String" />
+                <Property Name="PersonnelNumber" sap:updatable="false" sap:creatable="false" sap:label="Personnel no." MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="WorkCenter" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Work center" MaxLength="8" Nullable="false" Type="Edm.String" />
+                <Property Name="WorkCenter" sap:updatable="false" sap:creatable="false" sap:label="Work center" MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="FirstName" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="First name" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="FirstName" sap:updatable="false" sap:creatable="false" sap:label="First name" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="LastName" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Last name" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="LastName" sap:updatable="false" sap:creatable="false" sap:label="Last name" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
             </EntityType>
 
+
             <EntityType sap:content-version="1" Name="UserStatus">
+
 
                 <Key>
 
@@ -178,15 +206,17 @@
 
                 </Key>
 
-                <Property Name="UserStatusTechnical" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="User status" MaxLength="5" Nullable="false" Type="Edm.String" />
+                <Property Name="UserStatusTechnical" sap:updatable="false" sap:creatable="false" sap:label="User status" MaxLength="5" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="ShortStatusDescription" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Short description" MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="ShortStatusDescription" sap:updatable="false" sap:creatable="false" sap:label="Short description" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="LongStatusDescription" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Long description" MaxLength="30" Nullable="false" Type="Edm.String" />
+                <Property Name="LongStatusDescription" sap:updatable="false" sap:creatable="false" sap:label="Long description" MaxLength="30" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
             </EntityType>
 
+
             <EntityType sap:content-version="1" Name="Confirmation">
+
 
                 <Key>
 
@@ -196,35 +226,37 @@
 
                 </Key>
 
-                <Property Name="ConfirmationNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Confirmation" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="ConfirmationNumber" sap:updatable="false" sap:creatable="false" sap:label="Confirmation" MaxLength="10" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Counter" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Counter" MaxLength="8" Nullable="false" Type="Edm.String" />
+                <Property Name="Counter" sap:updatable="false" sap:creatable="false" sap:label="Counter" MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Status" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Reason" MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="Status" sap:updatable="false" sap:creatable="false" sap:label="Reason" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="PhaseId" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="SystemCondition" MaxLength="1" Nullable="false" Type="Edm.String" />
+                <Property Name="PhaseId" sap:updatable="false" sap:creatable="false" sap:label="SystemCondition" MaxLength="1" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="OrderNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Operation" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Oper./Act." MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="Operation" sap:updatable="false" sap:creatable="false" sap:label="Oper./Act." MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="StartDate" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Execution start" Nullable="false" Type="Edm.DateTime" Precision="7" />
+                <Property Name="StartDate" sap:updatable="false" sap:creatable="false" sap:label="Execution start" Nullable="false" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" Precision="7" />
 
-                <Property Name="StartTime" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Act. start time" Nullable="false" Type="Edm.Time" Precision="0" />
+                <Property Name="StartTime" sap:updatable="false" sap:creatable="false" sap:label="Act. start time" Nullable="false" Type="Edm.Time" sap:filterable="false" sap:sortable="false" Precision="0" />
 
-                <Property Name="EndDate" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Finish execut." Nullable="false" Type="Edm.DateTime" Precision="7" />
+                <Property Name="EndDate" sap:updatable="false" sap:creatable="false" sap:label="Finish execut." Nullable="false" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" Precision="7" />
 
-                <Property Name="EndTime" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Actual finish" Nullable="false" Type="Edm.Time" Precision="0" />
+                <Property Name="EndTime" sap:updatable="false" sap:creatable="false" sap:label="Actual finish" Nullable="false" Type="Edm.Time" sap:filterable="false" sap:sortable="false" Precision="0" />
 
-                <Property Name="Person" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Personnel no." MaxLength="8" Nullable="false" Type="Edm.String" />
+                <Property Name="Person" sap:updatable="false" sap:creatable="false" sap:label="Personnel no." MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="FirstName" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="First name" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="FirstName" sap:updatable="false" sap:creatable="false" sap:label="First name" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="LastName" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Last name" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="LastName" sap:updatable="false" sap:creatable="false" sap:label="Last name" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
             </EntityType>
 
+
             <EntityType sap:content-version="1" Name="PhaseSH">
+
 
                 <Key>
 
@@ -232,76 +264,154 @@
 
                 </Key>
 
-                <Property Name="PhaseTechnical" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="User status" MaxLength="5" Nullable="false" Type="Edm.String" />
+                <Property Name="PhaseTechnical" sap:updatable="false" sap:creatable="false" sap:label="User status" MaxLength="5" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="ShortPhaseDescription" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Short description" MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="ShortPhaseDescription" sap:updatable="false" sap:creatable="false" sap:label="Short description" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="LongPhaseDescription" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Long description" MaxLength="30" Nullable="false" Type="Edm.String" />
+                <Property Name="LongPhaseDescription" sap:updatable="false" sap:creatable="false" sap:label="Long description" MaxLength="30" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="PhaseNumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Phase number" MaxLength="2" Nullable="false" Type="Edm.String" />
+                <Property Name="PhaseNumber" sap:updatable="false" sap:creatable="false" sap:label="Phase number" MaxLength="2" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
             </EntityType>
+
 
             <EntityType sap:content-version="1" Name="Attachment">
 
+
                 <Key>
 
                     <PropertyRef Name="Id" />
 
                 </Key>
 
-                <Property Name="Id" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Object ID" Nullable="false" Type="Edm.String" />
+                <Property Name="Id" sap:updatable="false" sap:creatable="false" sap:label="Object ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Filename" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="File Name" MaxLength="255" Nullable="false" Type="Edm.String" />
+                <Property Name="Filename" sap:updatable="false" sap:creatable="false" sap:label="File Name" MaxLength="255" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Filetype" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="BItem Type" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="Filetype" sap:updatable="false" sap:creatable="false" sap:label="BItem Type" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="CreatedOn" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Created On" Nullable="false" Type="Edm.DateTime" Precision="7" />
+                <Property Name="CreatedOn" sap:updatable="false" sap:creatable="false" sap:label="Created On" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" Precision="7" />
 
-                <Property Name="CreatedBy" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Created" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="CreatedBy" sap:updatable="false" sap:creatable="false" sap:label="Created" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Ordernumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="Ordernumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
             </EntityType>
+
 
             <EntityType sap:content-version="1" Name="AttachmentStream" m:HasStream="true">
 
+
                 <Key>
 
                     <PropertyRef Name="Id" />
 
                 </Key>
 
-                <Property Name="Id" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Object ID" Nullable="false" Type="Edm.String" />
+                <Property Name="Id" sap:updatable="false" sap:creatable="false" sap:label="Object ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Filename" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="File Name" MaxLength="255" Nullable="false" Type="Edm.String" />
+                <Property Name="Filename" sap:updatable="false" sap:creatable="false" sap:label="File Name" MaxLength="255" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Filetype" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="BItem Type" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="Filetype" sap:updatable="false" sap:creatable="false" sap:label="BItem Type" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="CreatedOn" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Created On" Nullable="false" Type="Edm.DateTime" Precision="7" />
+                <Property Name="CreatedOn" sap:updatable="false" sap:creatable="false" sap:label="Created On" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" Precision="7" />
 
-                <Property Name="CreatedBy" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Created" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="CreatedBy" sap:updatable="false" sap:creatable="false" sap:label="Created" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
-                <Property Name="Ordernumber" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="Ordernumber" sap:updatable="false" sap:creatable="false" sap:label="Order" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
 
             </EntityType>
 
-            <EntityType Name="Priority" sap:content-version="1">
+
+            <EntityType sap:content-version="1" Name="SystemStatus">
+
+
                 <Key>
-                    <PropertyRef Name="PriorityId" /> 
+
+                    <PropertyRef Name="SystemStatusTechnical" />
+
                 </Key>
-                <Property Name="PriorityId" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
-                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Priority description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+
+                <Property Name="SystemStatusTechnical" sap:updatable="false" sap:creatable="false" sap:label="System status" MaxLength="5" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="ShortDescription" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="LongDescription" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="30" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
             </EntityType>
-            
-            <EntityType Name="SystemStatus" sap:content-version="1">
-                    <Key>
-                        <PropertyRef Name="SystemStatusTechnical" /> 
-                    </Key>
-                    <Property Name="SystemStatusTechnical" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="System status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
-                    <Property Name="ShortDescription" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
-                    <Property Name="LongDescription" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" /> 
+
+
+            <EntityType sap:content-version="1" Name="Priority">
+
+
+                <Key>
+
+                    <PropertyRef Name="PriorityId" />
+
+                </Key>
+
+                <Property Name="PriorityId" sap:updatable="false" sap:creatable="false" sap:label="Priority" MaxLength="1" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="Description" sap:updatable="false" sap:creatable="false" sap:label="Priority description" MaxLength="20" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
             </EntityType>
+
+
+            <EntityType sap:content-version="1" Name="MeasurePoint">
+
+
+                <Key>
+
+                    <PropertyRef Name="Point" />
+
+                    <PropertyRef Name="Ordernumber" />
+
+                    <PropertyRef Name="TechnicalObject" />
+
+                </Key>
+
+                <Property Name="Point" sap:updatable="false" sap:creatable="false" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="Ordernumber" sap:updatable="false" sap:creatable="false" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="TechnicalObject" sap:updatable="false" sap:creatable="false" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="Description" sap:updatable="false" sap:creatable="false" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="Value" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.Double" sap:filterable="false" sap:sortable="false" />
+
+                <Property Name="Unit" sap:updatable="false" sap:creatable="false" MaxLength="3" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" sap:semantics="unit-of-measure" />
+
+            </EntityType>
+
+
+            <Association sap:content-version="1" Name="Order2Measurements">
+
+                <End Type="ZDIM_LOGSHEET_SRV.Order" Role="FromRole_Order2Measurements" Multiplicity="1" />
+
+                <End Type="ZDIM_LOGSHEET_SRV.MeasurePoint" Role="ToRole_Order2Measurements" Multiplicity="*" />
+
+
+                <ReferentialConstraint>
+
+
+                    <Principal Role="FromRole_Order2Measurements">
+
+                        <PropertyRef Name="OrderNumber" />
+
+                    </Principal>
+
+
+                    <Dependent Role="ToRole_Order2Measurements">
+
+                        <PropertyRef Name="Ordernumber" />
+
+                    </Dependent>
+
+                </ReferentialConstraint>
+
+            </Association>
+
 
             <Association sap:content-version="1" Name="OrderPhase">
 
@@ -309,13 +419,16 @@
 
                 <End Type="ZDIM_LOGSHEET_SRV.Phase" Role="ToRole_OrderPhase" Multiplicity="*" />
 
+
                 <ReferentialConstraint>
+
 
                     <Principal Role="FromRole_OrderPhase">
 
                         <PropertyRef Name="OrderNumber" />
 
                     </Principal>
+
 
                     <Dependent Role="ToRole_OrderPhase">
 
@@ -327,13 +440,16 @@
 
             </Association>
 
+
             <Association sap:content-version="1" Name="PhaseOperation">
 
                 <End Type="ZDIM_LOGSHEET_SRV.Phase" Role="FromRole_PhaseOperation" Multiplicity="0..1" />
 
                 <End Type="ZDIM_LOGSHEET_SRV.Operation" Role="ToRole_PhaseOperation" Multiplicity="*" />
 
+
                 <ReferentialConstraint>
+
 
                     <Principal Role="FromRole_PhaseOperation">
 
@@ -342,6 +458,7 @@
                         <PropertyRef Name="PhaseId" />
 
                     </Principal>
+
 
                     <Dependent Role="ToRole_PhaseOperation">
 
@@ -354,6 +471,7 @@
                 </ReferentialConstraint>
 
             </Association>
+
 
             <EntityContainer Name="ZDIM_LOGSHEET_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true">
 
@@ -377,9 +495,21 @@
 
                 <EntitySet sap:content-version="1" Name="AttachmentStreamSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.AttachmentStream" />
 
-                <EntitySet Name="PrioritySet" EntityType="ZDIM_LOGSHEET_SRV.Priority" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" /> 
-                
-                <EntitySet Name="SystemStatusSet" EntityType="ZDIM_LOGSHEET_SRV.SystemStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" /> 
+                <EntitySet sap:content-version="1" Name="SystemStatusSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.SystemStatus" />
+
+                <EntitySet sap:content-version="1" Name="PrioritySet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.Priority" />
+
+                <EntitySet sap:content-version="1" Name="MeasurePointSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.MeasurePoint" />
+
+
+                <AssociationSet sap:content-version="1" Name="Order2MeasurementsSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZDIM_LOGSHEET_SRV.Order2Measurements">
+
+                    <End Role="FromRole_Order2Measurements" EntitySet="OrderSet" />
+
+                    <End Role="ToRole_Order2Measurements" EntitySet="MeasurePointSet" />
+
+                </AssociationSet>
+
 
                 <AssociationSet sap:content-version="1" Name="OrderPhaseSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZDIM_LOGSHEET_SRV.OrderPhase">
 
@@ -388,6 +518,7 @@
                     <End Role="ToRole_OrderPhase" EntitySet="PhaseSet" />
 
                 </AssociationSet>
+
 
                 <AssociationSet sap:content-version="1" Name="PhaseOperationSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZDIM_LOGSHEET_SRV.PhaseOperation">
 
@@ -399,9 +530,9 @@
 
             </EntityContainer>
 
-            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" rel="self" />
+            <atom:link rel="self" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
 
-            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" rel="latest-version" />
+            <atom:link rel="latest-version" href="http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
 
         </Schema>
 
