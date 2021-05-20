@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:me="pro.dimensys.pm.logsheet.controls">
+    <Dialog>
+        <content>
+            
+        </content>
+        <buttons>
+            <Button text="{i18n>Close}" press="onMeasurePointClose" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

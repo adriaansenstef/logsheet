@@ -2,6 +2,7 @@
     <Page id="orderPage" title="{order>/order/orderNumber}" showNavButton="true" navButtonPress="onNavBack" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
         <headerContent>
             <Button icon="sap-icon://complete" tooltip="{i18n>OrderDetail.Teco}" press="onTecoFlagPress" enabled="{= ${order>/order/systemStatusTechnical} === 'I0045'? false : true}" />
+            <Button icon="sap-icon://measuring-point" tooltip="{i18n>OrderDetail.MeasurePoints}" press="showMeasurePoints" />
             <Button icon="sap-icon://attachment" tooltip="{i18n>OrderDetail.Attachments}" press="showAttachments" />
             <Button id="edit" text="{i18n>General.Edit}" press="onEditPress" type="Emphasized" visible="{= ${order>/order/systemStatusTechnical} === 'I0045'? false : true}" />
         </headerContent>
