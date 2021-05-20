@@ -28,7 +28,7 @@
                             <Column width="6%" />
                         </columns>
                         <items>
-                            <ColumnListItem highlight="{= ${order>newStatus} === 'E0003' ? 'Error' : 'None'}">
+                            <ColumnListItem highlight="{path: 'order>confirmations', formatter : '.highlightedOperationFormat'}">
                                 <cells>
                                     <Text text="{order>operationNumber}" />
                                     <Text text="{order>workCenter}" />
