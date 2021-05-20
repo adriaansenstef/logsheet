@@ -2,7 +2,7 @@
     <VBox>
         <IconTabBar items="{order>/order/phases}" expandable="false" select="onPhaseSelect" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
             <items>
-                <IconTabFilter text="{order>description}" key="{order>phaseId}">
+                <IconTabFilter text="{path: 'order>', formatter : '.iconTabFilterTextFormat'}" iconColor="{path: 'order>', formatter : '.iconTabFilterColorFormat'}" key="{order>phaseId}">
                     <Table items="{order>operations}">
                         <columns>
                             <Column width="12em">
@@ -28,7 +28,7 @@
                             <Column width="6%" />
                         </columns>
                         <items>
-                            <ColumnListItem>
+                            <ColumnListItem highlight="{= ${order>newStatus} === 'E0003' ? 'Error' : 'None'}">
                                 <cells>
                                     <Text text="{order>operationNumber}" />
                                     <Text text="{order>workCenter}" />
@@ -42,9 +42,9 @@
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
                                         <Text text="{path:'order>startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy', UTC: true } }"/>
                                     </VBox>
-                                    <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" enabled="{viewModel>/edit}" press="onOkPress" width="100%" />
-                                    <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" enabled="{viewModel>/edit}" press="onNokPress" width="100%" />
-                                    <ToggleButton text="{i18n>OperationTable.NVT}" press="onNvtPress" enabled="{viewModel>/edit}" width="100%" />
+                                    <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" pressed="{= ${order>newStatus} === 'E0002'? true : false }" enabled="{viewModel>/edit}" press="onStatusButtonsPress" width="100%"/>
+                                    <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" pressed="{= ${order>newStatus} === 'E0003'? true : false }" enabled="{viewModel>/edit}" press="onStatusButtonsPress" width="100%"/>
+                                    <ToggleButton text="{i18n>OperationTable.NA}" type="Default" pressed="{= ${order>newStatus} === 'E0009'? true : false }" enabled="{viewModel>/edit}" press="onStatusButtonsPress" width="100%"/>
                                 </cells>
                             </ColumnListItem>
                         </items>
