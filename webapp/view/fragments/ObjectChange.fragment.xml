@@ -90,7 +90,12 @@
                     <f:formElements>
                         <f:FormElement>
                             <f:fields>
-                                <TextArea value="{order>/order/longText}" editable="true" rows="4" growing="true" growingMaxLines="10"/>
+                                <TextArea value="{order>/order/longText}" editable="{device>/system/desktop}" rows="4" growing="true" growingMaxLines="8"/>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement>
+                            <f:fields>
+                                <Button icon="sap-icon://edit" tooltip="{i18n>OrderDetail.EditRemark}" press="onEditRemarkPress" visible="{= !${device>/system/desktop} }" width="20%"/>
                             </f:fields>
                         </f:FormElement>
                     </f:formElements>
