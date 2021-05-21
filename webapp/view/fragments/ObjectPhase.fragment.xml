@@ -3,24 +3,24 @@
         <IconTabBar items="{order>/order/phases}" expandable="false" select="onPhaseSelect" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
             <items>
                 <IconTabFilter text="{path: 'order>', formatter : '.iconTabFilterTextFormat'}" iconColor="{path: 'order>', formatter : '.iconTabFilterColorFormat'}" key="{order>phaseId}">
-                    <Table items="{order>operations}">
+                    <Table items="{order>operations}" fixedLayout="false">
                         <columns>
-                            <Column width="12em">
-                                <Text text="{i18n>OperationTable.OperationNumber}" />
+                            <Column width="4em">
+                                <Text text="{i18n>OperationTable.Operation}" />
                             </Column>
-                            <Column width="12em">
+                            <Column width="6em">
                                 <Text text="{i18n>OperationTable.WorkCenter}" />
                             </Column>
                             <Column minScreenWidth="Tablet" demandPopin="true">
                                 <Text text="{i18n>OperationTable.Decription}" />
                             </Column>
-                            <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Column minScreenWidth="Tablet" demandPopin="true" width="12em">
                                 <Text text="{i18n>OperationTable.Executor}" />
                             </Column>
-                            <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Column minScreenWidth="Tablet" demandPopin="true" width="4em">
                                 <Text text="{i18n>OperationTable.Status}" />
                             </Column>
-                            <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Column minScreenWidth="Tablet" demandPopin="true" width="6em">
                                 <Text text="{i18n>OperationTable.DateTimeConfirmation}" />
                             </Column>
                             <Column minScreenWidth="Tablet" demandPopin="true" visible="{viewModel>/edit}">
