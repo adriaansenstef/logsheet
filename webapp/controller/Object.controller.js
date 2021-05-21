@@ -185,8 +185,8 @@ sap.ui.define([
 			}
 		},
 
-		highlightedOperationFormat: function (items) {
-			if (items.length > 0 && items[items.length - 1].Status === 'E0003') {
+		highlightedOperationFormat: function (item) {
+			if (item.internalStatus === 'E0003') {
 				return 'Error'
 			} else {
 				return 'None'
@@ -194,7 +194,7 @@ sap.ui.define([
 		},
 
 		hasNOK: function (item) {
-			return item.operations.filter(op => op.confirmations.length > 0 && op.confirmations[op.confirmations.length - 1].Status === 'E0003').length > 0;
+			return (item.operations.length > 0 && item.operations.filter(op => op.internalStatus === 'E0003').length > 0);
 		},
 
 		onPhaseSelect: function (oEvent) {
