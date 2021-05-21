@@ -1,13 +1,15 @@
 sap.ui.define([
 	"./BaseObject",
 	"sap/ui/model/type/Time",
-	"./Confirmation"
-], function (BaseObject, Time, Confirmation) {
+	"./Confirmation",
+	"./MeasurementPoint"
+], function (BaseObject, Time, Confirmation, MeasurementPoint) {
 	"use strict";
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Operation", {
 		constructor: function (data) {
 			BaseObject.call(this, data);
 			this.confirmations = [];
+			this.measurements = [];
 		},
 
 		addConfirmation: function (confirmation) {
@@ -16,8 +18,10 @@ sap.ui.define([
 			}
 		},
 
-		setMeasurementPoints: function(data){
-			this.measurements = data.map((measurepoint) => new MeasurementPoint(measurepoint));
+		addMeasurement: function (measurement) {
+			if (!this.measurements.some(el => el.point === measurement.Point)) {
+				this.measurements.push(new MeasurementPoint(measurement));
+			}
 		},
 
 		getJSON: function () {

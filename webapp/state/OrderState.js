@@ -124,7 +124,7 @@ sap.ui.define([
 					value1: technicalObject
 				})]
 			}).then((result) => {
-				operation.setMeasurementPoints(result.data.results);
+				this.data.order.setMeasurement(operation, result.data.results);
 				this.updateModel(true);
 				return this.getProperty("order");
 			});

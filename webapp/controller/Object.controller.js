@@ -225,11 +225,16 @@ sap.ui.define([
 			});
 		},
 
-		showMeasurePoints: function (oEvent) {
-			this._getMeasurePointsDialog().open();
-			if (!this.OrderState.data.order.measurements || this.OrderState.data.order.measurements.length <= 0) {
-				this.OrderState.getMeasurepoints(this.OrderState.data.order.technicalObject).then(this._getMeasurePointsDialog().open());
+		showMeasurePoints: function (oEvent, operation) {
+			if (!operation.measurements || operation.measurements.length <= 0) {
+				this.OrderState.getMeasurepoints(operation, this.OrderState.data.order.technicalObject).then(
+					this._getMeasurePointsDialog().open()
+				);
 			}
+			var oList = this.byId("measurementsTable");
+			var sPath = oEvent.getSource().getParent().getBindingContextPath();
+			oList.bindElement({ path: sPath, model: "order" });
+			this._getMeasurePointsDialog().open();
 		},
 
 		onMeasurePointClose: function (oEvent) {

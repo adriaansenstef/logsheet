@@ -3,9 +3,8 @@ sap.ui.define([
 	"./BaseObject",
 	"sap/ui/model/type/Time",
 	"./Phase",
-	"./Person",
-	"./MeasurementPoint"
-], function (BaseObject, Time, Phase, Person, MeasurementPoint) {
+	"./Person"
+], function (BaseObject, Time, Phase, Person) {
 	"use strict";
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Order", {
 		constructor: function (data) {
@@ -37,6 +36,26 @@ sap.ui.define([
 						phase.operations.filter((operation) => operation.operationNumber === confirmation.Operation)
 							.map((operation) => operation.addConfirmation(confirmation)))
 			);
+		},
+
+		setMeasurement: function (operation, data) {
+			data.map((measurement) =>
+				this.phases
+					.filter((phase) => phase.orderNumber === operation.orderNumber && phase.phaseId === operation.phaseId)
+					.map((phase) =>
+						phase.operations.filter((oper) => oper.operationNumber === operation.operationNumber)
+							.map((operation) => operation.addMeasurement(measurement)))
+			);
+		},
+
+		getOperation: function (operation) {
+			var oper;
+			this.phases
+				.filter((phase) => phase.orderNumber === operation.orderNumber && phase.phaseId === operation.phaseId)
+				.map((phase) =>
+					phase.operations.filter((oper) => oper.operationNumber === operation.operationNumber)
+						.map((operation) => oper = operation));
+			return oper;
 		},
 
 		getJSON: function () {
