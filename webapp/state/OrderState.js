@@ -63,10 +63,11 @@ sap.ui.define([
 		},
 
 		getPersons: function (workCenter) {
+			let filterOperator = workCenter ? FilterOperator.EQ : FilterOperator.NE;
 			return this.getPersonService().getPersons({
 				filters: [new Filter({
 					path: "WorkCenter",
-					operator: FilterOperator.EQ,
+					operator: filterOperator,
 					value1: workCenter
 				})]
 			}).then((result) => {
@@ -77,6 +78,7 @@ sap.ui.define([
 		},
 
 		getOperations: function (phaseId) {
+			let filterOperator = phaseId ? FilterOperator.EQ : FilterOperator.NE;
 			return this.getOperationService().getOperations({
 				filters: [new Filter({
 					path: "OrderNumber",
@@ -85,7 +87,7 @@ sap.ui.define([
 				}),
 				new Filter({
 					path: "PhaseId",
-					operator: FilterOperator.EQ,
+					operator: filterOperator,
 					value1: phaseId
 				}),
 				]
@@ -100,7 +102,7 @@ sap.ui.define([
 					}),
 					new Filter({
 						path: "PhaseId",
-						operator: FilterOperator.EQ,
+						operator: filterOperator,
 						value1: phaseId
 					}),
 					]

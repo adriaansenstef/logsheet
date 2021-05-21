@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
     <VBox>
-        <IconTabBar items="{order>/order/phases}" expandable="false" select="onPhaseSelect" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
+        <IconTabBar items="{order>/order/phases}" expandable="false" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
             <items>
                 <IconTabFilter text="{path: 'order>', formatter : '.iconTabFilterTextFormat'}" iconColor="{path: 'order>', formatter : '.iconTabFilterColorFormat'}" key="{order>phaseId}">
                     <Table items="{order>operations}">

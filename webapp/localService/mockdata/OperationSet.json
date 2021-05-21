@@ -28,12 +28,13 @@
 		}
 	},
 	{
-		"PhaseId": "PhaseId 3",
-		"OrderNumber": "OrderNumber 3",
+		"PhaseId": "PhaseId 2",
+		"OrderNumber": "5066580",
 		"OperationNumber": "OperationNumber 3",
 		"Description": "Description 3",
 		"WorkCenter": "WorkCenter 3",
 		"Remark": "Remark 3",
+		"NewStatus": "",
 		"InternalStatus": "E0003",
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203',OperationNumber='OperationNumber%203')",
@@ -41,13 +42,14 @@
 		}
 	},
 	{
-		"PhaseId": "PhaseId 4",
-		"OrderNumber": "OrderNumber 4",
+		"PhaseId": "PhaseId 3",
+		"OrderNumber": "5066580",
 		"OperationNumber": "OperationNumber 4",
 		"Description": "Description 4",
 		"WorkCenter": "WorkCenter 4",
 		"Remark": "Remark 4",
-		"InternalStatus": "E0003",
+		"NewStatus": "",
+		"InternalStatus": "E0002",
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%204',OrderNumber='OrderNumber%204',OperationNumber='OperationNumber%204')",
 			"type": "ZDIM_LOGSHEET_SRV.Operation"
