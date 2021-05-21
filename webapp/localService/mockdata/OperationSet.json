@@ -2,10 +2,10 @@
 	{
 		"PhaseId": "PhaseId 1",
 		"OrderNumber": "5066580",
-		"OperationNumber": "OperationNumber 1",
+		"OperationNumber": "0010",
 		"Description": "Description 1",
 		"WorkCenter": "LABAPPM",
-		"Remark": "Remark 1",
+		"Remark": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut bibendum dolor, sed feugiat mi.",
 		"NewStatus": "E0003",
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%201',OrderNumber='OrderNumber%201',OperationNumber='OperationNumber%201')",
@@ -15,7 +15,7 @@
 	{
 		"PhaseId": "PhaseId 1",
 		"OrderNumber": "5066580",
-		"OperationNumber": "OperationNumber 2",
+		"OperationNumber": "0020",
 		"Description": "Description 2",
 		"WorkCenter": "LABAPPM",
 		"Remark": "Remark 2",
@@ -27,7 +27,7 @@
 	},
 	{
 		"PhaseId": "PhaseId 3",
-		"OrderNumber": "OrderNumber 3",
+		"OrderNumber": "0030",
 		"OperationNumber": "OperationNumber 3",
 		"Description": "Description 3",
 		"WorkCenter": "WorkCenter 3",
@@ -39,7 +39,7 @@
 	},
 	{
 		"PhaseId": "PhaseId 4",
-		"OrderNumber": "OrderNumber 4",
+		"OrderNumber": "0040",
 		"OperationNumber": "OperationNumber 4",
 		"Description": "Description 4",
 		"WorkCenter": "WorkCenter 4",
