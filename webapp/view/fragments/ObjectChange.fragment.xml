@@ -79,7 +79,7 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.Person}">
                             <f:fields>
-                                <ComboBox id="personCombobox" items="{path: '/PersonSet'}" selectedKey="{order>/order/responsiblePerson}" change="onSelectedResponsiblePersonChange">
+                                <ComboBox id="personCombobox" items="{path: '/PersonSet'}" forceSelection="false" selectedKey="{order>/order/responsiblePerson}" change="onSelectedResponsiblePersonChange">
                                     <core:Item key="{PersonnelNumber}" text="{FirstName} {LastName}"/>
                                 </ComboBox>
                             </f:fields>
@@ -90,7 +90,12 @@
                     <f:formElements>
                         <f:FormElement>
                             <f:fields>
-                                <TextArea value="{order>/order/description}" editable="false" rows="4" growing="true" growingMaxLines="10"/>
+                                <TextArea value="{order>/order/longText}" editable="{device>/system/desktop}" rows="4" growing="true" growingMaxLines="8"/>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement>
+                            <f:fields>
+                                <Button icon="sap-icon://edit" tooltip="{i18n>OrderDetail.EditRemark}" press="onEditRemarkPress" visible="{= !${device>/system/desktop} }" width="20%"/>
                             </f:fields>
                         </f:FormElement>
                     </f:formElements>

@@ -35,7 +35,7 @@
                                 <cells>
                                     <Text text="{order>operationNumber}" />
                                     <Text text="{order>workCenter}" />
-                                    <Text text="{order>description}" />
+                                    <Text text="{order>remark}" />
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
                                         <Text text="{order>firstName} {order>lastName}" />
                                     </VBox>

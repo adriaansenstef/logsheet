@@ -161,6 +161,14 @@ sap.ui.define([
 			this.onSavePress("event");
 		},
 
+		onEditRemarkPress: function (oEvent) {
+			this._getRemarkDialog().open();
+		},
+
+		onRemarkClose: function (oEvent) {
+			this._getRemarkDialog().close();
+		},
+
 		splitStatus: function (item) {
 			if (item.includes(",")) {
 				return item.split(",");
@@ -223,6 +231,17 @@ sap.ui.define([
 			this.OrderState.updateOrder().then(() => {
 				this._getObjectData(updatedOrder.orderNumber);
 			});
+		},
+
+		showMeasurePoints: function (oEvent) {
+			this._getMeasurePointsDialog().open();
+			if (!this.OrderState.data.order.measurements || this.OrderState.data.order.measurements.length <= 0) {
+				this.OrderState.getMeasurepoints(this.OrderState.data.order.technicalObject).then(this._getMeasurePointsDialog().open());
+			}
+		},
+
+		onMeasurePointClose: function (oEvent) {
+			this._getMeasurePointsDialog().close();
 		},
 
 		showAttachments: function (oEvent) {
@@ -367,6 +386,22 @@ sap.ui.define([
 				this.getView().addDependent(this._oAttaDialog);
 			}
 			return this._oAttaDialog;
+		},
+
+		_getRemarkDialog: function () {
+			if (!this._oRemarkDialog) {
+				this._oRemarkDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.RemarkDialog", this);
+				this.getView().addDependent(this._oRemarkDialog);
+			}
+			return this._oRemarkDialog;
+		},
+
+		_getMeasurePointsDialog: function () {
+			if (!this._oMPDialog) {
+				this._oMPDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.MeasurePointsDialog", this);
+				this.getView().addDependent(this._oMPDialog);
+			}
+			return this._oMPDialog;
 		}
 
 	});
