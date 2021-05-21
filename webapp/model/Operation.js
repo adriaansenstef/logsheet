@@ -28,6 +28,8 @@ sap.ui.define([
 				ObjectNumber: this.objectNumber,
 				InternalStatus: this.internalStatus,
 				NewStatus: this.newStatus,
+				ActualWork: this.actualWork,
+				//Confirmations: this.confirmations.map((confirmation) => confirmation.getJSON())
 				Measurements: this.measurements.map((measurement) => measurement.getJSON())
 			}
 		}
