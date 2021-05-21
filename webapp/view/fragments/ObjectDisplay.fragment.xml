@@ -84,7 +84,7 @@
                     <f:formElements>
                         <f:FormElement>
                             <f:fields>
-                                <TextArea value="{order>/order/description}" editable="false" rows="4" growing="true" growingMaxLines="10"/>
+                                <TextArea value="{order>/order/longText}" editable="false" rows="4" growing="true" growingMaxLines="8"/>
                             </f:fields>
                         </f:FormElement>
                     </f:formElements>
