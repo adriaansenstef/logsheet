@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (BaseState, Order, Filter, FilterOperator) {
 	"use strict";
 	var OrderState = BaseState.extend("pro.dimensys.pm.logsheet.state.OrderState", {
-		constructor: function (oService, oPhaseService, oOperationService, oConfirmationService, oPersonService) {
+		constructor: function (oService, oPhaseService, oOperationService, oConfirmationService, oPersonService, oMeasurementService) {
 			this.data = {
 				order: new Order(),
 				display: true
@@ -16,6 +16,7 @@ sap.ui.define([
 			this.OperationService = oOperationService;
 			this.ConfirmationService = oConfirmationService;
 			this.PersonService = oPersonService;
+			this.MeasurementService = oMeasurementService;
 			BaseState.call(this);
 		},
 
@@ -33,6 +34,9 @@ sap.ui.define([
 		},
 		getPersonService: function () {
 			return this.PersonService;
+		},
+		getMeasurementService: function () {
+			return this.MeasurementService;
 		},
 
 		getOrder: function (orderId) {
@@ -111,6 +115,20 @@ sap.ui.define([
 					this.updateModel(true);
 					return this.getProperty("order");
 				}).catch((er) => this.getProperty("order"));
+			});
+		},
+
+		getMeasurepoints: function(operation, technicalObject){
+			return this.getMeasurementService().getMeasurementPoints({
+				filters: [new Filter({
+					path: "TechnicalObject",
+					operator: FilterOperator.EQ,
+					value1: technicalObject
+				})]
+			}).then((result) => {
+				operation.setMeasurementPoints(result.data.results);
+				this.updateModel(true);
+				return this.getProperty("order");
 			});
 		}
 	});

@@ -119,14 +119,11 @@ sap.ui.define([
 		},
 
 		onSelectedResponsiblePersonChange: function (oEvent) {
-			var key = oEvent.getSource().getSelectedItem().getKey();
-
-			if (!key) {
-				oEvent.getSource().setValueState("Error");
-			} else {
-				oEvent.getSource().setValueState("None");
-				this.OrderState.data.order.responsiblePerson = key;
+			if (!oEvent.getSource().getSelectedItem()) {
+				oEvent.getSource().setSelectedItem(oEvent.getSource().getItemByKey("000000000000"))
 			}
+			this.OrderState.data.order.responsiblePerson = oEvent.getSource().getSelectedItem().getKey();
+
 		},
 
 		onTecoFlagPress: function (oEvent) {
@@ -144,6 +141,14 @@ sap.ui.define([
 			this.OrderState.data.order.systemStatusTechnical = "I0045";
 			this._getTecoChangeDialog().close();
 			this.onSavePress("event");
+		},
+
+		onEditRemarkPress: function (oEvent) {
+			this._getRemarkDialog().open();
+		},
+
+		onRemarkClose: function (oEvent) {
+			this._getRemarkDialog().close();
 		},
 
 		splitStatus: function (item) {
@@ -208,6 +213,17 @@ sap.ui.define([
 			this.OrderState.updateOrder().then(() => {
 				this._getObjectData(updatedOrder.orderNumber);
 			});
+		},
+
+		showMeasurePoints: function (oEvent) {
+			this._getMeasurePointsDialog().open();
+			if (!this.OrderState.data.order.measurements || this.OrderState.data.order.measurements.length <= 0) {
+				this.OrderState.getMeasurepoints(this.OrderState.data.order.technicalObject).then(this._getMeasurePointsDialog().open());
+			}
+		},
+
+		onMeasurePointClose: function (oEvent) {
+			this._getMeasurePointsDialog().close();
 		},
 
 		showAttachments: function (oEvent) {
@@ -352,6 +368,22 @@ sap.ui.define([
 				this.getView().addDependent(this._oAttaDialog);
 			}
 			return this._oAttaDialog;
+		},
+
+		_getRemarkDialog: function () {
+			if (!this._oRemarkDialog) {
+				this._oRemarkDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.RemarkDialog", this);
+				this.getView().addDependent(this._oRemarkDialog);
+			}
+			return this._oRemarkDialog;
+		},
+
+		_getMeasurePointsDialog: function () {
+			if (!this._oMPDialog) {
+				this._oMPDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.MeasurePointsDialog", this);
+				this.getView().addDependent(this._oMPDialog);
+			}
+			return this._oMPDialog;
 		}
 
 	});
