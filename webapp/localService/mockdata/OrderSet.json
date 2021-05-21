@@ -100,5 +100,731 @@
 				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
 			}
 		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072366",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072343",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072344",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072345",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072346",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072347",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072348",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072349",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072350",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072351",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072352",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072353",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072354",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072355",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072356",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072357",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072358",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072359",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072360",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072361",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072362",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')",
+			"type": "ZDIM_LOGSHEET_SRV.Order"
+		},
+		"OrderNumber": "5072363",
+		"PhaseDescription": "Before production",
+		"SystemStatus": "",
+		"SystemStatusTechnical": "",
+		"ReferenceDate": "",
+		"ReferenceTime": "",
+		"UserStatus": "MREQ",
+		"RpLastName": "Allaerts",
+		"Description": "Ijkgewichten herstel",
+		"RpFirstName": "Jan",
+		"ResponsiblePerson": "20000086",
+		"TechnicalObject": "JSR-SC-DEV-TOOLS-SGEW",
+		"Phase": "E0006",
+		"StartDate": "\/Date(1619568000000)\/",
+		"NotificationNumber": "10016828",
+		"TechnicalObjectDescription": "P2 STANDAARD IJKGEWICHTEN - GROUP",
+		"EquipmentNumber": "",
+		"EquipmentDescription": "",
+		"FinishDate": "\/Date(1619568000000)\/",
+		"Priority": "",
+		"ReportedBy": "",
+		"Phases": {
+			"__deferred": {
+				"uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/OrderSet('5072342')/Phases"
+			}
+		}
 	}
 ]
