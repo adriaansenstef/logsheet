@@ -63,7 +63,7 @@ sap.ui.define([
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
 				if (this.hasConfirmationChanged) {
-					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then( () => {
+					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
 						this._getExecutorDialog().open();
 					});
 				} else {
@@ -80,10 +80,10 @@ sap.ui.define([
 			let lowestOperationWorkCenter = '';
 			let lowestOperationNumber = Number.MAX_SAFE_INTEGER;
 
-			this.operationPaths.forEach( (path) => {
+			this.operationPaths.forEach((path) => {
 				let pathOperationNumber = parseInt(this.getModel("order").getProperty(path + '/operationNumber'));
 
-				if(pathOperationNumber < lowestOperationNumber) {
+				if (pathOperationNumber < lowestOperationNumber) {
 					lowestOperationNumber = pathOperationNumber;
 					lowestOperationWorkCenter = this.getModel("order").getProperty(path + '/workCenter');
 				}
@@ -118,7 +118,7 @@ sap.ui.define([
 
 				this.operationPaths.push(oEvent.getSource().getParent().getBindingContextPath());
 			} else {
-				this.operationPaths = this.operationPaths.filter(function(e) { return e !==  oEvent.getSource().getParent().getBindingContextPath() });
+				this.operationPaths = this.operationPaths.filter(function (e) { return e !== oEvent.getSource().getParent().getBindingContextPath() });
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
 			this.hasConfirmationChanged = (this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus);
@@ -331,8 +331,7 @@ sap.ui.define([
 				this._toggleButtonsAndView(false);
 				this._showFormFragment("ObjectDisplay");
 				this.OrderState.getPhases(sObjectId).then(() => {
-					var phases = this.getModel("order").getData().order.phases;
-					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).then(() => {
+					this.OrderState.getOperations(null).then(() => {
 						var operations = this.getModel("order").getData().order.phases[0].operations;
 					})
 				});
