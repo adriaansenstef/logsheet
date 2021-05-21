@@ -56,7 +56,7 @@ sap.ui.define([
 				that._showObject(oEvent.getSource());
 			}
 			let table = this.getView().byId("OrderSmartTable").getTable();
-			this.getView().byId("OrderSmartTable").attachDataReceived(function () {
+			table.attachUpdateFinished(function () {
 				let aItems = table.getItems();
 				if (aItems.length === 0) return;
 				$.each(aItems, function (oIndex, oItem) {
