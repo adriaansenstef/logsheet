@@ -1,0 +1,19 @@
+{
+    "d" : {
+      "results" : [
+        {
+          "__metadata" : {
+            "id" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/MeasurePointSet(Point='1',Ordernumber='5066580',TechnicalObject='JSRB-SUB-RMQC')",
+            "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/MeasurePointSet(Point='1',Ordernumber='5066580',TechnicalObject='JSRB-SUB-RMQC')",
+            "type" : "ZDIM_LOGSHEET_SRV.MeasurePoint"
+          },
+          "Point" : "1",
+          "Ordernumber" : "5066580",
+          "TechnicalObject" : "JSRB-SUB-RMQC",
+          "Description" : "Test",
+          "Value" : "0",
+          "Unit" : "EA"
+        }
+      ]
+    }
+  }

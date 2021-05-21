@@ -3,8 +3,9 @@ sap.ui.define([
 	"./BaseObject",
 	"sap/ui/model/type/Time",
 	"./Phase",
-	"./Person"
-], function (BaseObject, Time, Phase, Person) {
+	"./Person",
+	"./MeasurementPoint"
+], function (BaseObject, Time, Phase, Person, MeasurementPoint) {
 	"use strict";
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Order", {
 		constructor: function (data) {

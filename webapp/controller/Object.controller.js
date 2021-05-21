@@ -233,6 +233,17 @@ sap.ui.define([
 			});
 		},
 
+		showMeasurePoints: function (oEvent) {
+			this._getMeasurePointsDialog().open();
+			if (!this.OrderState.data.order.measurements || this.OrderState.data.order.measurements.length <= 0) {
+				this.OrderState.getMeasurepoints(this.OrderState.data.order.technicalObject).then(this._getMeasurePointsDialog().open());
+			}
+		},
+
+		onMeasurePointClose: function (oEvent) {
+			this._getMeasurePointsDialog().close();
+		},
+
 		showAttachments: function (oEvent) {
 			this._getAttachmentDialog().open();
 			var oBinding = this.byId("UploadCollectionAttachment").getBindingInfo('items').binding;
@@ -383,6 +394,14 @@ sap.ui.define([
 				this.getView().addDependent(this._oRemarkDialog);
 			}
 			return this._oRemarkDialog;
+		},
+
+		_getMeasurePointsDialog: function () {
+			if (!this._oMPDialog) {
+				this._oMPDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.MeasurePointsDialog", this);
+				this.getView().addDependent(this._oMPDialog);
+			}
+			return this._oMPDialog;
 		}
 
 	});
