@@ -73,7 +73,6 @@ sap.ui.define([
 			} else {
 				// Invalid start/due date error message
 			}
-			this.hasConfirmationChanged = false;
 		},
 
 		onCancelPress: function (oEvent) {
@@ -96,7 +95,7 @@ sap.ui.define([
 		},
 
 		onStatusButtonsPress: function (oEvent) {
-			let newStatus = '';
+			let newStatus = ' ';
 			if (oEvent.getParameters().pressed) {
 				switch (oEvent.getSource().getText()) {
 					case this.getModel("i18n").getResourceBundle().getText("OperationTable.OK"):
@@ -113,7 +112,7 @@ sap.ui.define([
 				}
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
-			this.hasConfirmationChanged = true;
+			this.hasConfirmationChanged = (this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus);
 		},
 
 		onDateChanged: function (oEvent) {
@@ -231,6 +230,8 @@ sap.ui.define([
 			this.OrderState.updateOrder().then(() => {
 				this._getObjectData(updatedOrder.orderNumber);
 			});
+
+			this.hasConfirmationChanged = false;
 		},
 
 		showAttachments: function (oEvent) {

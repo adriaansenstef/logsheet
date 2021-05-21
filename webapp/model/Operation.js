@@ -23,7 +23,7 @@ sap.ui.define([
 				Confirmation: this.confirmation,
 				ObjectNumber: this.objectNumber,
 				InternalStatus: this.internalStatus,
-				NewStatus: this.newStatus
+				NewStatus: this.newStatus || this.internalStatus
 				//Confirmations: this.confirmations.map((confirmation) => confirmation.getJSON())
 			}
 		}
