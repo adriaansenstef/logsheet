@@ -3,6 +3,17 @@
         "results": [
             {
                 "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "000000000000",
+                "WorkCenter": "",
+                "FirstName": "",
+                "LastName": ""
+            },
+            {
+                "__metadata": {
                     "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
                     "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
                     "type": "ZDIM_LOGSHEET_SRV.Person"
