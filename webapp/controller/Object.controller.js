@@ -161,6 +161,14 @@ sap.ui.define([
 			this.onSavePress("event");
 		},
 
+		onEditRemarkPress: function (oEvent) {
+			this._getRemarkDialog().open();
+		},
+
+		onRemarkClose: function (oEvent) {
+			this._getRemarkDialog().close();
+		},
+
 		splitStatus: function (item) {
 			if (item.includes(",")) {
 				return item.split(",");
@@ -378,6 +386,14 @@ sap.ui.define([
 				this.getView().addDependent(this._oAttaDialog);
 			}
 			return this._oAttaDialog;
+		},
+
+		_getRemarkDialog: function () {
+			if (!this._oRemarkDialog) {
+				this._oRemarkDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.RemarkDialog", this);
+				this.getView().addDependent(this._oRemarkDialog);
+			}
+			return this._oRemarkDialog;
 		},
 
 		_getMeasurePointsDialog: function () {
