@@ -30,8 +30,6 @@ sap.ui.define([
 			this.setModel(this.OrderState.getModel(), "order");
 			this.setModel(new JSONModel({ edit: false }), "viewModel");
 
-			this.hasConfirmationChanged = false;
-
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 		},
 
@@ -73,30 +71,17 @@ sap.ui.define([
 			} else {
 				// Invalid start/due date error message
 			}
-			this.hasConfirmationChanged = false;
 		},
 
 		onCancelPress: function (oEvent) {
-			this.getView().setBusy(true);
-			this._toggleButtonsAndView(false);
-			this._showFormFragment("ObjectDisplay");
-
 			this.byId("StartDateTimePicker").setValueState("None");
 			this.byId("DueDateTimePicker").setValueState("None");
 
-			this.OrderState.getOrder(this.OrderState.data.order.orderNumber).then((order) => {
-				this.OrderState.getPhases(this.OrderState.data.order.orderNumber).then(() => {
-					var phases = this.getModel("order").getData().order.phases;
-					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
-
-						this.getView().setBusy(false);
-					})
-				})
-			});
+			this._getObjectData(this.OrderState.data.order.orderNumber);
 		},
 
 		onStatusButtonsPress: function (oEvent) {
-			let newStatus = '';
+			let newStatus = ' ';
 			if (oEvent.getParameters().pressed) {
 				switch (oEvent.getSource().getText()) {
 					case this.getModel("i18n").getResourceBundle().getText("OperationTable.OK"):
@@ -113,7 +98,7 @@ sap.ui.define([
 				}
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
-			this.hasConfirmationChanged = true;
+			this.hasConfirmationChanged = (this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus);
 		},
 
 		onDateChanged: function (oEvent) {
@@ -190,16 +175,16 @@ sap.ui.define([
 			}
 		},
 
-		hasNOK: function (item) {
-			return item.operations.filter(op => op.newStatus === 'E0003').length > 0;
+		highlightedOperationFormat: function (item) {
+			if (item.internalStatus === 'E0003') {
+				return 'Error'
+			} else {
+				return 'None'
+			}
 		},
 
-		onPhaseSelect: function (oEvent) {
-			var sKey = oEvent.getParameter("key");
-			this.getModel("appView").setProperty("/busy", true);
-			this.OrderState.getOperations(sKey).then(() => {
-				this.getModel("appView").setProperty("/busy", false);
-			});
+		hasNOK: function (item) {
+			return (item.operations.length > 0 && item.operations.filter(op => op.internalStatus === 'E0003').length > 0);
 		},
 
 		onExecutorDialogSearch: function (oEvent) {
@@ -317,15 +302,15 @@ sap.ui.define([
 		},
 
 		_getObjectData: function (sObjectId) {
-			this.getModel("appView").setProperty("/busy", true);
+			this.getModel("appView").setProperty("/busy", true)
+			this.hasConfirmationChanged = false;
 			this.OrderState.getOrder(sObjectId).then(() => {
 				this._toggleButtonsAndView(false);
 				this._showFormFragment("ObjectDisplay");
 				this.OrderState.getPhases(sObjectId).then(() => {
-					var phases = this.getModel("order").getData().order.phases;
-					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).then(() => {
-						var operations = this.getModel("order").getData().order.phases[0].operations;
-						this.OrderState.getPersons(operations[0] ? operations[0].workCenter : null).finally(() => this.getModel("appView").setProperty("/busy", false));
+					this.OrderState.getOperations(null).then(() => {
+						var firstPhaseOperation = this.getModel("order").getData().order.phases.filter(ph => ph.operations.length > 0 && ph.operations[0].workCenter)[0];
+						this.OrderState.getPersons(firstPhaseOperation ? firstPhaseOperation.operations[0].workCenter : null).finally(() => this.getModel("appView").setProperty("/busy", false));
 					})
 				});
 			})
