@@ -13,6 +13,7 @@ sap.ui.define([
 	return BaseController.extend("pro.dimensys.pm.logsheet.controller.Object", {
 
 		formatter: formatter,
+		operationPaths: [],
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -64,7 +65,9 @@ sap.ui.define([
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
 				if (this.hasConfirmationChanged) {
-					this._getExecutorDialog().open();
+					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then( () => {
+						this._getExecutorDialog().open();
+					});
 				} else {
 					this.OrderState.updateOrder().then(() => {
 						this._getObjectData(this.OrderState.data.order.orderNumber);
@@ -74,6 +77,22 @@ sap.ui.define([
 				// Invalid start/due date error message
 			}
 			this.hasConfirmationChanged = false;
+		},
+
+		_getLowestOperationWorkCenter: function () {
+			let lowestOperationWorkCenter = '';
+			let lowestOperationNumber = Number.MAX_SAFE_INTEGER;
+
+			this.operationPaths.forEach( (path) => {
+				let pathOperationNumber = parseInt(this.getModel("order").getProperty(path + '/operationNumber'));
+
+				if(pathOperationNumber < lowestOperationNumber) {
+					lowestOperationNumber = pathOperationNumber;
+					lowestOperationWorkCenter = this.getModel("order").getProperty(path + '/workCenter');
+				}
+			});
+
+			return lowestOperationWorkCenter;
 		},
 
 		onCancelPress: function (oEvent) {
@@ -88,7 +107,6 @@ sap.ui.define([
 				this.OrderState.getPhases(this.OrderState.data.order.orderNumber).then(() => {
 					var phases = this.getModel("order").getData().order.phases;
 					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
-
 						this.getView().setBusy(false);
 					})
 				})
@@ -97,6 +115,7 @@ sap.ui.define([
 
 		onStatusButtonsPress: function (oEvent) {
 			let newStatus = '';
+
 			if (oEvent.getParameters().pressed) {
 				switch (oEvent.getSource().getText()) {
 					case this.getModel("i18n").getResourceBundle().getText("OperationTable.OK"):
@@ -111,6 +130,10 @@ sap.ui.define([
 					default:
 						break;
 				}
+
+				this.operationPaths.push(oEvent.getSource().getParent().getBindingContextPath());
+			} else {
+				this.operationPaths = this.operationPaths.filter(function(e) { return e !==  oEvent.getSource().getParent().getBindingContextPath() });
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
 			this.hasConfirmationChanged = true;
@@ -325,10 +348,9 @@ sap.ui.define([
 					var phases = this.getModel("order").getData().order.phases;
 					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).then(() => {
 						var operations = this.getModel("order").getData().order.phases[0].operations;
-						this.OrderState.getPersons(operations[0] ? operations[0].workCenter : null).finally(() => this.getModel("appView").setProperty("/busy", false));
 					})
 				});
-			})
+			}).finally(() => this.getModel("appView").setProperty("/busy", false));
 		},
 
 		_formFragments: {},

@@ -26,11 +26,59 @@
 		}
 	},
 	{
-		"PhaseId": "PhaseId 3",
-		"OrderNumber": "0030",
-		"OperationNumber": "OperationNumber 3",
+		"PhaseId": "PhaseId 2",
+		"OrderNumber": "5066580",
+		"OperationNumber": "0060",
 		"Description": "Description 3",
-		"WorkCenter": "WorkCenter 3",
+		"WorkCenter": "LABAPPM",
+		"Remark": "Remark 3",
+		"__metadata": {
+			"uri": "OperationSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203',OperationNumber='OperationNumber%203')",
+			"type": "ZDIM_LOGSHEET_SRV.Operation"
+		}
+	},
+	{
+		"PhaseId": "PhaseId 2",
+		"OrderNumber": "5066580",
+		"OperationNumber": "0040",
+		"Description": "Description 3",
+		"WorkCenter": "LABAPPM",
+		"Remark": "Remark 3",
+		"__metadata": {
+			"uri": "OperationSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203',OperationNumber='OperationNumber%203')",
+			"type": "ZDIM_LOGSHEET_SRV.Operation"
+		}
+	},
+	{
+		"PhaseId": "PhaseId 2",
+		"OrderNumber": "5066580",
+		"OperationNumber": "0050",
+		"Description": "Description 3",
+		"WorkCenter": "LABAPPM",
+		"Remark": "Remark 3",
+		"__metadata": {
+			"uri": "OperationSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203',OperationNumber='OperationNumber%203')",
+			"type": "ZDIM_LOGSHEET_SRV.Operation"
+		}
+	},
+	{
+		"PhaseId": "PhaseId 3",
+		"OrderNumber": "5066580",
+		"OperationNumber": "0030",
+		"Description": "Description 3",
+		"WorkCenter": "MAINT",
+		"Remark": "Remark 3",
+		"__metadata": {
+			"uri": "OperationSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203',OperationNumber='OperationNumber%203')",
+			"type": "ZDIM_LOGSHEET_SRV.Operation"
+		}
+	},
+	{
+		"PhaseId": "PhaseId 3",
+		"OrderNumber": "5066580",
+		"OperationNumber": "0070",
+		"Description": "Description 3",
+		"WorkCenter": "MAINT",
 		"Remark": "Remark 3",
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203',OperationNumber='OperationNumber%203')",
@@ -39,10 +87,10 @@
 	},
 	{
 		"PhaseId": "PhaseId 4",
-		"OrderNumber": "0040",
-		"OperationNumber": "OperationNumber 4",
+		"OrderNumber": "5066580",
+		"OperationNumber": "0040",
 		"Description": "Description 4",
-		"WorkCenter": "WorkCenter 4",
+		"WorkCenter": "LABAPPM",
 		"Remark": "Remark 4",
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%204',OrderNumber='OrderNumber%204',OperationNumber='OperationNumber%204')",
@@ -50,11 +98,11 @@
 		}
 	},
 	{
-		"PhaseId": "PhaseId 5",
-		"OrderNumber": "OrderNumber 5",
-		"OperationNumber": "OperationNumber 5",
+		"PhaseId": "PhaseId 4",
+		"OrderNumber": "5066580",
+		"OperationNumber": "0050",
 		"Description": "Description 5",
-		"WorkCenter": "WorkCenter 5",
+		"WorkCenter": "LABAPPM",
 		"Remark": "Remark 5",
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%205',OrderNumber='OrderNumber%205',OperationNumber='OperationNumber%205')",
