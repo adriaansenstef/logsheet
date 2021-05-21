@@ -16,6 +16,10 @@ sap.ui.define([
 			}
 		},
 
+		setMeasurementPoints: function(data){
+			this.measurements = data.map((measurepoint) => new MeasurementPoint(measurepoint));
+		},
+
 		getJSON: function () {
 			return {
 				OperationNumber: this.operationNumber,
@@ -23,8 +27,8 @@ sap.ui.define([
 				Confirmation: this.confirmation,
 				ObjectNumber: this.objectNumber,
 				InternalStatus: this.internalStatus,
-				NewStatus: this.newStatus
-				//Confirmations: this.confirmations.map((confirmation) => confirmation.getJSON())
+				NewStatus: this.newStatus,
+				Measurements: this.measurements.map((measurement) => measurement.getJSON())
 			}
 		}
 	});

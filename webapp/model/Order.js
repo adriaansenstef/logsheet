@@ -39,10 +39,6 @@ sap.ui.define([
 			);
 		},
 
-		setMeasurementPoints: function(data){
-			this.measurements = data.map((measurepoint) => new MeasurementPoint(measurepoint));
-		},
-
 		getJSON: function () {
 			return {
 				OrderNumber: this.orderNumber,
@@ -55,8 +51,7 @@ sap.ui.define([
 				Executor: this.executor,
 				StartDate: this.startDate,
 				FinishDate: this.finishDate,
-				Phases: this.phases.map((phase) => phase.getJSON()),
-				Measurements: this.measurements.map((measurement) => measurement.getJSON())
+				Phases: this.phases.map((phase) => phase.getJSON())
 			}
 		}
 	});

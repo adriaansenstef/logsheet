@@ -116,7 +116,7 @@ sap.ui.define([
 			});
 		},
 
-		getMeasurepoints: function(technicalObject){
+		getMeasurepoints: function(operation, technicalObject){
 			return this.getMeasurementService().getMeasurementPoints({
 				filters: [new Filter({
 					path: "TechnicalObject",
@@ -124,7 +124,7 @@ sap.ui.define([
 					value1: technicalObject
 				})]
 			}).then((result) => {
-				this.data.order.setMeasurementPoints(result.data.results);
+				operation.setMeasurementPoints(result.data.results);
 				this.updateModel(true);
 				return this.getProperty("order");
 			});

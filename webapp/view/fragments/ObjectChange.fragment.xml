@@ -79,7 +79,7 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.Person}">
                             <f:fields>
-                                <ComboBox id="personCombobox" items="{path: '/PersonSet'}" selectedKey="{order>/order/responsiblePerson}" change="onSelectedResponsiblePersonChange">
+                                <ComboBox id="personCombobox" items="{path: '/PersonSet'}" forceSelection="false" selectedKey="{order>/order/responsiblePerson}" change="onSelectedResponsiblePersonChange">
                                     <core:Item key="{PersonnelNumber}" text="{FirstName} {LastName}"/>
                                 </ComboBox>
                             </f:fields>
