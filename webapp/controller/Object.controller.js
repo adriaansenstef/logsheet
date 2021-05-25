@@ -62,7 +62,7 @@ sap.ui.define([
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
 				if (this.hasConfirmationChanged) {
-					this._getExecutorDialog().open();
+					this._getDialog("Executor").open();
 				} else {
 					this.OrderState.updateOrder().then(() => {
 						this._getObjectData(this.OrderState.data.order.orderNumber);
@@ -127,42 +127,41 @@ sap.ui.define([
 		},
 
 		onTecoFlagPress: function (oEvent) {
-			this._getTecoChangeDialog().open();
+			this._getDialog("TecoStatus").open();
 		},
 
 		onTecoFlagCancel: function (oEvent) {
-			this._getTecoChangeDialog().close();
+			this._getDialog("TecoStatus").close();
 			this.OrderState.data.order.referenceDate = ""
 			this.OrderState.data.order.referenceTime = ""
 		},
 
 		onTecoFlagSave: function (oEvent) {
 			this.OrderState.data.order.tecoFlag = true;
-			this._getTecoChangeDialog().close();
+			this._getDialog("TecoStatus").close();
 			this.onSavePress("event");
 		},
 
 		onRemoveTecoFlagPress: function (oEvent) {
-			this._getTecoRemoveDialog().open();
+			this._getDialog("RemoveTecoStatus").open();
 		},
 
 		onRemoveTecoFlagCancel: function (oEvent) {
-			this._getTecoRemoveDialog().close();
+			this._getDialog("RemoveTecoStatus").close();
 		},
 
 		onRemoveTecoFlagSave: function (oEvent) {
 			this.OrderState.data.order.tecoFlag = false;
-			this._getTecoRemoveDialog().close();
+			this._getDialog("RemoveTecoStatus").close();
 			this.onSavePress("event");
 		},
 
-
 		onEditRemarkPress: function (oEvent) {
-			this._getRemarkDialog().open();
+			this._getDialog("Remark").open();
 		},
 
 		onRemarkClose: function (oEvent) {
-			this._getRemarkDialog().close();
+			this._getDialog("Remark").close();
 		},
 
 		splitStatus: function (item) {
@@ -230,18 +229,18 @@ sap.ui.define([
 		},
 
 		showMeasurePoints: function (oEvent) {
-			this._getMeasurePointsDialog().open();
+			this._getDialog("MeasurePoints").open();
 			if (!this.OrderState.data.order.measurements || this.OrderState.data.order.measurements.length <= 0) {
-				this.OrderState.getMeasurepoints(this.OrderState.data.order.technicalObject).then(this._getMeasurePointsDialog().open());
+				this.OrderState.getMeasurepoints(this.OrderState.data.order.technicalObject).then(this._getDialog("MeasurePoints").open());
 			}
 		},
 
 		onMeasurePointClose: function (oEvent) {
-			this._getMeasurePointsDialog().close();
+			this._getDialog("MeasurePoints").close();
 		},
 
 		showAttachments: function (oEvent) {
-			this._getAttachmentDialog().open();
+			this._getDialog("Attachment").open();
 			var oBinding = this.byId("UploadCollectionAttachment").getBindingInfo('items').binding;
 			var aFilter = [
 				new Filter("Ordernumber", FilterOperator.EQ, this.OrderState.data.order.orderNumber)
@@ -260,11 +259,11 @@ sap.ui.define([
 			}
 
 			oUplCol.upload();
-			this._getAttachmentDialog().close();
+			this._getDialog("Attachment").close();
 		},
 
 		onAttachmentCancel: function (oEvent) {
-			this._getAttachmentDialog().close();
+			this._getDialog("Attachment").close();
 		},
 
 		onAttachmentSelection: function (oEvent) {
@@ -360,52 +359,12 @@ sap.ui.define([
 			oView.byId("footer").setVisible(bEdit);
 		},
 
-		_getTecoChangeDialog: function () {
+		_getDialog: function (sDialogName) {
 			if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.TecoStatusDialog", this);
+				this._oDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs." + sDialogName + "Dialog", this);
 				this.getView().addDependent(this._oDialog);
 			}
 			return this._oDialog;
-		},
-
-		_getTecoRemoveDialog: function () {
-			if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.RemoveTecoStatusDialog", this);
-				this.getView().addDependent(this._oDialog);
-			}
-			return this._oDialog;
-		},
-
-		_getExecutorDialog: function () {
-			if (!this._oExecutorDialog) {
-				this._oExecutorDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.ExecutorDialog", this);
-				this.getView().addDependent(this._oExecutorDialog);
-			}
-			return this._oExecutorDialog;
-		},
-
-		_getAttachmentDialog: function () {
-			if (!this._oAttaDialog) {
-				this._oAttaDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.AttachmentDialog", this);
-				this.getView().addDependent(this._oAttaDialog);
-			}
-			return this._oAttaDialog;
-		},
-
-		_getRemarkDialog: function () {
-			if (!this._oRemarkDialog) {
-				this._oRemarkDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.RemarkDialog", this);
-				this.getView().addDependent(this._oRemarkDialog);
-			}
-			return this._oRemarkDialog;
-		},
-
-		_getMeasurePointsDialog: function () {
-			if (!this._oMPDialog) {
-				this._oMPDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.MeasurePointsDialog", this);
-				this.getView().addDependent(this._oMPDialog);
-			}
-			return this._oMPDialog;
 		}
 
 	});
