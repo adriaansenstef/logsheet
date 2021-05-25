@@ -137,17 +137,25 @@ sap.ui.define([
 		},
 
 		onTecoFlagSave: function (oEvent) {
-			//this.OrderState.data.order.systemStatus = "TECO";
-			//this.OrderState.data.order.systemStatusTechnical = "I0045";
 			this.OrderState.data.order.tecoFlag = true;
 			this._getTecoChangeDialog().close();
 			this.onSavePress("event");
 		},
 
 		onRemoveTecoFlagPress: function (oEvent) {
+			this._getTecoRemoveDialog().open();
+		},
+
+		onRemoveTecoFlagCancel: function (oEvent) {
+			this._getTecoRemoveDialog().close();
+		},
+
+		onRemoveTecoFlagSave: function (oEvent) {
 			this.OrderState.data.order.tecoFlag = false;
+			this._getTecoRemoveDialog().close();
 			this.onSavePress("event");
 		},
+
 
 		onEditRemarkPress: function (oEvent) {
 			this._getRemarkDialog().open();
@@ -354,7 +362,15 @@ sap.ui.define([
 
 		_getTecoChangeDialog: function () {
 			if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.TecoStatus", this);
+				this._oDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.TecoStatusDialog", this);
+				this.getView().addDependent(this._oDialog);
+			}
+			return this._oDialog;
+		},
+
+		_getTecoRemoveDialog: function () {
+			if (!this._oDialog) {
+				this._oDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.RemoveTecoStatusDialog", this);
 				this.getView().addDependent(this._oDialog);
 			}
 			return this._oDialog;
