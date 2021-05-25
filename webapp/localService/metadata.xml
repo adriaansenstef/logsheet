@@ -28,6 +28,7 @@
                 <Property Name="FinishDate" sap:updatable="false" sap:creatable="false" sap:label="Basic fin. date" Type="Edm.DateTime" Precision="7" />
                 <Property Name="Priority" sap:updatable="false" sap:creatable="false" sap:label="Priority" MaxLength="1" Nullable="false" Type="Edm.String" />
                 <Property Name="ReportedBy" sap:updatable="false" sap:creatable="false" sap:label="Reported by" MaxLength="12" Nullable="false" Type="Edm.String" />
+                <Property Name="TecoFlag" sap:updatable="false" sap:creatable="false" sap:label="Teco flag" MaxLength="1" Nullable="false" Type="Edm.Boolean" />
                 <NavigationProperty Name="Phases" ToRole="ToRole_OrderPhase" FromRole="FromRole_OrderPhase" Relationship="ZDIM_LOGSHEET_SRV.OrderPhase" />
                 <NavigationProperty Name="Measurements" ToRole="ToRole_Order2Measurements" FromRole="FromRole_Order2Measurements" Relationship="ZDIM_LOGSHEET_SRV.Order2Measurements" />
             </EntityType>

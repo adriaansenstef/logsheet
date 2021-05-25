@@ -30,7 +30,7 @@ sap.ui.define([
 				NewStatus: this.newStatus || this.internalStatus,
 				ActualWork: this.actualWork,
 				//Confirmations: this.confirmations.map((confirmation) => confirmation.getJSON())
-				Measurements: this.measurements.map((measurement) => measurement.getJSON())
+				//Measurements: this.measurements.map((measurement) => measurement.getJSON())
 			}
 		}
 	});

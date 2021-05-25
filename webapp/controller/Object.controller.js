@@ -137,9 +137,15 @@ sap.ui.define([
 		},
 
 		onTecoFlagSave: function (oEvent) {
-			this.OrderState.data.order.systemStatus = "TECO";
-			this.OrderState.data.order.systemStatusTechnical = "I0045";
+			//this.OrderState.data.order.systemStatus = "TECO";
+			//this.OrderState.data.order.systemStatusTechnical = "I0045";
+			this.OrderState.data.order.tecoFlag = true;
 			this._getTecoChangeDialog().close();
+			this.onSavePress("event");
+		},
+
+		onRemoveTecoFlagPress: function (oEvent) {
+			this.OrderState.data.order.tecoFlag = false;
 			this.onSavePress("event");
 		},
 
