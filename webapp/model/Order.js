@@ -43,8 +43,8 @@ sap.ui.define([
 			return {
 				OrderNumber: this.orderNumber,
 				SystemStatusTechnical: this.systemStatusTechnical,
-				ReferenceDate: this.tecoFlag ? this.referenceDateTime : null,
-				ReferenceTime: this.tecoFlag ? moment(this.referenceDateTime).utc().format("PTHH[H]mm[M]ss[S]") : null,
+				ReferenceDate: this.tecoFlag === "X" ? this.referenceDateTime : null,
+				ReferenceTime: this.tecoFlag === "X" ? moment(this.referenceDateTime).utc().format("PTHH[H]mm[M]ss[S]") : null,
 				UserStatus: this.userStatus,
 				Phase: this.phase,
 				ResponsiblePerson: this.responsiblePerson,
@@ -52,7 +52,7 @@ sap.ui.define([
 				StartDate: this.startDate,
 				FinishDate: this.finishDate,
 				LongText: this.longText,
-				TecoFlag: this.tecoFlag,
+				TecoFlag: this.tecoFlag === "X",
 				Phases: this.phases.map((phase) => phase.getJSON())
 			}
 		}

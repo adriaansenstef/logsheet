@@ -161,7 +161,7 @@ sap.ui.define([
 		},
 
 		onTecoFlagSave: function (oEvent) {
-			this.OrderState.data.order.tecoFlag = true;
+			this.OrderState.data.order.tecoFlag = "X";
 			this._getDialog("TecoStatus").close();
 			this.onSavePress("event");
 		},
@@ -175,7 +175,7 @@ sap.ui.define([
 		},
 
 		onRemoveTecoFlagSave: function (oEvent) {
-			this.OrderState.data.order.tecoFlag = false;
+			this.OrderState.data.order.tecoFlag = "";
 			this._getDialog("RemoveTecoStatus").close();
 			this.onSavePress("event");
 		},
