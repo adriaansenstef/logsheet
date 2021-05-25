@@ -13,6 +13,7 @@ sap.ui.define([
 	return BaseController.extend("pro.dimensys.pm.logsheet.controller.Object", {
 
 		formatter: formatter,
+		operationPaths: [],
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -62,7 +63,10 @@ sap.ui.define([
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
 				if (this.hasConfirmationChanged) {
-					this._getDialog("Executor").open();
+
+					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
+						this._getDialog("Executor").open();
+					});
 				} else {
 					this.OrderState.updateOrder().then(() => {
 						this._getObjectData(this.OrderState.data.order.orderNumber);
@@ -71,6 +75,22 @@ sap.ui.define([
 			} else {
 				// Invalid start/due date error message
 			}
+		},
+
+		_getLowestOperationWorkCenter: function () {
+			let lowestOperationWorkCenter = '';
+			let lowestOperationNumber = Number.MAX_SAFE_INTEGER;
+
+			this.operationPaths.forEach((path) => {
+				let pathOperationNumber = parseInt(this.getModel("order").getProperty(path + '/operationNumber'));
+
+				if (pathOperationNumber < lowestOperationNumber) {
+					lowestOperationNumber = pathOperationNumber;
+					lowestOperationWorkCenter = this.getModel("order").getProperty(path + '/workCenter');
+				}
+			});
+
+			return lowestOperationWorkCenter;
 		},
 
 		onCancelPress: function (oEvent) {
@@ -96,6 +116,10 @@ sap.ui.define([
 					default:
 						break;
 				}
+
+				this.operationPaths.push(oEvent.getSource().getParent().getBindingContextPath());
+			} else {
+				this.operationPaths = this.operationPaths.filter(function (e) { return e !== oEvent.getSource().getParent().getBindingContextPath() });
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
 			this.hasConfirmationChanged = (this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus);
@@ -322,11 +346,10 @@ sap.ui.define([
 				this._showFormFragment("ObjectDisplay");
 				this.OrderState.getPhases(sObjectId).then(() => {
 					this.OrderState.getOperations(null).then(() => {
-						var firstPhaseOperation = this.getModel("order").getData().order.phases.filter(ph => ph.operations.length > 0 && ph.operations[0].workCenter)[0];
-						this.OrderState.getPersons(firstPhaseOperation ? firstPhaseOperation.operations[0].workCenter : null).finally(() => this.getModel("appView").setProperty("/busy", false));
+						var operations = this.getModel("order").getData().order.phases[0].operations;
 					})
 				});
-			})
+			}).finally(() => this.getModel("appView").setProperty("/busy", false));
 		},
 
 		_formFragments: {},
