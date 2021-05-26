@@ -10,8 +10,8 @@
             </l:VerticalLayout>
         </content>
         <buttons>
-            <Button text="{i18n>Cancel}" press="onTecoFlagCancel"/>
-            <Button text="{i18n>Save}" press="onTecoFlagSave"/>
+            <Button text="{i18n>General.Cancel}" press="onTecoFlagCancel"/>
+            <Button text="{i18n>General.Save}" press="onTecoFlagSave"/>
         </buttons>
     </Dialog>
 </core:FragmentDefinition>

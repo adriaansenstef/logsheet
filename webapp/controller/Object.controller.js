@@ -13,6 +13,7 @@ sap.ui.define([
 	return BaseController.extend("pro.dimensys.pm.logsheet.controller.Object", {
 
 		formatter: formatter,
+		operationPaths: [],
 
 		/* =========================================================== */
 		/* lifecycle methods                                           */
@@ -29,8 +30,6 @@ sap.ui.define([
 					.ORDER);
 			this.setModel(this.OrderState.getModel(), "order");
 			this.setModel(new JSONModel({ edit: false }), "viewModel");
-
-			this.hasConfirmationChanged = false;
 
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 		},
@@ -64,7 +63,9 @@ sap.ui.define([
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
 				if (this.hasConfirmationChanged) {
-					this._getExecutorDialog().open();
+					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
+						this._getExecutorDialog().open();
+					});
 				} else {
 					this.OrderState.updateOrder().then(() => {
 						this._getObjectData(this.OrderState.data.order.orderNumber);
@@ -73,30 +74,33 @@ sap.ui.define([
 			} else {
 				// Invalid start/due date error message
 			}
-			this.hasConfirmationChanged = false;
+		},
+
+		_getLowestOperationWorkCenter: function () {
+			let lowestOperationWorkCenter = '';
+			let lowestOperationNumber = Number.MAX_SAFE_INTEGER;
+
+			this.operationPaths.forEach((path) => {
+				let pathOperationNumber = parseInt(this.getModel("order").getProperty(path + '/operationNumber'));
+
+				if (pathOperationNumber < lowestOperationNumber) {
+					lowestOperationNumber = pathOperationNumber;
+					lowestOperationWorkCenter = this.getModel("order").getProperty(path + '/workCenter');
+				}
+			});
+
+			return lowestOperationWorkCenter;
 		},
 
 		onCancelPress: function (oEvent) {
-			this.getView().setBusy(true);
-			this._toggleButtonsAndView(false);
-			this._showFormFragment("ObjectDisplay");
-
 			this.byId("StartDateTimePicker").setValueState("None");
 			this.byId("DueDateTimePicker").setValueState("None");
 
-			this.OrderState.getOrder(this.OrderState.data.order.orderNumber).then((order) => {
-				this.OrderState.getPhases(this.OrderState.data.order.orderNumber).then(() => {
-					var phases = this.getModel("order").getData().order.phases;
-					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).finally(() => {
-
-						this.getView().setBusy(false);
-					})
-				})
-			});
+			this._getObjectData(this.OrderState.data.order.orderNumber);
 		},
 
 		onStatusButtonsPress: function (oEvent) {
-			let newStatus = '';
+			let newStatus = ' ';
 			if (oEvent.getParameters().pressed) {
 				switch (oEvent.getSource().getText()) {
 					case this.getModel("i18n").getResourceBundle().getText("OperationTable.OK"):
@@ -111,9 +115,13 @@ sap.ui.define([
 					default:
 						break;
 				}
+
+				this.operationPaths.push(oEvent.getSource().getParent().getBindingContextPath());
+			} else {
+				this.operationPaths = this.operationPaths.filter(function (e) { return e !== oEvent.getSource().getParent().getBindingContextPath() });
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
-			this.hasConfirmationChanged = true;
+			this.hasConfirmationChanged = (this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus);
 		},
 
 		onDateChanged: function (oEvent) {
@@ -134,14 +142,11 @@ sap.ui.define([
 		},
 
 		onSelectedResponsiblePersonChange: function (oEvent) {
-			var key = oEvent.getSource().getSelectedItem().getKey();
-
-			if (!key) {
-				oEvent.getSource().setValueState("Error");
-			} else {
-				oEvent.getSource().setValueState("None");
-				this.OrderState.data.order.responsiblePerson = key;
+			if (!oEvent.getSource().getSelectedItem()) {
+				oEvent.getSource().setSelectedItem(oEvent.getSource().getItemByKey("000000000000"))
 			}
+			this.OrderState.data.order.responsiblePerson = oEvent.getSource().getSelectedItem().getKey();
+
 		},
 
 		onTecoFlagPress: function (oEvent) {
@@ -159,6 +164,14 @@ sap.ui.define([
 			this.OrderState.data.order.systemStatusTechnical = "I0045";
 			this._getTecoChangeDialog().close();
 			this.onSavePress("event");
+		},
+
+		onEditRemarkPress: function (oEvent) {
+			this._getRemarkDialog().open();
+		},
+
+		onRemarkClose: function (oEvent) {
+			this._getRemarkDialog().close();
 		},
 
 		splitStatus: function (item) {
@@ -185,16 +198,16 @@ sap.ui.define([
 			}
 		},
 
-		hasNOK: function (item) {
-			return item.operations.filter(op => op.newStatus === 'E0003').length > 0;
+		highlightedOperationFormat: function (item) {
+			if (item.internalStatus === 'E0003') {
+				return 'Error'
+			} else {
+				return 'None'
+			}
 		},
 
-		onPhaseSelect: function (oEvent) {
-			var sKey = oEvent.getParameter("key");
-			this.getModel("appView").setProperty("/busy", true);
-			this.OrderState.getOperations(sKey).then(() => {
-				this.getModel("appView").setProperty("/busy", false);
-			});
+		hasNOK: function (item) {
+			return (item.operations.length > 0 && item.operations.filter(op => op.internalStatus === 'E0003').length > 0);
 		},
 
 		onExecutorDialogSearch: function (oEvent) {
@@ -317,18 +330,17 @@ sap.ui.define([
 		},
 
 		_getObjectData: function (sObjectId) {
-			this.getModel("appView").setProperty("/busy", true);
+			this.getModel("appView").setProperty("/busy", true)
+			this.hasConfirmationChanged = false;
 			this.OrderState.getOrder(sObjectId).then(() => {
 				this._toggleButtonsAndView(false);
 				this._showFormFragment("ObjectDisplay");
 				this.OrderState.getPhases(sObjectId).then(() => {
-					var phases = this.getModel("order").getData().order.phases;
-					this.OrderState.getOperations(phases.length > 0 ? phases[0].phaseId : null).then(() => {
+					this.OrderState.getOperations(null).then(() => {
 						var operations = this.getModel("order").getData().order.phases[0].operations;
-						this.OrderState.getPersons(operations[0] ? operations[0].workCenter : null).finally(() => this.getModel("appView").setProperty("/busy", false));
 					})
 				});
-			})
+			}).finally(() => this.getModel("appView").setProperty("/busy", false));
 		},
 
 		_formFragments: {},
@@ -383,6 +395,14 @@ sap.ui.define([
 				this.getView().addDependent(this._oAttaDialog);
 			}
 			return this._oAttaDialog;
+		},
+
+		_getRemarkDialog: function () {
+			if (!this._oRemarkDialog) {
+				this._oRemarkDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.RemarkDialog", this);
+				this.getView().addDependent(this._oRemarkDialog);
+			}
+			return this._oRemarkDialog;
 		},
 
 		_getMeasurePointsDialog: function () {

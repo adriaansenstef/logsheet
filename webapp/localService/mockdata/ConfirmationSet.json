@@ -1,0 +1,142 @@
+[
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859926',Counter='00000001')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859926',Counter='00000001')",
+            "type": "ZDIM_LOGSHEET_SRV.Confirmation"
+        },
+        "ConfirmationNumber": "0000859926",
+        "Counter": "00000001",
+        "Status": "NOK",
+        "PhaseId": "PhaseId 1",
+        "OrderNumber": "5066580",
+        "Operation": "0010",
+        "StartDate": "\/Date(1620777600000)\/",
+        "StartTime": "PT00H00M00S",
+        "EndDate": "\/Date(1620777600000)\/",
+        "EndTime": "PT13H58M41S",
+        "Person": "00000000",
+        "FirstName": "AAAAAAAA",
+        "LastName": "AAAAAAAA"
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859926',Counter='00000002')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859926',Counter='00000002')",
+            "type": "ZDIM_LOGSHEET_SRV.Confirmation"
+        },
+        "ConfirmationNumber": "0000859926",
+        "Counter": "00000002",
+        "Status": "NOK",
+        "PhaseId": "PhaseId 1",
+        "OrderNumber": "5066580",
+        "Operation": "0020",
+        "StartDate": "\/Date(1621468800000)\/",
+        "StartTime": "PT17H03M03S",
+        "EndDate": "\/Date(1621468800000)\/",
+        "EndTime": "PT17H03M03S",
+        "Person": "00000000",
+        "FirstName": "AAAAAAAA",
+        "LastName": "AAAAAAAA"
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859926',Counter='00000003')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859926',Counter='00000003')",
+            "type": "ZDIM_LOGSHEET_SRV.Confirmation"
+        },
+        "ConfirmationNumber": "0000859926",
+        "Counter": "00000003",
+        "Status": "OK",
+        "PhaseId": "PhaseId 1",
+        "OrderNumber": "5066580",
+        "Operation": "0020",
+        "StartDate": "\/Date(1621468800000)\/",
+        "StartTime": "PT17H06M22S",
+        "EndDate": "\/Date(1621468800000)\/",
+        "EndTime": "PT17H06M22S",
+        "Person": "00000000",
+        "FirstName": "AAAAAAAA",
+        "LastName": "AAAAAAAA"
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859928',Counter='00000001')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859928',Counter='00000001')",
+            "type": "ZDIM_LOGSHEET_SRV.Confirmation"
+        },
+        "ConfirmationNumber": "0000859928",
+        "Counter": "00000001",
+        "Status": "OK",
+        "PhaseId": "PhaseId 2",
+        "OrderNumber": "5066580",
+        "Operation": "0030",
+        "StartDate": "\/Date(1621555200000)\/",
+        "StartTime": "PT12H07M12S",
+        "EndDate": "\/Date(1621555200000)\/",
+        "EndTime": "PT12H07M12S",
+        "Person": "00000000",
+        "FirstName": "",
+        "LastName": ""
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859929',Counter='00000001')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859929',Counter='00000001')",
+            "type": "ZDIM_LOGSHEET_SRV.Confirmation"
+        },
+        "ConfirmationNumber": "0000859929",
+        "Counter": "00000001",
+        "Status": "NOK",
+        "PhaseId": "PhaseId 2",
+        "OrderNumber": "5066580",
+        "Operation": "0040",
+        "StartDate": "\/Date(1621555200000)\/",
+        "StartTime": "PT12H07M12S",
+        "EndDate": "\/Date(1621555200000)\/",
+        "EndTime": "PT12H07M12S",
+        "Person": "00000000",
+        "FirstName": "",
+        "LastName": ""
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859933',Counter='00000001')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859933',Counter='00000001')",
+            "type": "ZDIM_LOGSHEET_SRV.Confirmation"
+        },
+        "ConfirmationNumber": "0000859933",
+        "Counter": "00000001",
+        "Status": "NOK",
+        "PhaseId": "PhaseId 3",
+        "OrderNumber": "5066580",
+        "Operation": "0080",
+        "StartDate": "\/Date(1621555200000)\/",
+        "StartTime": "PT12H07M12S",
+        "EndDate": "\/Date(1621555200000)\/",
+        "EndTime": "PT12H07M12S",
+        "Person": "00000000",
+        "FirstName": "",
+        "LastName": ""
+    },
+    {
+        "__metadata": {
+            "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859936',Counter='00000001')",
+            "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/ConfirmationSet(ConfirmationNumber='0000859936',Counter='00000001')",
+            "type": "ZDIM_LOGSHEET_SRV.Confirmation"
+        },
+        "ConfirmationNumber": "0000859936",
+        "Counter": "00000001",
+        "Status": "OK",
+        "PhaseId": "PhaseId 3",
+        "OrderNumber": "5066580",
+        "Operation": "0110",
+        "StartDate": "\/Date(1621555200000)\/",
+        "StartTime": "PT12H07M12S",
+        "EndDate": "\/Date(1621555200000)\/",
+        "EndTime": "PT12H07M12S",
+        "Person": "00000000",
+        "FirstName": "",
+        "LastName": ""
+    }
+]

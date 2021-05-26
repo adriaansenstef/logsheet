@@ -70,6 +70,7 @@ sap.ui.define([
 				Executor: this.executor,
 				StartDate: this.startDate,
 				FinishDate: this.finishDate,
+				LongText: this.longText,
 				Phases: this.phases.map((phase) => phase.getJSON())
 			}
 		}
