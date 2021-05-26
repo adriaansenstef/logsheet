@@ -1,11 +1,11 @@
 <mvc:View controllerName="pro.dimensys.pm.logsheet.controller.Object" xmlns:me="pro.dimensys.pm.logsheet.controls" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
     <Page id="orderPage" title="{order>/order/orderNumber}" showNavButton="true" navButtonPress="onNavBack" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
         <headerContent>
-            <Button icon="sap-icon://complete" tooltip="{i18n>OrderDetail.Teco}" press="onTecoFlagPress" visible="{= ${order>/order/tecoFlag} === '' &amp;&amp; !${viewModel>/edit}}" />
-            <Button icon="sap-icon://reset" tooltip="{i18n>OrderDetail.RemoveTeco}" press="onRemoveTecoFlagPress" visible="{= ${order>/order/tecoFlag} === 'X'}" />
+            <Button icon="sap-icon://complete" tooltip="{i18n>OrderDetail.Teco}" press="onTecoFlagPress" visible="{= !${order>/order/tecoFlag} &amp;&amp; !${viewModel>/edit}}" />
+            <Button icon="sap-icon://reset" tooltip="{i18n>OrderDetail.RemoveTeco}" press="onRemoveTecoFlagPress" visible="{= ${order>/order/tecoFlag}}" />
             <!-- <Button icon="sap-icon://measuring-point" tooltip="{i18n>OrderDetail.MeasurePoints}" press="showMeasurePoints" /> -->
             <Button icon="sap-icon://attachment" tooltip="{i18n>OrderDetail.Attachments}" press="showAttachments" />
-            <Button id="edit" text="{i18n>General.Edit}" press="onEditPress" type="Emphasized" visible="{= ${order>/order/tecoFlag} === ''}" />
+            <Button id="edit" text="{i18n>General.Edit}" press="onEditPress" type="Emphasized" visible="{= !${order>/order/tecoFlag}}" />
         </headerContent>
         <footer>
             <OverflowToolbar id="footer" visible="false">
