@@ -56,6 +56,7 @@ sap.ui.define([
 		},
 
 		onEditPress: function (oEvent) {
+			this.operationPaths = [];
 			this._toggleButtonsAndView(true);
 			this._showFormFragment("ObjectChange");
 		},
