@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:me="pro.dimensys.pm.logsheet.controls">
     <Dialog>
         <content>
-            <Table items="{order>/order/measurements}">
+            <Table id="measurementsTable" items="{order>measurements}">
                 <columns>
                     <Column>
                         <Text text="{i18n>MeasurementTable.Point}" />
