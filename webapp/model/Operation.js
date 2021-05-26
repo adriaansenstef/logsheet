@@ -27,7 +27,7 @@ sap.ui.define([
 				Confirmation: this.confirmation,
 				ObjectNumber: this.objectNumber,
 				InternalStatus: this.internalStatus,
-				NewStatus: this.newStatus || this.internalStatus,
+				NewStatus: this.newStatus === '' || (this.newStatus === this.internalStatus && this.newStatus !== 'E0002') ? null : this.newStatus,
 				ActualWork: this.actualWork
 				//Confirmations: this.confirmations.map((confirmation) => confirmation.getJSON())
 				//Measurements: this.measurements.map((measurement) => measurement.getJSON())

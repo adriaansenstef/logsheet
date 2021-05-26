@@ -63,7 +63,6 @@ sap.ui.define([
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
 				if (this.hasConfirmationChanged) {
-
 					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
 						this._getExecutorDialog().open();
 					});
@@ -122,7 +121,7 @@ sap.ui.define([
 				this.operationPaths = this.operationPaths.filter(function (e) { return e !== oEvent.getSource().getParent().getBindingContextPath() });
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
-			this.hasConfirmationChanged = (this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus);
+			this.hasConfirmationChanged = ((this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus) || newStatus === 'E0002');
 		},
 
 		onDateChanged: function (oEvent) {
@@ -240,13 +239,12 @@ sap.ui.define([
 			let updatedOrder = this.OrderState.data.order;
 
 			// Add Quality Assurance user status if any operation has NOK status
-			if (!updatedOrder.userStatus.includes(",QA")) {
-				updatedOrder.phases.forEach(phase => {
-					if (this.hasNOK(phase)) {
-						updatedOrder.userStatus += ",QA"
-					}
-				});
-			}
+			updatedOrder.phases.forEach(phase => {
+				if (!updatedOrder.userStatus.includes(",QA") && this.hasNOK(phase)) {
+					updatedOrder.userStatus += ",QA"
+				}
+			});
+
 			this.OrderState.updateOrder().then(() => {
 				this._getObjectData(updatedOrder.orderNumber);
 			});
@@ -345,9 +343,7 @@ sap.ui.define([
 				this._toggleButtonsAndView(false);
 				this._showFormFragment("ObjectDisplay");
 				this.OrderState.getPhases(sObjectId).then(() => {
-					this.OrderState.getOperations(null).then(() => {
-						var operations = this.getModel("order").getData().order.phases[0].operations;
-					})
+					this.OrderState.getOperations(null);
 				});
 			}).finally(() => this.getModel("appView").setProperty("/busy", false));
 		},
