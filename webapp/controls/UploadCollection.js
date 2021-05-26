@@ -4,7 +4,13 @@ sap.ui.define(["sap/m/UploadCollection"],
 
 		var oUploadCollection = UploadCollection.extend("pro.dimensys.pm.logsheet.controls.UploadCollection", {
 
-			metadata: {},
+			metadata: {
+				dnd : { draggable : false, dropable: false}
+			},
+
+			onAfterRendering: function () {
+				this.mAggregations._dragDropIcon.setProperty("src", "");
+			},
 
 			setUploadUrl: function (value) {
 				this.setProperty("instantUpload", true, true); // disables the default check
