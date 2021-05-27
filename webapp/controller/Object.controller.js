@@ -56,6 +56,7 @@ sap.ui.define([
 		},
 
 		onEditPress: function (oEvent) {
+			this.operationPaths = [];
 			this._toggleButtonsAndView(true);
 			this._showFormFragment("ObjectChange");
 		},
@@ -121,7 +122,7 @@ sap.ui.define([
 				this.operationPaths = this.operationPaths.filter(function (e) { return e !== oEvent.getSource().getParent().getBindingContextPath() });
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
-			this.hasConfirmationChanged = (this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus);
+			this.hasConfirmationChanged = ((this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus) || newStatus === 'E0002');
 		},
 
 		onDateChanged: function (oEvent) {
@@ -160,9 +161,22 @@ sap.ui.define([
 		},
 
 		onTecoFlagSave: function (oEvent) {
-			this.OrderState.data.order.systemStatus = "TECO";
-			this.OrderState.data.order.systemStatusTechnical = "I0045";
+			this.OrderState.data.order.tecoFlag = true;
 			this._getTecoChangeDialog().close();
+			this.onSavePress("event");
+		},
+
+		onRemoveTecoFlagPress: function (oEvent) {
+			this._getRemoveTecoDialog().open();
+		},
+
+		onRemoveTecoFlagCancel: function (oEvent) {
+			this._getRemoveTecoDialog().close();
+		},
+
+		onRemoveTecoFlagSave: function (oEvent) {
+			this.OrderState.data.order.tecoFlag = false;
+			this._getRemoveTecoDialog().close();
 			this.onSavePress("event");
 		},
 
@@ -226,13 +240,12 @@ sap.ui.define([
 			let updatedOrder = this.OrderState.data.order;
 
 			// Add Quality Assurance user status if any operation has NOK status
-			if (!updatedOrder.userStatus.includes(",QA")) {
-				updatedOrder.phases.forEach(phase => {
-					if (this.hasNOK(phase)) {
-						updatedOrder.userStatus += ",QA"
-					}
-				});
-			}
+			updatedOrder.phases.forEach(phase => {
+				if (!updatedOrder.userStatus.includes(",QA") && this.hasNOK(phase)) {
+					updatedOrder.userStatus += ",QA"
+				}
+			});
+
 			this.OrderState.updateOrder().then(() => {
 				this._getObjectData(updatedOrder.orderNumber);
 			});
@@ -336,9 +349,7 @@ sap.ui.define([
 				this._toggleButtonsAndView(false);
 				this._showFormFragment("ObjectDisplay");
 				this.OrderState.getPhases(sObjectId).then(() => {
-					this.OrderState.getOperations(null).then(() => {
-						var operations = this.getModel("order").getData().order.phases[0].operations;
-					})
+					this.OrderState.getOperations(null);
 				});
 			}).finally(() => this.getModel("appView").setProperty("/busy", false));
 		},
@@ -374,11 +385,19 @@ sap.ui.define([
 		},
 
 		_getTecoChangeDialog: function () {
-			if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.TecoStatus", this);
-				this.getView().addDependent(this._oDialog);
+			if (!this._oTecoDialog) {
+				this._oTecoDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.TecoStatusDialog", this);
+				this.getView().addDependent(this._oTecoDialog);
 			}
-			return this._oDialog;
+			return this._oTecoDialog;
+		},
+
+		_getRemoveTecoDialog: function () {
+			if (!this._oRemoveTecoDialog) {
+				this._oRemoveTecoDialog = sap.ui.xmlfragment(this.getView().getId(), "pro.dimensys.pm.logsheet.view.fragments.dialogs.RemoveTecoStatusDialog", this);
+				this.getView().addDependent(this._oRemoveTecoDialog);
+			}
+			return this._oRemoveTecoDialog;
 		},
 
 		_getExecutorDialog: function () {

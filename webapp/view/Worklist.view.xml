@@ -2,7 +2,7 @@
     <Page showHeader="false">
         <VBox>
             <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="OrderSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Description" enableBasicSearch="true"></smartFilterBar:SmartFilterBar>
-            <smartTable:SmartTable id="OrderSmartTable" entitySet="OrderSet" ignoreFromPersonalisation="SystemStatusTechnical" initiallyVisibleFields="OrderNumber,Description,TechnicalObject,PhaseDescription,StartDate,Person" smartFilterId="smartFilterBar" tableType="ResponsiveTable" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true"></smartTable:SmartTable>
+            <smartTable:SmartTable id="OrderSmartTable" entitySet="OrderSet" ignoreFromPersonalisation="SystemStatusTechnical,TecoFlag" initiallyVisibleFields="OrderNumber,Description,TechnicalObject,PhaseDescription,StartDate,Person" smartFilterId="smartFilterBar" tableType="ResponsiveTable" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true"></smartTable:SmartTable>
         </VBox>
     </Page>
 </View>
