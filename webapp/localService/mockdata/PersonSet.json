@@ -3,12 +3,23 @@
         "results": [
             {
                 "__metadata": {
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('')",
+                    "type": "ZDIM_LOGSHEET_SRV.Person"
+                },
+                "PersonnelNumber": "000000000000",
+                "WorkCenter": "",
+                "FirstName": "",
+                "LastName": ""
+            },
+            {
+                "__metadata": {
                     "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
                     "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/PersonSet('MAINT')",
                     "type": "ZDIM_LOGSHEET_SRV.Person"
                 },
                 "PersonnelNumber": "20000079",
-                "WorkCenter": "MAINT",
+                "WorkCenter": "LABAPPM",
                 "FirstName": "Erwin",
                 "LastName": "Meynckens"
             },
@@ -118,7 +129,7 @@
                     "type": "ZDIM_LOGSHEET_SRV.Person"
                 },
                 "PersonnelNumber": "20000091",
-                "WorkCenter": "MAINT",
+                "WorkCenter": "LABAPPM",
                 "FirstName": "Koen",
                 "LastName": "van de Laer"
             },
@@ -129,7 +140,7 @@
                     "type": "ZDIM_LOGSHEET_SRV.Person"
                 },
                 "PersonnelNumber": "20000094",
-                "WorkCenter": "MAINT",
+                "WorkCenter": "LABAPPM",
                 "FirstName": "Sven",
                 "LastName": "Vandermeulen"
             },
@@ -140,7 +151,7 @@
                     "type": "ZDIM_LOGSHEET_SRV.Person"
                 },
                 "PersonnelNumber": "20000095",
-                "WorkCenter": "MAINT",
+                "WorkCenter": "LABAPPM",
                 "FirstName": "Brent",
                 "LastName": "Daman"
             }

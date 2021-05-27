@@ -16,7 +16,17 @@
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
+					"localUri": "localService/metadata.xml",
+					"annotations": [
+						"ZDIM_LOGSHEET_ANNO_MDL_Local"
+					]
+				}
+			},
+			"ZDIM_LOGSHEET_ANNO_MDL_Local": {
+				"type": "ODataAnnotation",
+				"uri": "ZDIM_LOGSHEET_ANNO_MDL_Local.xml",
+				"settings": {
+					"localUri": "ZDIM_LOGSHEET_ANNO_MDL_Local.xml"
 				}
 			},
 			"ZDIM_CREATE_NOTIF_GW_SRV": {

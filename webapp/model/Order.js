@@ -2,8 +2,9 @@
 sap.ui.define([
 	"./BaseObject",
 	"sap/ui/model/type/Time",
-	"./Phase"
-], function (BaseObject, Time, Phase) {
+	"./Phase",
+	"./Person"
+], function (BaseObject, Time, Phase, Person) {
 	"use strict";
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Order", {
 		constructor: function (data) {
@@ -13,6 +14,10 @@ sap.ui.define([
 
 		setPhases: function (data) {
 			this.phases = data.map((phase) => new Phase(phase));
+		},
+
+		setPersons: function (data) {
+			this.persons = data.map((person) => new Person(person));
 		},
 
 		setOperations: function (data) {
@@ -33,17 +38,40 @@ sap.ui.define([
 			);
 		},
 
+		setMeasurement: function (operation, data) {
+			data.map((measurement) =>
+				this.phases
+					.filter((phase) => phase.orderNumber === operation.orderNumber && phase.phaseId === operation.phaseId)
+					.map((phase) =>
+						phase.operations.filter((oper) => oper.operationNumber === operation.operationNumber)
+							.map((operation) => operation.addMeasurement(measurement)))
+			);
+		},
+
+		getOperation: function (operation) {
+			var oper;
+			this.phases
+				.filter((phase) => phase.orderNumber === operation.orderNumber && phase.phaseId === operation.phaseId)
+				.map((phase) =>
+					phase.operations.filter((oper) => oper.operationNumber === operation.operationNumber)
+						.map((operation) => oper = operation));
+			return oper;
+		},
+
 		getJSON: function () {
 			return {
 				OrderNumber: this.orderNumber,
 				SystemStatusTechnical: this.systemStatusTechnical,
-				ReferenceDate: this.systemStatusTechnical === "I0045" ? this.referenceDateTime : "",
-				ReferenceTime: this.systemStatusTechnical === "I0045" ? moment(this.referenceDateTime).utc().format("PTHH[H]mm[M]ss[S]") : "",
+				ReferenceDate: this.tecoFlag ? this.referenceDateTime : null,
+				ReferenceTime: this.tecoFlag ? moment(this.referenceDateTime).utc().format("PTHH[H]mm[M]ss[S]") : null,
 				UserStatus: this.userStatus,
 				Phase: this.phase,
 				ResponsiblePerson: this.responsiblePerson,
+				Executor: this.executor,
 				StartDate: this.startDate,
 				FinishDate: this.finishDate,
+				LongText: this.longText,
+				TecoFlag: this.tecoFlag,
 				Phases: this.phases.map((phase) => phase.getJSON())
 			}
 		}

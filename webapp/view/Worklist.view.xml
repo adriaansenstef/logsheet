@@ -10,7 +10,7 @@
                     </smartFilterBar:ControlConfiguration>
                 </smartFilterBar:controlConfiguration>
             </smartFilterBar:SmartFilterBar>
-            <smartTable:SmartTable id="OrderSmartTable" entitySet="OrderSet" initiallyVisibleFields="OrderNumber,Description,TechnicalObject,PhaseDescription,StartDate,Person" smartFilterId="smartFilterBar" tableType="ResponsiveTable" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true"></smartTable:SmartTable>
+            <smartTable:SmartTable id="OrderSmartTable" entitySet="OrderSet" ignoreFromPersonalisation="SystemStatusTechnical,TecoFlag" initiallyVisibleFields="OrderNumber,Description,TechnicalObject,PhaseDescription,StartDate,Person" smartFilterId="smartFilterBar" tableType="ResponsiveTable" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true"></smartTable:SmartTable>
         </VBox>
     </Page>
 </View>

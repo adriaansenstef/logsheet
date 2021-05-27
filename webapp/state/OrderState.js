@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (BaseState, Order, Filter, FilterOperator) {
 	"use strict";
 	var OrderState = BaseState.extend("pro.dimensys.pm.logsheet.state.OrderState", {
-		constructor: function (oService, oPhaseService, oOperationService, oConfirmationService) {
+		constructor: function (oService, oPhaseService, oOperationService, oConfirmationService, oPersonService, oMeasurementService) {
 			this.data = {
 				order: new Order(),
 				display: true
@@ -15,6 +15,8 @@ sap.ui.define([
 			this.PhaseService = oPhaseService;
 			this.OperationService = oOperationService;
 			this.ConfirmationService = oConfirmationService;
+			this.PersonService = oPersonService;
+			this.MeasurementService = oMeasurementService;
 			BaseState.call(this);
 		},
 
@@ -29,6 +31,12 @@ sap.ui.define([
 		},
 		getConfirmationService: function () {
 			return this.ConfirmationService;
+		},
+		getPersonService: function () {
+			return this.PersonService;
+		},
+		getMeasurementService: function () {
+			return this.MeasurementService;
 		},
 
 		getOrder: function (orderId) {
@@ -58,7 +66,23 @@ sap.ui.define([
 			});
 		},
 
+		getPersons: function (workCenter) {
+			let filterOperator = workCenter ? FilterOperator.EQ : FilterOperator.NE;
+			return this.getPersonService().getPersons({
+				filters: [new Filter({
+					path: "WorkCenter",
+					operator: filterOperator,
+					value1: workCenter
+				})]
+			}).then((result) => {
+				this.data.order.setPersons(result.data.results);
+				this.updateModel(true);
+				return this.getProperty("order");
+			});
+		},
+
 		getOperations: function (phaseId) {
+			let filterOperator = phaseId ? FilterOperator.EQ : FilterOperator.NE;
 			return this.getOperationService().getOperations({
 				filters: [new Filter({
 					path: "OrderNumber",
@@ -67,7 +91,7 @@ sap.ui.define([
 				}),
 				new Filter({
 					path: "PhaseId",
-					operator: FilterOperator.EQ,
+					operator: filterOperator,
 					value1: phaseId
 				}),
 				]
@@ -82,7 +106,7 @@ sap.ui.define([
 					}),
 					new Filter({
 						path: "PhaseId",
-						operator: FilterOperator.EQ,
+						operator: filterOperator,
 						value1: phaseId
 					}),
 					]
@@ -91,6 +115,20 @@ sap.ui.define([
 					this.updateModel(true);
 					return this.getProperty("order");
 				}).catch((er) => this.getProperty("order"));
+			});
+		},
+
+		getMeasurepoints: function(operation, technicalObject){
+			return this.getMeasurementService().getMeasurementPoints({
+				filters: [new Filter({
+					path: "TechnicalObject",
+					operator: FilterOperator.EQ,
+					value1: technicalObject
+				})]
+			}).then((result) => {
+				this.data.order.setMeasurement(operation, result.data.results);
+				this.updateModel(true);
+				return this.getProperty("order");
 			});
 		}
 	});

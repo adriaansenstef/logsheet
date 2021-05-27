@@ -1,0 +1,126 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="ZDIM_LOGSHEET_SRV"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="master.ZDIM_LOGSHEET_ANNO_MDL_Local.ZDIM_LOGSHEET_SRV">
+			<Annotations Target="Metadata.Order/Phase">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="PhaseSHSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="Phase"/>
+									<PropertyValue Property="ValueListProperty" String="PhaseNumber"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="ShortPhaseDescription"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="LongPhaseDescription"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Order/UserStatus">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="UserStatusSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="UserStatus"/>
+									<PropertyValue Property="ValueListProperty" String="ShortStatusDescription"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="LongStatusDescription"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Order/SystemStatus">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="SystemStatusSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="SystemStatus"/>
+									<PropertyValue Property="ValueListProperty" String="ShortDescription"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="LongDescription"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Order/Priority">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="PrioritySet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="Priority"/>
+									<PropertyValue Property="ValueListProperty" String="PriorityId"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="Description"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ZDIM_LOGSHEET_SRV_Entities/PhaseSH">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record Type="Capabilities.FilterRestrictionsType">
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>PhaseTechnical</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ZDIM_LOGSHEET_SRV_Entities/UserStatus">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record Type="Capabilities.FilterRestrictionsType">
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>UserStatusTechnical</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.ZDIM_LOGSHEET_SRV_Entities/SystemStatus">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record Type="Capabilities.FilterRestrictionsType">
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>SystemStatusTechnical</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
