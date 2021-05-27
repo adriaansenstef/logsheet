@@ -63,6 +63,16 @@ sap.ui.define([
 
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
+				if (this.byId("longTextEdit").getValue()) {
+					const oOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
+					const sToday = (new Date()).toLocaleDateString('nl-BE', oOptions);
+					let sLongText = "";
+					if (this.OrderState.data.order.longText) {
+						sLongText = this.OrderState.data.order.longText + " \n";
+					}
+					sLongText += "[" + sToday + "] " + this.OrderState.data.order.rpFirstName + " " + this.OrderState.data.order.rpLastName + ": " + this.byId("longTextEdit").getValue();
+					this.OrderState.data.order.longText = sLongText;
+				}
 				if (this.hasConfirmationChanged) {
 					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
 						this._getExecutorDialog().open();
@@ -185,6 +195,7 @@ sap.ui.define([
 		},
 
 		onRemarkClose: function (oEvent) {
+			this.byId("longTextEdit").setValue(this.byId("longTextDialogEdit").getValue());
 			this._getRemarkDialog().close();
 		},
 
@@ -343,6 +354,12 @@ sap.ui.define([
 		},
 
 		_getObjectData: function (sObjectId) {
+			if (this.byId("longTextEdit")) {
+				this.byId("longTextEdit").setValue();
+			}
+			if (this.byId("longTextDialogEdit")) {
+				this.byId("longTextDialogEdit").setValue();
+			}
 			this.getModel("appView").setProperty("/busy", true)
 			this.hasConfirmationChanged = false;
 			this.OrderState.getOrder(sObjectId).then(() => {
