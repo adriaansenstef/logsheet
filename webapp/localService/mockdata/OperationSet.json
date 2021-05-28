@@ -37,7 +37,7 @@
 		"Description": "Description 3",
 		"WorkCenter": "LABAPPM",
 		"Remark": "Remark 3",
-		"MeasurementNeeded": true,
+		"MeasurementNeeded": false,
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203',OperationNumber='OperationNumber%203')",
 			"type": "ZDIM_LOGSHEET_SRV.Operation"
