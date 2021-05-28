@@ -26,9 +26,9 @@
                             <Column minScreenWidth="Tablet" demandPopin="true" visible="{viewModel>/edit}" width="4em">
                                 <Text text="{i18n>OperationTable.ActualWork}" />
                             </Column>
-                            <Column width="6%" />
-                            <Column width="6%" />
-                            <Column width="6%" />
+                            <Column width="6%" visible="{viewModel>/edit}"/>
+                            <Column width="6%" visible="{viewModel>/edit}"/>
+                            <Column width="6%" visible="{viewModel>/edit}"/>
                             <Column width="6%" />
                         </columns>
                         <items>
@@ -46,11 +46,10 @@
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
                                         <Text text="{path:'order>startDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy', UTC: true } }" />
                                     </VBox>
-
                                     <Input type="Number" placeholder="{i18n>OperationTable.ActualWorkPlaceholder}" value="{order>actualWork}" />
-                                    <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" pressed="{= ${order>newStatus} === '' &amp;&amp; ${order>internalStatus} === 'E0002'? true : ${order>newStatus} === 'E0002'}" enabled="{viewModel>/edit}" press="onStatusButtonsPress" width="100%" />
-                                    <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" pressed="{= ${order>newStatus} === '' &amp;&amp; ${order>internalStatus} === 'E0003'? true : ${order>newStatus} === 'E0003'}" enabled="{viewModel>/edit}" press="onStatusButtonsPress" width="100%" />
-                                    <ToggleButton text="{i18n>OperationTable.NA}" type="Default" pressed="{= ${order>newStatus} === '' &amp;&amp; ${order>internalStatus} === 'E0009'? true : ${order>newStatus} === 'E0009'}" enabled="{viewModel>/edit}" press="onStatusButtonsPress" width="100%" />
+                                    <ToggleButton text="{i18n>OperationTable.OK}" type="Accept" pressed="{= ${order>newStatus} === 'E0002'}" visible="{viewModel>/edit}" press="onStatusButtonsPress" width="100%" />
+                                    <ToggleButton text="{i18n>OperationTable.NOK}" type="Reject" pressed="{= ${order>newStatus} === 'E0003'}" visible="{viewModel>/edit}" press="onStatusButtonsPress" width="100%" />
+                                    <ToggleButton text="{i18n>OperationTable.NA}" type="Default" pressed="{= ${order>newStatus} === 'E0009'}" visible="{viewModel>/edit}" press="onStatusButtonsPress" width="100%" />
                                     <Button icon="sap-icon://measuring-point" tooltip="{i18n>OrderDetail.MeasurePoints}" press="showMeasurePoints($event, ${order>})" visible="{order>measurementNeeded}" />
                                 </cells>
                             </ColumnListItem>
