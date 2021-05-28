@@ -33,6 +33,7 @@ sap.ui.define([
 				InternalStatus: this.internalStatus,
 				NewStatus: this.newStatus === this.internalStatus && this.newStatus !== 'E0002' ? '' : this.newStatus,
 				ActualWork: this.actualWork,
+				MeasurementNeeded: this.measurementNeeded,
 				//Confirmations: this.confirmations.map((confirmation) => confirmation.getJSON())
 				Measurements: this.measurements.map((measurement) => measurement.getJSON())
 			}

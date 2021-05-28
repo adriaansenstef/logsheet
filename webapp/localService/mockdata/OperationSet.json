@@ -8,6 +8,7 @@
 		"Remark": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut bibendum dolor, sed feugiat mi.",
 		"NewStatus": "",
 		"InternalStatus": "E0003",
+		"MeasurementNeeded": true,
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%201',OrderNumber='OrderNumber%201',OperationNumber='OperationNumber%201')",
 			"type": "ZDIM_LOGSHEET_SRV.Operation"
@@ -22,6 +23,7 @@
 		"Remark": "Remark 2",
 		"NewStatus": "",
 		"InternalStatus": "E0002",
+		"MeasurementNeeded": false,
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%202',OrderNumber='OrderNumber%202',OperationNumber='OperationNumber%202')",
 			"type": "ZDIM_LOGSHEET_SRV.Operation"
@@ -34,6 +36,7 @@
 		"Description": "Description 3",
 		"WorkCenter": "LABAPPM",
 		"Remark": "Remark 3",
+		"MeasurementNeeded": false,
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%203',OrderNumber='OrderNumber%203',OperationNumber='OperationNumber%203')",
 			"type": "ZDIM_LOGSHEET_SRV.Operation"
