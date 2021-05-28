@@ -208,6 +208,10 @@ sap.ui.define([
 			}
 		},
 
+		removeWhiteSpacingFormat: function (item) {
+			return item.trim();
+		},
+
 		iconTabFilterTextFormat: function (item) {
 			let description = item.description;
 			if (this.hasNOK(item)) {
