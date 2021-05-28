@@ -9,6 +9,7 @@
 		"NewStatus": "",
 		"InternalStatus": "E0003",
 		"MeasurementNeeded": true,
+		"ActualWork": "0.00",
 		"__metadata": {
 			"uri": "OperationSet(PhaseId='PhaseId%201',OrderNumber='OrderNumber%201',OperationNumber='OperationNumber%201')",
 			"type": "ZDIM_LOGSHEET_SRV.Operation"

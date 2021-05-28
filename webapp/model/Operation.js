@@ -8,6 +8,7 @@ sap.ui.define([
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.Operation", {
 		constructor: function (data) {
 			BaseObject.call(this, data);
+			this.actualWork = parseFloat(data.ActualWork);
 			this.confirmations = [];
 			this.measurements = [];
 		},
