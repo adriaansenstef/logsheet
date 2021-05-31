@@ -5,7 +5,7 @@
 		"OperationNumber": "0010",
 		"Description": "Description 1",
 		"WorkCenter": "LABAPPM",
-		"Remark": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut bibendum dolor, sed feugiat mi.",
+		"Remark": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit. \nDonec ut bibendum dolor, sed feugiat mi.\n",
 		"NewStatus": "",
 		"InternalStatus": "E0003",
 		"MeasurementNeeded": true,
