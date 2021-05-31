@@ -63,7 +63,7 @@ sap.ui.define([
 
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
-				if (this.hasConfirmationChanged) {
+				if (this.hasConfirmationChanged || this.byId("longTextEdit").getValue()) {
 					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
 						this._getExecutorDialog().open();
 					});
@@ -185,6 +185,7 @@ sap.ui.define([
 		},
 
 		onRemarkClose: function (oEvent) {
+			this.byId("longTextEdit").setValue(this.byId("longTextDialogEdit").getValue());
 			this._getRemarkDialog().close();
 		},
 
@@ -195,6 +196,10 @@ sap.ui.define([
 			else {
 				return item;
 			}
+		},
+
+		removeWhiteSpacingFormat: function (item) {
+			return item.trim();
 		},
 
 		iconTabFilterTextFormat: function (item) {
@@ -236,6 +241,18 @@ sap.ui.define([
 
 		onExecutorDialogSelect: function (oEvent) {
 			this.OrderState.data.order.executor = oEvent.getParameters().selectedContexts[0].getObject().personnelNumber;
+
+			if (this.byId("longTextEdit").getValue()) {
+				const oOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
+				const sToday = (new Date()).toLocaleDateString('nl-BE', oOptions);
+				const sPersonReported = oEvent.getParameters().selectedContexts[0].getObject().firstName + " " + oEvent.getParameters().selectedContexts[0].getObject().lastName;
+				let sLongText = "";
+				if (this.OrderState.data.order.longText) {
+					sLongText = this.OrderState.data.order.longText + " \n";
+				}
+				sLongText += "[" + sToday + "] " + sPersonReported + ": " + this.byId("longTextEdit").getValue();
+				this.OrderState.data.order.longText = sLongText;
+			}
 
 			let updatedOrder = this.OrderState.data.order;
 
@@ -343,6 +360,12 @@ sap.ui.define([
 		},
 
 		_getObjectData: function (sObjectId) {
+			if (this.byId("longTextEdit")) {
+				this.byId("longTextEdit").setValue();
+			}
+			if (this.byId("longTextDialogEdit")) {
+				this.byId("longTextDialogEdit").setValue();
+			}
 			this.getModel("appView").setProperty("/busy", true)
 			this.hasConfirmationChanged = false;
 			this.OrderState.getOrder(sObjectId).then(() => {
