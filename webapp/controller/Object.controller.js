@@ -62,7 +62,7 @@ sap.ui.define([
 		},
 
 		onSavePress: function (oEvent) {
-			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
+			if (this.OrderState.data.order.startDate <= this.OrderState.data.order.finishDate) {
 				if (this.hasConfirmationChanged) {
 					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
 						this._getExecutorDialog().open();
