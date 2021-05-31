@@ -331,8 +331,8 @@ sap.ui.define([
 			window.open(fullUrl);
 		},
 
-		printOrder: function(oEvent){
-			var key = this.getModel().createKey("OrderStreamSet", this.OrderState.data.order.orderNumber);
+		printOrder: function (oEvent) {
+			var key = this.getModel().createKey("OrderStreamSet", { Ordernumber: this.OrderState.data.order.orderNumber });
 			var serviceURL = this.getModel().sServiceUrl;
 			var fullUrl = [serviceURL, key, "$value"].join("/");
 			window.open(fullUrl);
