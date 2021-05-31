@@ -36,7 +36,7 @@
                                 <cells>
                                     <Text text="{order>operationNumber}" />
                                     <Text text="{order>workCenter}" />
-                                    <Text text="{path: 'order>remark', formatter : '.removeWhiteSpacingFormat'}" />
+                                    <Text text="{order>description} {path: 'order>remark', formatter : '.removeWhiteSpacingFormat'}" />
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
                                         <Text text="{order>firstName} {order>lastName}" />
                                     </VBox>
