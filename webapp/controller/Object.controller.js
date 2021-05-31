@@ -68,6 +68,15 @@ sap.ui.define([
 						this._getExecutorDialog().open();
 					});
 				} else {
+					let updatedOrder = this.OrderState.data.order;
+
+					// Add Quality Assurance user status if any operation has NOK status
+					updatedOrder.phases.forEach(phase => {
+						if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOK(phase) || this.hasNOKInNewStatus(phase))) {
+							updatedOrder.userStatus += ",QA"
+						}
+					});
+
 					this.OrderState.updateOrder().then(() => {
 						this._getObjectData(this.OrderState.data.order.orderNumber);
 					});
@@ -229,6 +238,10 @@ sap.ui.define([
 			return (item.operations.length > 0 && item.operations.filter(op => op.internalStatus === 'E0003').length > 0);
 		},
 
+		hasNOKInNewStatus: function (item) {
+			return (item.operations.length > 0 && item.operations.filter(op => op.newStatus === 'E0003').length > 0);
+		},
+
 		onExecutorDialogSearch: function (oEvent) {
 			var sValue = oEvent.getParameter("value");
 			var aFilter = [
@@ -258,7 +271,7 @@ sap.ui.define([
 
 			// Add Quality Assurance user status if any operation has NOK status
 			updatedOrder.phases.forEach(phase => {
-				if (!updatedOrder.userStatus.includes(",QA") && this.hasNOK(phase)) {
+				if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOK(phase) || this.hasNOKInNewStatus(phase))) {
 					updatedOrder.userStatus += ",QA"
 				}
 			});
