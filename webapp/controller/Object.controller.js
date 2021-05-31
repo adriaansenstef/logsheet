@@ -68,6 +68,15 @@ sap.ui.define([
 						this._getExecutorDialog().open();
 					});
 				} else {
+					let updatedOrder = this.OrderState.data.order;
+
+					// Add Quality Assurance user status if any operation has NOK status
+					updatedOrder.phases.forEach(phase => {
+						if (!updatedOrder.userStatus.includes(",QA") && this.hasNOK(phase)) {
+							updatedOrder.userStatus += ",QA"
+						}
+					});
+
 					this.OrderState.updateOrder().then(() => {
 						this._getObjectData(this.OrderState.data.order.orderNumber);
 					});
