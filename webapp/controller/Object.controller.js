@@ -63,17 +63,7 @@ sap.ui.define([
 
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate < this.OrderState.data.order.finishDate) {
-				if (this.byId("longTextEdit").getValue()) {
-					const oOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
-					const sToday = (new Date()).toLocaleDateString('nl-BE', oOptions);
-					let sLongText = "";
-					if (this.OrderState.data.order.longText) {
-						sLongText = this.OrderState.data.order.longText + " \n";
-					}
-					sLongText += "[" + sToday + "] " + this.OrderState.data.order.rpFirstName + " " + this.OrderState.data.order.rpLastName + ": " + this.byId("longTextEdit").getValue();
-					this.OrderState.data.order.longText = sLongText;
-				}
-				if (this.hasConfirmationChanged) {
+				if (this.hasConfirmationChanged || this.byId("longTextEdit").getValue()) {
 					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
 						this._getExecutorDialog().open();
 					});
@@ -251,6 +241,18 @@ sap.ui.define([
 
 		onExecutorDialogSelect: function (oEvent) {
 			this.OrderState.data.order.executor = oEvent.getParameters().selectedContexts[0].getObject().personnelNumber;
+
+			if (this.byId("longTextEdit").getValue()) {
+				const oOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
+				const sToday = (new Date()).toLocaleDateString('nl-BE', oOptions);
+				const sPersonReported = oEvent.getParameters().selectedContexts[0].getObject().firstName + " " + oEvent.getParameters().selectedContexts[0].getObject().lastName;
+				let sLongText = "";
+				if (this.OrderState.data.order.longText) {
+					sLongText = this.OrderState.data.order.longText + " \n";
+				}
+				sLongText += "[" + sToday + "] " + sPersonReported + ": " + this.byId("longTextEdit").getValue();
+				this.OrderState.data.order.longText = sLongText;
+			}
 
 			let updatedOrder = this.OrderState.data.order;
 
