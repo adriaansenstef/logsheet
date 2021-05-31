@@ -3,8 +3,9 @@
         <headerContent>
             <Button icon="sap-icon://complete" tooltip="{i18n>OrderDetail.Teco}" press="onTecoFlagPress" visible="{= !${order>/order/tecoFlag} &amp;&amp; !${viewModel>/edit}}" />
             <Button icon="sap-icon://reset" tooltip="{i18n>OrderDetail.RemoveTeco}" press="onRemoveTecoFlagPress" visible="{= ${order>/order/tecoFlag}}" />
-            <!-- <Button icon="sap-icon://measuring-point" tooltip="{i18n>OrderDetail.MeasurePoints}" press="showMeasurePoints" /> -->
+            <Button icon="sap-icon://measuring-point" tooltip="{i18n>OrderDetail.MeasurePoints}" press="showMeasurePoints" />
             <Button icon="sap-icon://attachment" tooltip="{i18n>OrderDetail.Attachments}" press="showAttachments" />
+            <Button icon="sap-icon://print" tooltip="{i18n>OrderDetail.Print}" press="printOrder" />
             <Button id="edit" text="{i18n>General.Edit}" press="onEditPress" type="Emphasized" visible="{= !${order>/order/tecoFlag}}" />
         </headerContent>
         <footer>

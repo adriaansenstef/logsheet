@@ -22,7 +22,7 @@ sap.ui.define([
 
         updateOrder: function (order) {
             return this.odata("/OrderSet").post(order.getJSON());
-        },
+        }
 
     });
 
