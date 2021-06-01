@@ -73,7 +73,7 @@ sap.ui.define([
 
 					// Add Quality Assurance user status if any operation has NOK status
 					updatedOrder.phases.forEach(phase => {
-						if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOK(phase) || this.hasNOKInNewStatus(phase))) {
+						if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOKInNewStatus(phase))) {
 							updatedOrder.userStatus += ",QA"
 						}
 					});
@@ -261,13 +261,13 @@ sap.ui.define([
 				const oOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
 				const sToday = (new Date()).toLocaleDateString('nl-BE', oOptions);
 				const sPersonReported = oEvent.getParameters().selectedContexts[0].getObject().firstName + " " + oEvent.getParameters().selectedContexts[0].getObject().lastName;
-				this.OrderState.data.order.longText = "[" + sToday + "] " + sPersonReported + ": " + this.byId("longTextEdit").getValue();;
+				this.OrderState.data.order.longText = "[" + sToday + "] " + sPersonReported + ": " + this.byId("longTextEdit").getValue();
 			}
 			let updatedOrder = this.OrderState.data.order;
 
 			// Add Quality Assurance user status if any operation has NOK status
 			updatedOrder.phases.forEach(phase => {
-				if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOK(phase) || this.hasNOKInNewStatus(phase))) {
+				if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOKInNewStatus(phase))) {
 					updatedOrder.userStatus += ",QA"
 				}
 			});
