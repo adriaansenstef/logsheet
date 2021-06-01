@@ -64,8 +64,14 @@ sap.ui.define([
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate <= this.OrderState.data.order.finishDate) {
 				if (this.hasConfirmationChanged || this.byId("longTextEdit").getValue()) {
-					this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
-						this._getExecutorDialog().open();
+					this.OrderState.getUser().then((result) => {
+						if(result !== undefined) {
+						  this._saveOrder(result);
+						} else {
+							this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
+								this._getExecutorDialog().open();
+							});
+						}
 					});
 				} else {
 					this.OrderState.data.order.longText = "";
@@ -254,27 +260,7 @@ sap.ui.define([
 		},
 
 		onExecutorDialogSelect: function (oEvent) {
-			this.OrderState.data.order.executor = oEvent.getParameters().selectedContexts[0].getObject().personnelNumber;
-
-			this.OrderState.data.order.longText = "";
-			if (this.byId("longTextEdit").getValue()) {
-				const oOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
-				const sToday = (new Date()).toLocaleDateString('nl-BE', oOptions);
-				const sPersonReported = oEvent.getParameters().selectedContexts[0].getObject().firstName + " " + oEvent.getParameters().selectedContexts[0].getObject().lastName;
-				this.OrderState.data.order.longText = "[" + sToday + "] " + sPersonReported + ": " + this.byId("longTextEdit").getValue();
-			}
-			let updatedOrder = this.OrderState.data.order;
-
-			// Add Quality Assurance user status if any operation has NOK status
-			updatedOrder.phases.forEach(phase => {
-				if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOKInNewStatus(phase))) {
-					updatedOrder.userStatus += ",QA"
-				}
-			});
-
-			this.OrderState.updateOrder().then(() => {
-				this._getObjectData(updatedOrder.orderNumber);
-			});
+			this._saveOrder(oEvent.getParameters().selectedContexts[0].getObject());
 		},
 
 		showMeasurePoints: function (oEvent, operation) {
@@ -462,6 +448,30 @@ sap.ui.define([
 				this.getView().addDependent(this._oMPDialog);
 			}
 			return this._oMPDialog;
+		},
+
+		_saveOrder: function (oExecutor) {
+			this.OrderState.data.order.executor = oExecutor.personnelNumber;
+
+			this.OrderState.data.order.longText = "";
+			if (this.byId("longTextEdit").getValue()) {
+				const oOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
+				const sToday = (new Date()).toLocaleDateString('nl-BE', oOptions);
+				const sPersonReported = oExecutor.firstName + " " + oExecutor.lastName;
+				this.OrderState.data.order.longText = "[" + sToday + "] " + sPersonReported + ": " + this.byId("longTextEdit").getValue();
+			}
+			let updatedOrder = this.OrderState.data.order;
+
+			// Add Quality Assurance user status if any operation has NOK status
+			updatedOrder.phases.forEach(phase => {
+				if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOKInNewStatus(phase))) {
+					updatedOrder.userStatus += ",QA"
+				}
+			});
+
+			this.OrderState.updateOrder().then(() => {
+				this._getObjectData(updatedOrder.orderNumber);
+			});
 		}
 
 	});

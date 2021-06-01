@@ -9,8 +9,9 @@ sap.ui.define([
 	"./service/ConfirmationService",
 	"./service/PersonService",
 	"./service/MeasurementService",
+	"./service/UserService",
 	"./state/OrderState"
-], function (UIComponent, Device, models, ErrorHandler, OrderService, OperationService, PhaseService, ConfirmationService, PersonService, MeasurementService, OrderState) {
+], function (UIComponent, Device, models, ErrorHandler, OrderService, OperationService, PhaseService, ConfirmationService, PersonService, MeasurementService, UserService, OrderState) {
 	"use strict";
 
 	return UIComponent.extend("pro.dimensys.pm.logsheet.Component", {
@@ -33,8 +34,9 @@ sap.ui.define([
 			this._oPhaseService = new PhaseService(this.getModel());
 			this._oPersonService = new PersonService(this.getModel());
 			this._oMeasurementService = new MeasurementService(this.getModel());
+			this._oUserService = new UserService(this.getModel());
 
-			this._oOrderState = new OrderState(this._oOrderService, this._oPhaseService, this._oOperationService, this._oConfirmationService, this._oPersonService, this._oMeasurementService);
+			this._oOrderState = new OrderState(this._oOrderService, this._oPhaseService, this._oOperationService, this._oConfirmationService, this._oPersonService, this._oMeasurementService, this._oUserService);
 
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
