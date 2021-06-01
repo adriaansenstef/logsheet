@@ -3,9 +3,9 @@
         <VBox>
             <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="OrderSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Description" enableBasicSearch="true">
                 <smartFilterBar:controlConfiguration>
-                    <smartFilterBar:ControlConfiguration key="TechnicalObject" index="0" label="Functional location">
+                    <smartFilterBar:ControlConfiguration key="TechnicalObject" index="0" label="{i18n>OrderList.FuncLoc}">
                         <smartFilterBar:customControl>
-                            <dim:FuncLocSearchHelp id="technicalObjectSH" class="sapUiSmallMarginBottom"/>
+                            <dim:FuncLocSearchHelp id="technicalObjectSH" onSelect="onSelect" class="sapUiSmallMarginBottom"/>
                         </smartFilterBar:customControl>
                     </smartFilterBar:ControlConfiguration>
                 </smartFilterBar:controlConfiguration>
