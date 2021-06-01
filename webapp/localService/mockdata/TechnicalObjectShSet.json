@@ -1,0 +1,18 @@
+{
+    "d": {
+        "results": [
+            {
+                "Object": "JSRB-SUB-RMQC",
+                "Description": "Functional location 1",
+                "Type": "IFLO",
+                "Drillstate": "expanded",
+                "Hierarchylevel": "0",
+                "__metadata": {
+                    "type": "ZDIM_CREATE_NOTIF_GW_SRV.TechnicalObjectSh",
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_CREATE_NOTIF_GW_SRV/TechnicalObjectShSet('JSRB-SUB')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_CREATE_NOTIF_GW_SRV/TechnicalObjectShSet('JSRB-SUB')"
+                }
+            }
+        ]
+    }
+}
