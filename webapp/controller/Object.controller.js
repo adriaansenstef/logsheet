@@ -68,11 +68,12 @@ sap.ui.define([
 						this._getExecutorDialog().open();
 					});
 				} else {
+					this.OrderState.data.order.longText = "";
 					let updatedOrder = this.OrderState.data.order;
 
 					// Add Quality Assurance user status if any operation has NOK status
 					updatedOrder.phases.forEach(phase => {
-						if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOK(phase) || this.hasNOKInNewStatus(phase))) {
+						if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOKInNewStatus(phase))) {
 							updatedOrder.userStatus += ",QA"
 						}
 					});
@@ -255,23 +256,18 @@ sap.ui.define([
 		onExecutorDialogSelect: function (oEvent) {
 			this.OrderState.data.order.executor = oEvent.getParameters().selectedContexts[0].getObject().personnelNumber;
 
+			this.OrderState.data.order.longText = "";
 			if (this.byId("longTextEdit").getValue()) {
 				const oOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
 				const sToday = (new Date()).toLocaleDateString('nl-BE', oOptions);
 				const sPersonReported = oEvent.getParameters().selectedContexts[0].getObject().firstName + " " + oEvent.getParameters().selectedContexts[0].getObject().lastName;
-				let sLongText = "";
-				if (this.OrderState.data.order.longText) {
-					sLongText = this.OrderState.data.order.longText + " \n";
-				}
-				sLongText += "[" + sToday + "] " + sPersonReported + ": " + this.byId("longTextEdit").getValue();
-				this.OrderState.data.order.longText = sLongText;
+				this.OrderState.data.order.longText = "[" + sToday + "] " + sPersonReported + ": " + this.byId("longTextEdit").getValue();
 			}
-
 			let updatedOrder = this.OrderState.data.order;
 
 			// Add Quality Assurance user status if any operation has NOK status
 			updatedOrder.phases.forEach(phase => {
-				if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOK(phase) || this.hasNOKInNewStatus(phase))) {
+				if (!updatedOrder.userStatus.includes(",QA") && (this.hasNOKInNewStatus(phase))) {
 					updatedOrder.userStatus += ",QA"
 				}
 			});
