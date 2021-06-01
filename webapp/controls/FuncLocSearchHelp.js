@@ -70,7 +70,7 @@ sap.ui.define([
             // function name speaks for itself
             var that = this;
 
-            let oModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZDIM_CREATE_NOTIF_GW_SRV/");
+            let oModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/");
             // oModel.read("/TechnicalObjectShSet", {
             // 	success: function (oSuccess) {
             that.setModel(oModel, "tobj");

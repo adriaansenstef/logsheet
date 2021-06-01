@@ -5,7 +5,7 @@
                 <smartFilterBar:controlConfiguration>
                     <smartFilterBar:ControlConfiguration key="TechnicalObject" index="0" label="Functional location">
                         <smartFilterBar:customControl>
-                            <dim:FuncLocSearchHelp id="technicalObjectSH" onSelect="onSelect" class="sapUiSmallMarginBottom"/>
+                            <dim:FuncLocSearchHelp id="technicalObjectSH" class="sapUiSmallMarginBottom"/>
                         </smartFilterBar:customControl>
                     </smartFilterBar:ControlConfiguration>
                 </smartFilterBar:controlConfiguration>

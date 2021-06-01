@@ -40,19 +40,6 @@ sap.ui.define([
 			history.go(-1);
 		},
 
-		onSelect: function (oEvent) {
-			if (oEvent.getParameter("objecttype") === "EQUI") {
-				//
-			} else if (oEvent.getParameter("objecttype") === "IFLO") {
-				//this.getModel("notification").getData().FunctionalLocation = oEvent.getParameter("object");
-			}
-			if (this.byId("gridList").getSelectedItem()) {
-				this.byId("gridList").getSelectedItem().setSelected(false);
-			}
-			this.byId("techobjdescription").setText(oEvent.getParameter("objectdescription"));
-			//this.getModel("notification").refresh(true);
-		},
-
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -78,6 +65,17 @@ sap.ui.define([
 					oItem.attachPress(onPress);
 				});
 			});
+
+			this.getView().byId("OrderSmartTable").attachBeforeRebindTable(function (oEvent) {
+				var oBindingParams = oEvent.getParameter("bindingParams");
+				oBindingParams.parameters = oBindingParams.parameters || {};
+
+				var oSmartTable = oEvent.getSource();
+				var oSmartFilterBar = that.byId(oSmartTable.getSmartFilterId());
+
+				var technicalObjectValue = oSmartFilterBar.getControlByKey("TechnicalObject").getValue();
+				oBindingParams.filters.push(new sap.ui.model.Filter("TechnicalObject", "Contains", technicalObjectValue))
+			})
 		},
 
 		/**

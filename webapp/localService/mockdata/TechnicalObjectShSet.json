@@ -2,16 +2,15 @@
     "d": {
         "results": [
             {
-                "TechnicalObject": "FuncLoc1",
+                "Object": "JSRB-SUB",
                 "Description": "Functional location 1",
                 "Type": "IFLO",
-                "Superiorobject": "",
                 "Drillstate": "expanded",
                 "Hierarchylevel": "0",
                 "__metadata": {
                     "type": "ZDIM_CREATE_NOTIF_GW_SRV.TechnicalObjectSh",
-                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_CREATE_NOTIF_GW_SRV/TechnicalObjectShSet('FuncLoc1')",
-                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_CREATE_NOTIF_GW_SRV/TechnicalObjectShSet('FuncLoc1')"
+                    "id": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_CREATE_NOTIF_GW_SRV/TechnicalObjectShSet('JSRB-SUB')",
+                    "uri": "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_CREATE_NOTIF_GW_SRV/TechnicalObjectShSet('JSRB-SUB')"
                 }
             }
         ]
