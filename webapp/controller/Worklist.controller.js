@@ -40,6 +40,10 @@ sap.ui.define([
 			history.go(-1);
 		},
 
+		onSelect: function (oEvent) {
+			this.setModel(new JSONModel(oEvent.getParameters()), "selectedFuncLoc");
+		},
+
 		/* =========================================================== */
 		/* internal methods                                            */
 		/* =========================================================== */
@@ -65,6 +69,24 @@ sap.ui.define([
 					oItem.attachPress(onPress);
 				});
 			});
+
+			this.getView().byId("OrderSmartTable").attachBeforeRebindTable(function (oEvent) {
+				var oBindingParams = oEvent.getParameter("bindingParams");
+				oBindingParams.parameters = oBindingParams.parameters || {};
+
+				var oSmartTable = oEvent.getSource();
+				var oSmartFilterBar = that.byId(oSmartTable.getSmartFilterId());
+
+				var technicalObjectValue = oSmartFilterBar.getControlByKey("TechnicalObject").getValue();
+				if (technicalObjectValue) {
+					let selectedObject = this.getModel("selectedFuncLoc").getData();
+					if (selectedObject.objecttype === 'IFLO') {
+						oBindingParams.filters.push(new sap.ui.model.Filter("TechnicalObject", "EQ", technicalObjectValue))
+					} else if (selectedObject.objecttype === 'EQUI') {
+						oBindingParams.filters.push(new sap.ui.model.Filter("EquipmentNumber", "EQ", technicalObjectValue))
+					}
+				}
+			})
 		},
 
 		/**

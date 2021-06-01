@@ -1,7 +1,15 @@
-<View controllerName="pro.dimensys.pm.logsheet.controller.Worklist" xmlns="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic">
+<View controllerName="pro.dimensys.pm.logsheet.controller.Worklist" xmlns="sap.m" xmlns:dim="pro.dimensys.pm.logsheet.controls" xmlns:core="sap.ui.core" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic">
     <Page showHeader="false">
         <VBox>
-            <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="OrderSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Description" enableBasicSearch="true"></smartFilterBar:SmartFilterBar>
+            <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="OrderSet" persistencyKey="SmartFilter_Explored" basicSearchFieldName="Description" enableBasicSearch="true">
+                <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration key="TechnicalObject" index="0" label="{i18n>OrderList.FuncLoc}">
+                        <smartFilterBar:customControl>
+                            <dim:FuncLocSearchHelp id="technicalObjectSH" onSelect="onSelect" class="sapUiSmallMarginBottom"/>
+                        </smartFilterBar:customControl>
+                    </smartFilterBar:ControlConfiguration>
+                </smartFilterBar:controlConfiguration>
+            </smartFilterBar:SmartFilterBar>
             <smartTable:SmartTable id="OrderSmartTable" entitySet="OrderSet" ignoreFromPersonalisation="SystemStatusTechnical,TecoFlag" initiallyVisibleFields="OrderNumber,Description,TechnicalObject,PhaseDescription,StartDate,Person" smartFilterId="smartFilterBar" tableType="ResponsiveTable" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true"></smartTable:SmartTable>
         </VBox>
     </Page>
