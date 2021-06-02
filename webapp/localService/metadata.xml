@@ -176,6 +176,15 @@
                 <Property Name="ShortDescription" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="LongDescription" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="30" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
             </EntityType>
+            <EntityType sap:content-version="1" Name="User">
+                <Key>
+                    <PropertyRef Name="UserId"/>
+                </Key>
+                <Property Name="PersonnelNumber" sap:updatable="false" sap:creatable="false" sap:label="Personnel no." MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/>
+                <Property Name="FirstName" sap:updatable="false" sap:creatable="false" sap:label="First name" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/>
+                <Property Name="UserId" sap:updatable="false" sap:creatable="false" sap:label="System ID" MaxLength="30" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/>
+                <Property Name="LastName" sap:updatable="false" sap:creatable="false" sap:label="Last name" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/>
+            </EntityType>
             <EntityType sap:content-version="1" Name="Priority">
                 <Key>
                     <PropertyRef Name="PriorityId" />
@@ -248,6 +257,7 @@
                 <EntitySet sap:content-version="1" Name="SystemStatusSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.SystemStatus" />
                 <EntitySet sap:content-version="1" Name="PrioritySet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.Priority" />
                 <EntitySet sap:content-version="1" Name="MeasurePointSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.MeasurePoint" />
+                <EntitySet sap:content-version="1" Name="UserSet" sap:updatable="false" sap:creatable="false" sap:addressable="false" sap:pageable="false" sap:deletable="false" EntityType="ZDIM_LOGSHEET_SRV.User" />
                 <AssociationSet sap:content-version="1" Name="Order2MeasurementsSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZDIM_LOGSHEET_SRV.Order2Measurements">
                     <End Role="FromRole_Order2Measurements" EntitySet="OrderSet" />
                     <End Role="ToRole_Order2Measurements" EntitySet="MeasurePointSet" />

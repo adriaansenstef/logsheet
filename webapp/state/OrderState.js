@@ -1,12 +1,13 @@
 sap.ui.define([
 	"./BaseState",
 	"../model/Order",
+	"../model/User",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], function (BaseState, Order, Filter, FilterOperator) {
+], function (BaseState, Order, User, Filter, FilterOperator) {
 	"use strict";
 	var OrderState = BaseState.extend("pro.dimensys.pm.logsheet.state.OrderState", {
-		constructor: function (oService, oPhaseService, oOperationService, oConfirmationService, oPersonService, oMeasurementService) {
+		constructor: function (oService, oPhaseService, oOperationService, oConfirmationService, oPersonService, oMeasurementService, oUserService) {
 			this.data = {
 				order: new Order(),
 				display: true
@@ -17,6 +18,7 @@ sap.ui.define([
 			this.ConfirmationService = oConfirmationService;
 			this.PersonService = oPersonService;
 			this.MeasurementService = oMeasurementService;
+			this.UserService = oUserService;
 			BaseState.call(this);
 		},
 
@@ -37,6 +39,9 @@ sap.ui.define([
 		},
 		getMeasurementService: function () {
 			return this.MeasurementService;
+		},
+		getUserService: function () {
+			return this.UserService;
 		},
 
 		getOrder: function (orderId) {
@@ -129,6 +134,14 @@ sap.ui.define([
 				this.data.order.setMeasurement(operation, result.data.results);
 				this.updateModel(true);
 				return this.getProperty("order");
+			});
+		},
+
+		getUser: function () {
+			return this.getUserService().getUser().then((result) => {
+				this.data.user = result.data.results.map(user => new User(user))[0];
+				this.updateModel(true);
+				return this.data.user;
 			});
 		}
 	});
