@@ -65,7 +65,7 @@ sap.ui.define([
 			if (this.OrderState.data.order.startDate <= this.OrderState.data.order.finishDate) {
 				if (this.hasConfirmationChanged || this.byId("longTextEdit").getValue()) {
 					this.OrderState.getUser().then((result) => {
-						if(result !== undefined) {
+						if(result !== undefined && result.personnelNumber) {
 						  this._saveOrder(result);
 						} else {
 							this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {

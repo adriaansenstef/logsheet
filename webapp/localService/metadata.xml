@@ -178,10 +178,12 @@
             </EntityType>
             <EntityType sap:content-version="1" Name="User">
                 <Key>
-                    <PropertyRef Name="PersonnelNumber" />
+                    <PropertyRef Name="UserId"/>
                 </Key>
-                <Property Name="PersonnelNumber" sap:updatable="false" sap:creatable="false" sap:label="System status" MaxLength="5" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-                <Property Name="UserId" sap:updatable="false" sap:creatable="false" sap:label="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+                <Property Name="PersonnelNumber" sap:updatable="false" sap:creatable="false" sap:label="Personnel no." MaxLength="8" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/>
+                <Property Name="FirstName" sap:updatable="false" sap:creatable="false" sap:label="First name" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/>
+                <Property Name="UserId" sap:updatable="false" sap:creatable="false" sap:label="System ID" MaxLength="30" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/>
+                <Property Name="LastName" sap:updatable="false" sap:creatable="false" sap:label="Last name" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/>
             </EntityType>
             <EntityType sap:content-version="1" Name="Priority">
                 <Key>

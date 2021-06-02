@@ -7,8 +7,10 @@
               "uri" : "http://SAPDEVGW.jsrmicro.local:8000/sap/opu/odata/sap/ZDIM_LOGSHEET_SRV/UserSet('TEST%40JSRMICRO.BE')",
               "type" : "ZDIM_LOGSHEET_SRV.User"
             },
-            "PersonnelNumber" : "20000006",
-            "UserId" : "TEST@JSRMICRO.BE"
+            "PersonnelNumber" : "",
+            "UserId" : "TEST@JSRMICRO.BE",
+            "FirstName": "",
+            "LastName": ""
           }
       ]
     }
