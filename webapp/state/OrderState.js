@@ -123,12 +123,12 @@ sap.ui.define([
 			});
 		},
 
-		getMeasurepoints: function(operation, technicalObject){
+		getMeasurepoints: function(operation, orderNumber){
 			return this.getMeasurementService().getMeasurementPoints({
 				filters: [new Filter({
-					path: "TechnicalObject",
+					path: "OrderNumber",
 					operator: FilterOperator.EQ,
-					value1: technicalObject
+					value1: orderNumber
 				})]
 			}).then((result) => {
 				this.data.order.setMeasurement(operation, result.data.results);

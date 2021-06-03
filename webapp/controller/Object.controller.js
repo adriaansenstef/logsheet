@@ -265,7 +265,7 @@ sap.ui.define([
 
 		showMeasurePoints: function (oEvent, operation) {
 			if (!operation.measurements || operation.measurements.length <= 0) {
-				this.OrderState.getMeasurepoints(operation, this.OrderState.data.order.technicalObject).then(
+				this.OrderState.getMeasurepoints(operation, this.OrderState.data.order.orderNumber).then(
 					this._getMeasurePointsDialog().open()
 				);
 			}

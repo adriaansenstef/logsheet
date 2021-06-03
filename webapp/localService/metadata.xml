@@ -195,11 +195,11 @@
             <EntityType sap:content-version="1" Name="MeasurePoint">
                 <Key>
                     <PropertyRef Name="Point" />
-                    <PropertyRef Name="Ordernumber" />
+                    <PropertyRef Name="OrderNumber" />
                     <PropertyRef Name="TechnicalObject" />
                 </Key>
                 <Property Name="Point" sap:updatable="false" sap:creatable="false" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
-                <Property Name="Ordernumber" sap:updatable="false" sap:creatable="false" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+                <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="TechnicalObject" sap:updatable="false" sap:creatable="false" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="Description" sap:updatable="false" sap:creatable="false" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="Value" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.Double" sap:filterable="false" sap:sortable="false" />
@@ -215,7 +215,7 @@
                         <PropertyRef Name="OrderNumber" />
                     </Principal>
                     <Dependent Role="ToRole_Order2Measurements">
-                        <PropertyRef Name="Ordernumber" />
+                        <PropertyRef Name="OrderNumber" />
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
