@@ -89,6 +89,7 @@ sap.ui.define([
 
             var oDialog = new TreeSelectDialog({
                 title: "Select technical object",
+                multiSelect: true,
                 confirm: function (oConfirmEvent) {
                     that.closeDialogFuncLocItems(oConfirmEvent);
                 },
@@ -178,19 +179,38 @@ sap.ui.define([
             oDialog.destroyItems();
             oDialog.destroy();
 
-            if (oEvent.getParameter("selectedItem") && oEvent.getParameter("selectedItem").getBindingContext()) {
-                var obj = oEvent.getParameter("selectedItem").getBindingContext().getObject();
+            if (oEvent.getParameter("selectedItems") /*&& oEvent.getParameter("selectedItems").getBindingContext()*/) {
+                var aObj = oEvent.getParameter("selectedItems").map(a => a.getBindingContext().getObject());
                 // save select dialog object in control properties
 
-                this.setValue(obj.Object);
-                this.setText(obj.Description);
+                this.setValue(aObj.map(a => a.Object))
+                this.setText(aObj.map(a => a.Description));
+                let aObjSelect = [];
+                aObj.forEach((obj) => {
+                    aObjSelect.push({
+                        "object": obj.Object,
+                        "objectdescription": obj.Description,
+                        "objecttype": obj.Type
+                    })
+                })
                 // fire event to notify view of selection
-                this.fireOnSelect({
-                    "object": obj.Object,
-                    "objectdescription": obj.Description,
-                    "objecttype": obj.Type
-                });
+                this.fireOnSelect(aObjSelect);
             }
+
+            // Single select
+
+            //if (oEvent.getParameter("selectedItem") && oEvent.getParameter("selectedItem").getBindingContext()) {
+            //    var obj = oEvent.getParameter("selectedItem").getBindingContext().getObject();
+            //    // save select dialog object in control properties
+            //
+            //    this.setValue(obj.Object);
+            //    this.setText(obj.Description);
+            //    // fire event to notify view of selection
+            //    this.fireOnSelect({
+            //        "object": obj.Object,
+            //        "objectdescription": obj.Description,
+            //        "objecttype": obj.Type
+            //    });
         },
 
         onSelect: function (oEvent) {

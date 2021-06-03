@@ -164,7 +164,7 @@ sap.ui.define([
             this._oList = new Tree(this.getId() + "-list", {
                 growing: that.getGrowing(),
                 growingScrollToLoad: that.getGrowing(),
-                mode: sap.m.ListMode.SingleSelectMaster,
+                mode: sap.m.ListMode.MultiSelect,
                 sticky: [library.Sticky.InfoToolbar],
                 infoToolbar: new Toolbar({
                     visible: false,
