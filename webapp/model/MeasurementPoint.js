@@ -6,12 +6,13 @@ sap.ui.define([
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.MeasurementPoint", {
 		constructor: function (data) {
 			BaseObject.call(this, data);
+			this.value = parseFloat(data.Value) == '0' ? '' : data.Value;
 		},
 		getJSON: function () {
 			return {
 				Point: this.point,
-                Value: this.value,
-                Unit: this.unit
+				Value: this.value.toString(),
+				Unit: this.unit
 			}
 		}
 	});

@@ -29,7 +29,7 @@
             </Table>
         </content>
         <buttons>
-            <Button text="{i18n>Close}" press="onMeasurePointClose" />
+            <Button text="{i18n>General.Close}" press="onMeasurePointClose" />
         </buttons>
     </Dialog>
 </core:FragmentDefinition>
