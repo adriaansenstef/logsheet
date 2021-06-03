@@ -6,7 +6,7 @@ sap.ui.define([
 	return BaseObject.extend("pro.dimensys.pm.logsheet.model.MeasurementPoint", {
 		constructor: function (data) {
 			BaseObject.call(this, data);
-			this.value = parseFloat(data.Value) == '0' ? '' : parseFloat(data.Value);
+			this.value = parseFloat(data.Value);
 		},
 		getJSON: function () {
 			return {
