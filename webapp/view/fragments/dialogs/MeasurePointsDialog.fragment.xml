@@ -15,6 +15,12 @@
                     <Column minScreenWidth="Tablet" demandPopin="true">
                         <Text text="{i18n>MeasurementTable.Unit}" />
                     </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>MeasurementTable.LastValue}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>MeasurementTable.Date}" />
+                    </Column>
                 </columns>
                 <items>
                     <ColumnListItem>
@@ -23,6 +29,8 @@
                             <Text text="{order>description}" />
                             <Input value="{order>value}" type="Number" editable="{viewModel>/edit}" />
                             <Text text="{order>unit}" />
+                            <Text text="{order>lastValue}" />
+                            <Text text="{path: 'order>date', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } }" />
                         </cells>
                     </ColumnListItem>
                 </items>

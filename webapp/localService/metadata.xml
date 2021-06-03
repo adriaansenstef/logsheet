@@ -204,6 +204,8 @@
                 <Property Name="Description" sap:updatable="false" sap:creatable="false" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="Value" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.Double" sap:filterable="false" sap:sortable="false" />
                 <Property Name="Unit" sap:updatable="false" sap:creatable="false" MaxLength="3" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" sap:semantics="unit-of-measure" />
+                <Property Name="LastValue" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.Double" sap:filterable="false" sap:sortable="false" />
+                <Property Name="Date" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.DateTime" sap:filterable="false" sap:sortable="false" />
             </EntityType>
             <Association sap:content-version="1" Name="Order2Measurements">
                 <End Type="ZDIM_LOGSHEET_SRV.Order" Role="FromRole_Order2Measurements" Multiplicity="1" />

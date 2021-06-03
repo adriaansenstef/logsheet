@@ -14,7 +14,9 @@
         "TechnicalObject": "JSRB-SUB-RMQC",
         "Description": "Test",
         "Value": "0.00",
-        "Unit": "EA"
+        "Unit": "EA",
+        "LastValue": "0.00",
+        "Date": "\/Date(1546560000000)\/"
       }
     ]
   }
