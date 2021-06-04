@@ -166,6 +166,7 @@ sap.ui.define([
                     }
                 }
             });
+            oDialog._list.setSelectedContextPaths(this.selectedContexts);
             oDialog.open();
 
             // 	},
@@ -176,6 +177,7 @@ sap.ui.define([
 
         closeDialogFuncLocItems: function (oEvent) {
             var oDialog = oEvent.getSource();
+            this.selectedContexts = oDialog._list.getSelectedContextPaths();
             oDialog.destroyItems();
             oDialog.destroy();
 
