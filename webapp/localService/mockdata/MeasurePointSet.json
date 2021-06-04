@@ -10,11 +10,14 @@
         "Point": "1",
         "PhaseId": "PhaseId 1",
         "OperationNumber": "OperationNumber 1",
-        "Ordernumber": "5066580",
+        "OrderNumber": "5066580",
         "TechnicalObject": "JSRB-SUB-RMQC",
         "Description": "Test",
         "Value": "0.00",
-        "Unit": "EA"
+        "Unit": "EA",
+        "LastValue": "9.999",
+        "AddedDate": "\/Date(1546560000000)\/",
+        "Decimals": "5"
       }
     ]
   }

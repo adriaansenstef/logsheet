@@ -7,6 +7,7 @@ sap.ui.define([
 		constructor: function (data) {
 			BaseObject.call(this, data);
 			this.value = parseFloat(data.Value);
+			this.lastValue = parseFloat(data.LastValue);
 		},
 		getJSON: function () {
 			return {
