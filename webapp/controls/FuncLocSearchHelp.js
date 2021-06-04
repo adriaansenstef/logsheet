@@ -166,6 +166,8 @@ sap.ui.define([
                     }
                 }
             });
+            //Use setter with selectContexts to set the previously selected items
+            oDialog._list.setSelectedContextPaths(this.selectedContexts);
             oDialog.open();
 
             // 	},
@@ -176,6 +178,8 @@ sap.ui.define([
 
         closeDialogFuncLocItems: function (oEvent) {
             var oDialog = oEvent.getSource();
+            //set selectedContexts to keep a reference of the items that were selected
+            this.selectedContexts = oDialog._list.getSelectedContextPaths();
             oDialog.destroyItems();
             oDialog.destroy();
 
