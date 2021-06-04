@@ -27,7 +27,7 @@ sap.ui.define([], function () {
 			 * Displaying data from the right model (model -> view)
 			 */
 			formatValue: function (parts) {
-				return parts && parts[0] ? parseFloat(parts[0]).toFixed(parts[1]) : null;
+				return parts ? parseFloat(parts[0]).toFixed(parts[1]) : null;
 			},
 
 			/**
