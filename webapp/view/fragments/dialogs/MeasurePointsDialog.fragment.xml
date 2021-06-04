@@ -27,7 +27,7 @@
                         <cells>
                             <Text text="{order>point}" />
                             <Text text="{order>description}" />
-                            <Input value="{order>value}" type="Number" editable="{viewModel>/edit}" />
+                            <Input value="{parts: [{path: 'order>value'}, {path: 'order>decimals'}], type: '.formatter.decimalFormatter' }" type="Number" editable="{viewModel>/edit}" />
                             <Text text="{order>unit}" />
                             <Text text="{order>lastValue}" />
                             <Text text="{path: 'order>addedDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } }" />
