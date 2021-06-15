@@ -63,6 +63,11 @@ sap.ui.define([
 
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate <= this.OrderState.data.order.finishDate) {
+				this.byId("StartDateTimePicker").setValueState("None");
+				this.byId("DueDateTimePicker").setValueState("None");
+
+				this.byId("save").setEnabled(false)
+				this.byId("cancel").setEnabled(false)
 				if (this.hasConfirmationChanged || this.byId("longTextEdit").getValue()) {
 					this.OrderState.getUser().then((result) => {
 						if (result !== undefined && result.personnelNumber) {
@@ -70,6 +75,9 @@ sap.ui.define([
 						} else {
 							this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
 								this._getExecutorDialog().open();
+								this._toggleButtonsAndView(true);
+								this.byId("save").setEnabled(true)
+								this.byId("cancel").setEnabled(true)
 							});
 						}
 					});
@@ -90,6 +98,8 @@ sap.ui.define([
 				}
 			} else {
 				// Invalid start/due date error message
+				this.byId("StartDateTimePicker").setValueState("Error");
+				this.byId("DueDateTimePicker").setValueState("Error");
 			}
 		},
 
@@ -112,6 +122,9 @@ sap.ui.define([
 		onCancelPress: function (oEvent) {
 			this.byId("StartDateTimePicker").setValueState("None");
 			this.byId("DueDateTimePicker").setValueState("None");
+
+			this.byId("save").setEnabled(false)
+			this.byId("cancel").setEnabled(false)
 
 			this._getObjectData(this.OrderState.data.order.orderNumber);
 		},
@@ -139,15 +152,6 @@ sap.ui.define([
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
 			this.hasConfirmationChanged = ((this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus) || newStatus === 'E0002');
-		},
-
-		onDateChanged: function (oEvent) {
-			if (this.OrderState.data.order.startDate >= this.OrderState.data.order.finishDate) {
-				oEvent.getSource().setValueState("Error");
-			} else {
-				this.byId("StartDateTimePicker").setValueState("None");
-				this.byId("DueDateTimePicker").setValueState("None");
-			}
 		},
 
 		onSelectedPhaseChange: function (oEvent) {
@@ -260,6 +264,8 @@ sap.ui.define([
 		},
 
 		onExecutorDialogSelect: function (oEvent) {
+			this.byId("save").setEnabled(false)
+			this.byId("cancel").setEnabled(false)
 			this._saveOrder(oEvent.getParameters().selectedContexts[0].getObject());
 		},
 
@@ -376,7 +382,11 @@ sap.ui.define([
 				this.OrderState.getPhases(sObjectId).then(() => {
 					this.OrderState.getOperations(null);
 				});
-			}).finally(() => this.getModel("appView").setProperty("/busy", false));
+			}).finally(() => {
+				this.getModel("appView").setProperty("/busy", false);
+				this.byId("save").setEnabled(true)
+				this.byId("cancel").setEnabled(true)
+			});
 		},
 
 		_formFragments: {},
