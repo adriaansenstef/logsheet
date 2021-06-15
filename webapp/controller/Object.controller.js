@@ -76,8 +76,6 @@ sap.ui.define([
 							this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
 								this._getExecutorDialog().open();
 								this._toggleButtonsAndView(true);
-								this.byId("save").setEnabled(true)
-								this.byId("cancel").setEnabled(true)
 							});
 						}
 					});
@@ -255,10 +253,13 @@ sap.ui.define([
 
 		onExecutorDialogSearch: function (oEvent) {
 			var sValue = oEvent.getParameter("value");
-			var aFilter = [
-				new Filter("FirstName", FilterOperator.Contains, sValue),
-				new Filter("LastName", FilterOperator.Contains, sValue)
-			];
+			var aFilter = new Filter({
+				filters: [
+					new Filter("firstName", FilterOperator.Contains, sValue),
+					new Filter("lastName", FilterOperator.Contains, sValue)
+				],
+				and: false
+			})
 			var oBinding = oEvent.getParameter("itemsBinding");
 			oBinding.filter([aFilter]);
 		},
@@ -267,6 +268,13 @@ sap.ui.define([
 			this.byId("save").setEnabled(false)
 			this.byId("cancel").setEnabled(false)
 			this._saveOrder(oEvent.getParameters().selectedContexts[0].getObject());
+		},
+
+		onExecutorDialogClose: function (oEvent) {
+			this.byId("save").setEnabled(true)
+			this.byId("cancel").setEnabled(true)
+
+			oEvent.getSource().getBinding("items").filter([]);
 		},
 
 		showMeasurePoints: function (oEvent, operation) {
