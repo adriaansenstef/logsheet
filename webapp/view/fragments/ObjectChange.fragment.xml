@@ -72,7 +72,7 @@
                         </f:FormElement>
                         <f:FormElement label="{i18n>OrderDetail.UserStatus}">
                             <f:fields>
-                                <MultiComboBox id="userStatusMultiComboBox" items="{path: '/UserStatusSet'}" selectedKeys="{path: 'order>/order/userStatus', formatter : '.splitStatus'}" selectionChange="onSelectedUserStatusChange">
+                                <MultiComboBox id="userStatusMultiComboBox" items="{path: '/UserStatusSet'}" selectedKeys="{path: 'order>/order/userStatus', formatter : '.formatter.splitStatus'}" selectionChange="onSelectedUserStatusChange">
                                     <core:Item key="{ShortStatusDescription}" text="{LongStatusDescription}"/>
                                 </MultiComboBox>
                             </f:fields>

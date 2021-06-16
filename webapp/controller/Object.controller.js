@@ -207,42 +207,6 @@ sap.ui.define([
 			this._getRemarkDialog().close();
 		},
 
-		splitStatus: function (item) {
-			if (item.includes(",")) {
-				return item.split(",");
-			}
-			else {
-				return item;
-			}
-		},
-
-		removeWhiteSpacingFormat: function (item) {
-			return item.trim();
-		},
-
-		iconTabFilterTextFormat: function (item) {
-			let description = item.description;
-			if (this.hasNOK(item)) {
-				description = "! " + description;
-			} return description;
-		},
-
-		iconTabFilterColorFormat: function (item) {
-			if (this.hasNOK(item)) {
-				return sap.ui.core.IconColor.Negative
-			} else {
-				return sap.ui.core.IconColor.Default
-			}
-		},
-
-		highlightedOperationFormat: function (item) {
-			if (item.internalStatus === 'E0003') {
-				return 'Error'
-			} else {
-				return 'None'
-			}
-		},
-
 		hasNOK: function (item) {
 			return (item.operations.length > 0 && item.operations.filter(op => op.internalStatus === 'E0003').length > 0);
 		},
@@ -267,6 +231,7 @@ sap.ui.define([
 		onExecutorDialogSelect: function (oEvent) {
 			this.byId("save").setEnabled(false)
 			this.byId("cancel").setEnabled(false)
+			oEvent.getSource().getBinding("items").filter([]);
 			this._saveOrder(oEvent.getParameters().selectedContexts[0].getObject());
 		},
 
