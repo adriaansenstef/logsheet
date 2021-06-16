@@ -5,9 +5,10 @@ sap.ui.define([
 	"sap/ui/core/routing/History",
 	"../model/formatter",
 	"sap/m/UploadCollectionParameter",
+	"sap/m/LightBox",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator"
-], function (BaseController, JSONModel, History, formatter, UploadCollectionParameter, Filter, FilterOperator) {
+], function (BaseController, JSONModel, History, formatter, UploadCollectionParameter, LightBox, Filter, FilterOperator) {
 	"use strict";
 
 	return BaseController.extend("pro.dimensys.pm.logsheet.controller.Object", {
@@ -289,7 +290,18 @@ sap.ui.define([
 			var key = this.getModel().createKey("AttachmentStreamSet", this.getModel().getProperty(oEvent.getParameter("selectedItem").getBindingContext().getPath()));
 			var serviceURL = this.getModel().sServiceUrl;
 			var fullUrl = [serviceURL, key, "$value"].join("/");
-			window.open(fullUrl);
+
+			if(!oEvent.getParameters().selectedItem.getProperty("fileName").match(/.(jpg|jpeg|png|gif)$/i)) {
+				window.open(fullUrl);
+			} else {
+				this.lightbox = new LightBox({
+					imageContent: {
+						title: oEvent.getParameters().selectedItem.getProperty("fileName"),
+						imageSrc: fullUrl
+					}
+				});
+				this.lightbox.open();
+			}
 		},
 
 		printOrder: function (oEvent) {
