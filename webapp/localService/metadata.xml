@@ -197,9 +197,11 @@
                     <PropertyRef Name="Point" />
                     <PropertyRef Name="OrderNumber" />
                     <PropertyRef Name="TechnicalObject" />
+                    <PropertyRef Name="OperationNumber"/>
                 </Key>
                 <Property Name="Point" sap:updatable="false" sap:creatable="false" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="OrderNumber" sap:updatable="false" sap:creatable="false" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
+                <Property Name="OperationNumber" sap:updatable="false" sap:creatable="false" MaxLength="12" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="TechnicalObject" sap:updatable="false" sap:creatable="false" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="Description" sap:updatable="false" sap:creatable="false" MaxLength="40" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false" />
                 <Property Name="Value" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.Double" sap:filterable="false" sap:sortable="false" />
