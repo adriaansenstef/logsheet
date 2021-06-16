@@ -16,6 +16,42 @@ sap.ui.define([], function () {
 			return parseFloat(sValue).toFixed(2);
 		},
 
+		splitStatus: function (item) {
+			if (item.includes(",")) {
+				return item.split(",");
+			}
+			else {
+				return item;
+			}
+		},
+
+		removeWhiteSpacingFormat: function (item) {
+			return item.trim();
+		},
+
+		iconTabFilterTextFormat: function (item) {
+			let description = item.description;
+			if (this.hasNOK(item)) {
+				description = "! " + description;
+			} return description;
+		},
+
+		iconTabFilterColorFormat: function (item) {
+			if (this.hasNOK(item)) {
+				return sap.ui.core.IconColor.Negative
+			} else {
+				return sap.ui.core.IconColor.Default
+			}
+		},
+
+		highlightedOperationFormat: function (item) {
+			if (item.internalStatus === 'E0003') {
+				return 'Error'
+			} else {
+				return 'None'
+			}
+		},
+
 		decimalFormatter: sap.ui.model.CompositeType.extend("number", {
 			constructor: function () {
 				sap.ui.model.CompositeType.apply(this, arguments);
