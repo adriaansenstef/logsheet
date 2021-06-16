@@ -129,6 +129,11 @@ sap.ui.define([
 					path: "OrderNumber",
 					operator: FilterOperator.EQ,
 					value1: orderNumber
+				}), 
+				new Filter({
+					path: "OperationNumber",
+					operator: FilterOperator.EQ,
+					value1: operation.operationNumber
 				})]
 			}).then((result) => {
 				this.data.order.setMeasurement(operation, result.data.results);
