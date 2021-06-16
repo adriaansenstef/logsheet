@@ -63,6 +63,11 @@ sap.ui.define([
 
 		onSavePress: function (oEvent) {
 			if (this.OrderState.data.order.startDate <= this.OrderState.data.order.finishDate) {
+				this.byId("StartDateTimePicker").setValueState("None");
+				this.byId("DueDateTimePicker").setValueState("None");
+
+				this.byId("save").setEnabled(false)
+				this.byId("cancel").setEnabled(false)
 				if (this.hasConfirmationChanged || this.byId("longTextEdit").getValue()) {
 					this.OrderState.getUser().then((result) => {
 						if (result !== undefined && result.personnelNumber) {
@@ -70,6 +75,7 @@ sap.ui.define([
 						} else {
 							this.OrderState.getPersons(this._getLowestOperationWorkCenter()).then(() => {
 								this._getExecutorDialog().open();
+								this._toggleButtonsAndView(true);
 							});
 						}
 					});
@@ -90,6 +96,8 @@ sap.ui.define([
 				}
 			} else {
 				// Invalid start/due date error message
+				this.byId("StartDateTimePicker").setValueState("Error");
+				this.byId("DueDateTimePicker").setValueState("Error");
 			}
 		},
 
@@ -112,6 +120,9 @@ sap.ui.define([
 		onCancelPress: function (oEvent) {
 			this.byId("StartDateTimePicker").setValueState("None");
 			this.byId("DueDateTimePicker").setValueState("None");
+
+			this.byId("save").setEnabled(false)
+			this.byId("cancel").setEnabled(false)
 
 			this._getObjectData(this.OrderState.data.order.orderNumber);
 		},
@@ -139,15 +150,6 @@ sap.ui.define([
 			}
 			this.getModel("order").setProperty(oEvent.getSource().getParent().getBindingContextPath() + '/newStatus', newStatus);
 			this.hasConfirmationChanged = ((this.getModel("order").getProperty(oEvent.getSource().getParent().getBindingContextPath() + '/internalStatus') !== newStatus) || newStatus === 'E0002');
-		},
-
-		onDateChanged: function (oEvent) {
-			if (this.OrderState.data.order.startDate >= this.OrderState.data.order.finishDate) {
-				oEvent.getSource().setValueState("Error");
-			} else {
-				this.byId("StartDateTimePicker").setValueState("None");
-				this.byId("DueDateTimePicker").setValueState("None");
-			}
 		},
 
 		onSelectedPhaseChange: function (oEvent) {
@@ -205,42 +207,6 @@ sap.ui.define([
 			this._getRemarkDialog().close();
 		},
 
-		splitStatus: function (item) {
-			if (item.includes(",")) {
-				return item.split(",");
-			}
-			else {
-				return item;
-			}
-		},
-
-		removeWhiteSpacingFormat: function (item) {
-			return item.trim();
-		},
-
-		iconTabFilterTextFormat: function (item) {
-			let description = item.description;
-			if (this.hasNOK(item)) {
-				description = "! " + description;
-			} return description;
-		},
-
-		iconTabFilterColorFormat: function (item) {
-			if (this.hasNOK(item)) {
-				return sap.ui.core.IconColor.Negative
-			} else {
-				return sap.ui.core.IconColor.Default
-			}
-		},
-
-		highlightedOperationFormat: function (item) {
-			if (item.internalStatus === 'E0003') {
-				return 'Error'
-			} else {
-				return 'None'
-			}
-		},
-
 		hasNOK: function (item) {
 			return (item.operations.length > 0 && item.operations.filter(op => op.internalStatus === 'E0003').length > 0);
 		},
@@ -251,16 +217,29 @@ sap.ui.define([
 
 		onExecutorDialogSearch: function (oEvent) {
 			var sValue = oEvent.getParameter("value");
-			var aFilter = [
-				new Filter("FirstName", FilterOperator.Contains, sValue),
-				new Filter("LastName", FilterOperator.Contains, sValue)
-			];
+			var aFilter = new Filter({
+				filters: [
+					new Filter("firstName", FilterOperator.Contains, sValue),
+					new Filter("lastName", FilterOperator.Contains, sValue)
+				],
+				and: false
+			})
 			var oBinding = oEvent.getParameter("itemsBinding");
 			oBinding.filter([aFilter]);
 		},
 
 		onExecutorDialogSelect: function (oEvent) {
+			this.byId("save").setEnabled(false)
+			this.byId("cancel").setEnabled(false)
+			oEvent.getSource().getBinding("items").filter([]);
 			this._saveOrder(oEvent.getParameters().selectedContexts[0].getObject());
+		},
+
+		onExecutorDialogClose: function (oEvent) {
+			this.byId("save").setEnabled(true)
+			this.byId("cancel").setEnabled(true)
+
+			oEvent.getSource().getBinding("items").filter([]);
 		},
 
 		showMeasurePoints: function (oEvent, operation) {
@@ -376,7 +355,11 @@ sap.ui.define([
 				this.OrderState.getPhases(sObjectId).then(() => {
 					this.OrderState.getOperations(null);
 				});
-			}).finally(() => this.getModel("appView").setProperty("/busy", false));
+			}).finally(() => {
+				this.getModel("appView").setProperty("/busy", false);
+				this.byId("save").setEnabled(true)
+				this.byId("cancel").setEnabled(true)
+			});
 		},
 
 		_formFragments: {},

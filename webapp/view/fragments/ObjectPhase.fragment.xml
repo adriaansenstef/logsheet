@@ -2,7 +2,7 @@
     <VBox>
         <IconTabBar items="{order>/order/phases}" expandable="false" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
             <items>
-                <IconTabFilter text="{path: 'order>', formatter : '.iconTabFilterTextFormat'}" iconColor="{path: 'order>', formatter : '.iconTabFilterColorFormat'}" key="{order>phaseId}">
+                <IconTabFilter text="{path: 'order>', formatter : '.formatter.iconTabFilterTextFormat'}" iconColor="{path: 'order>', formatter : '.formatter.iconTabFilterColorFormat'}" key="{order>phaseId}">
                     <Table items="{order>operations}" fixedLayout="false">
                         <columns>
                             <Column width="4em" vAlign="Top">
@@ -32,11 +32,11 @@
                             <Column width="6%" />
                         </columns>
                         <items>
-                            <ColumnListItem highlight="{path: 'order>', formatter : '.highlightedOperationFormat'}">
+                            <ColumnListItem highlight="{path: 'order>', formatter : '.formatter.highlightedOperationFormat'}">
                                 <cells>
                                     <Text text="{order>operationNumber}" />
                                     <Text text="{order>workCenter}" />
-                                    <Text text="{order>description} {path: 'order>remark', formatter : '.removeWhiteSpacingFormat'}" />
+                                    <Text text="{order>description} {path: 'order>remark', formatter : '.formatter.removeWhiteSpacingFormat'}" />
                                     <VBox items="{path:'order>confirmations', templateShareable:false}">
                                         <Text text="{order>firstName} {order>lastName}" />
                                     </VBox>
