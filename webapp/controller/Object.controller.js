@@ -91,15 +91,19 @@ sap.ui.define([
 						}
 					});
 
-					this.OrderState.updateOrder().then(() => {
-						this._getObjectData(this.OrderState.data.order.orderNumber);
-					});
+					this.orderUpdate();
 				}
 			} else {
 				// Invalid start/due date error message
 				this.byId("StartDateTimePicker").setValueState("Error");
 				this.byId("DueDateTimePicker").setValueState("Error");
 			}
+		},
+
+		orderUpdate: function () {
+			this.OrderState.updateOrder().then(() => {
+				this._getObjectData(this.OrderState.data.order.orderNumber);
+			});
 		},
 
 		_getLowestOperationWorkCenter: function () {
@@ -182,7 +186,7 @@ sap.ui.define([
 		onTecoFlagSave: function (oEvent) {
 			this.OrderState.data.order.tecoFlag = true;
 			this._getTecoChangeDialog().close();
-			this.onSavePress("event");
+			this.orderUpdate();
 		},
 
 		onRemoveTecoFlagPress: function (oEvent) {
@@ -196,7 +200,7 @@ sap.ui.define([
 		onRemoveTecoFlagSave: function (oEvent) {
 			this.OrderState.data.order.tecoFlag = false;
 			this._getRemoveTecoDialog().close();
-			this.onSavePress("event");
+			this.orderUpdate();
 		},
 
 		onEditRemarkPress: function (oEvent) {
